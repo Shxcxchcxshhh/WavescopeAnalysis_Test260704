@@ -1,0 +1,1447 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="../../_static/docset-icon.png" sizes="16x16" rel="icon" type="image/png">
+    <link href="../../_static/docset-icon@2x.png" sizes="32x32" rel="icon" type="image/png">
+    <link href="../../_static/peegee_03_square_no_bg_32_cleaned.ico" rel="icon" type="image/x-icon">
+    <title>ViewBox &#8212; pyqtgraph 0.15.0.dev0 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=a95f357e85573c9b56d5" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=a95f357e85573c9b56d5" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css?v=4ae1632d" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinxcontrib-images/LightBox2/lightbox2/dist/css/lightbox.min.css?v=6e7d0de0" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinxcontrib-images/LightBox2/lightbox2-customize/pointer.css?v=c97663ff" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=006a86f1" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../../_static/scripts/fontawesome.js?digest=a95f357e85573c9b56d5"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=a95f357e85573c9b56d5" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=a95f357e85573c9b56d5" />
+
+    <script src="../../_static/documentation_options.js?v=e3e50566"></script>
+    <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script src="../../_static/sphinxcontrib-images/LightBox2/lightbox2/dist/js/lightbox-plus-jquery.min.js?v=f0ca4bb6"></script>
+    <script src="../../_static/sphinxcontrib-images/LightBox2/lightbox2-customize/jquery-noconflict.js?v=12818e64"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'api_reference/graphicsItems/viewbox';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="LinearRegionItem" href="linearregionitem.html" />
+    <link rel="prev" title="GraphItem" href="graphitem.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="0.15.0.dev0" />
+  
+    
+    <script src="../../_static/searchtools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../searchindex.js"></script>
+  
+  <script async type="text/javascript" src="/_/static/javascript/readthedocs-addons.js"></script><meta name="readthedocs-project-slug" content="pyqtgraph" /><meta name="readthedocs-version-slug" content="latest" /><meta name="readthedocs-resolver-filename" content="/api_reference/graphicsItems/viewbox.html" /><meta name="readthedocs-http-status" content="200" /></head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/peegee_02.svg" class="logo__image only-light" alt="pyqtgraph 0.15.0.dev0 documentation - Home"/>
+    <img src="../../_static/peegee_02.svg" class="logo__image only-dark pst-js-only" alt="pyqtgraph 0.15.0.dev0 documentation - Home"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../getting_started/index.html">
+    Getting Started
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../user_guide/index.html">
+    User Guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../developer_guide/index.html">
+    Developer Guide
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="../index.html">
+    API Reference
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/pyqtgraph/pyqtgraph" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i><span class="visually-hidden">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://fosstodon.org/@pyqtgraph" title="Mastodon" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-mastodon fa-lg" aria-hidden="true"></i><span class="visually-hidden">Mastodon</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../getting_started/index.html">
+    Getting Started
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../user_guide/index.html">
+    User Guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../developer_guide/index.html">
+    Developer Guide
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="../index.html">
+    API Reference
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/pyqtgraph/pyqtgraph" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i><span class="visually-hidden">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://fosstodon.org/@pyqtgraph" title="Mastodon" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-mastodon fa-lg" aria-hidden="true"></i><span class="visually-hidden">Mastodon</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../config_options.html">Global Configuration Options</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../functions.html">PyQtGraph’s Helper Functions</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">PyQtGraph’s Graphics Items</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="plotdataitem.html">PlotDataItem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plotitem.html">PlotItem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="imageitem.html">ImageItem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="colorbaritem.html">ColorBarItem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pcolormeshitem.html">PColorMeshItem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="graphitem.html">GraphItem</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">ViewBox</a></li>
+<li class="toctree-l2"><a class="reference internal" href="linearregionitem.html">LinearRegionItem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="infiniteline.html">InfiniteLine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="roi.html">ROI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="graphicslayout.html">GraphicsLayout</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plotcurveitem.html">PlotCurveItem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scatterplotitem.html">ScatterPlotItem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="isocurveitem.html">IsocurveItem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="axisitem.html">AxisItem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="textitem.html">TextItem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="errorbaritem.html">ErrorBarItem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bargraphitem.html">BarGraphItem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arrowitem.html">ArrowItem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fillbetweenitem.html">FillBetweenItem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="curvepoint.html">CurvePoint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="curvearrow.html">CurveArrow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="griditem.html">GridItem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scalebar.html">ScaleBar</a></li>
+<li class="toctree-l2"><a class="reference internal" href="labelitem.html">LabelItem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vtickgroup.html">VTickGroup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="legenditem.html">LegendItem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gradienteditoritem.html">GradientEditorItem</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="histogramlutitem.html">HistogramLUTItem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gradientlegend.html">GradientLegend</a></li>
+<li class="toctree-l2"><a class="reference internal" href="buttonitem.html">ButtonItem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="graphicsobject.html">GraphicsObject</a></li>
+<li class="toctree-l2"><a class="reference internal" href="graphicswidget.html">GraphicsWidget</a></li>
+<li class="toctree-l2"><a class="reference internal" href="graphicsitem.html">GraphicsItem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="uigraphicsitem.html">UIGraphicsItem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="graphicswidgetanchor.html">GraphicsWidgetAnchor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dateaxisitem.html">DateAxisItem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="targetitem.html">TargetItem</a></li>
+
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../widgets/index.html">PyQtGraph’s Widgets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../3dgraphics/index.html">PyQtGraph’s 3D Graphics System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../colormap.html">Color Maps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../parametertree/index.html">Parameter Trees</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dockarea.html">Dock Area Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../graphicsscene/index.html">GraphicsScene and Mouse Events</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exporters/index.html">API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../flowchart/index.html">Visual Programming with Flowcharts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../point.html">Point</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../transform3d.html">Transform3D</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../uml_overview.html">UML class diagram</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../index.html" class="nav-link">API Reference</a></li>
+    
+    
+    <li class="breadcrumb-item"><a href="index.html" class="nav-link">PyQtGraph’s Graphics Items</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">ViewBox</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="viewbox">
+<h1>ViewBox<a class="headerlink" href="#viewbox" title="Link to this heading">#</a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="pyqtgraph.ViewBox">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">pyqtgraph.</span></span><span class="sig-name descname"><span class="pre">ViewBox</span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">parent</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">border</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">lockAspect</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">enableMouse</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">invertY</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">enableMenu</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">invertX</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">defaultPadding</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.02</span></span></em>,</dd>
+</dl>
+
+<span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pyqtgraph/graphicsItems/ViewBox/ViewBox.html#ViewBox"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyqtgraph.ViewBox" title="Link to this definition">#</a></dt>
+<dd><p><strong>Bases:</strong> <a class="reference internal" href="graphicswidget.html#pyqtgraph.GraphicsWidget" title="pyqtgraph.GraphicsWidget"><code class="xref py py-class docutils literal notranslate"><span class="pre">GraphicsWidget</span></code></a></p>
+<p>Box that allows internal scaling/panning of children by mouse drag.
+This class is usually created automatically as part of a <a class="reference internal" href="plotitem.html#pyqtgraph.PlotItem" title="pyqtgraph.PlotItem"><code class="xref py py-class docutils literal notranslate"><span class="pre">PlotItem</span></code></a> or with <a class="reference internal" href="graphicslayout.html#pyqtgraph.GraphicsLayout.addViewBox" title="pyqtgraph.GraphicsLayout.addViewBox"><code class="xref py py-func docutils literal notranslate"><span class="pre">GraphicsLayout.addViewBox()</span></code></a>.</p>
+<p>Features:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Scaling contents by mouse or auto-scale when contents change</p></li>
+<li><p>View linking–multiple views display the same data ranges</p></li>
+<li><p>Configurable by context menu</p></li>
+<li><p>Item coordinate mapping methods</p></li>
+</ul>
+</div></blockquote>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqtgraph.ViewBox.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">parent</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">border</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">lockAspect</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">enableMouse</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">invertY</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">enableMenu</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">invertX</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">defaultPadding</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.02</span></span></em>,</dd>
+</dl>
+
+<span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pyqtgraph/graphicsItems/ViewBox/ViewBox.html#ViewBox.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyqtgraph.ViewBox.__init__" title="Link to this definition">#</a></dt>
+<dd><div class="pst-scrollable-table-container"><table class="table">
+<tbody>
+<tr class="row-odd"><td><p><strong>Arguments:</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><em>parent</em></p></td>
+<td><p>(QGraphicsWidget) Optional parent widget</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>border</em></p></td>
+<td><p>(QPen) Do draw a border around the view, give any
+single argument accepted by <a class="reference internal" href="../functions.html#pyqtgraph.mkPen" title="pyqtgraph.mkPen"><code class="xref py py-func docutils literal notranslate"><span class="pre">mkPen</span></code></a></p></td>
+</tr>
+<tr class="row-even"><td><p><em>lockAspect</em></p></td>
+<td><p>(False or float) The aspect ratio to lock the view
+coorinates to. (or False to allow the ratio to change)</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>enableMouse</em></p></td>
+<td><p>(bool) Whether mouse can be used to scale/pan the view</p></td>
+</tr>
+<tr class="row-even"><td><p><em>invertY</em></p></td>
+<td><p>(bool) See <a class="reference internal" href="#pyqtgraph.ViewBox.invertY" title="pyqtgraph.ViewBox.invertY"><code class="xref py py-func docutils literal notranslate"><span class="pre">invertY</span></code></a></p></td>
+</tr>
+<tr class="row-odd"><td><p><em>invertX</em></p></td>
+<td><p>(bool) See <a class="reference internal" href="#pyqtgraph.ViewBox.invertX" title="pyqtgraph.ViewBox.invertX"><code class="xref py py-func docutils literal notranslate"><span class="pre">invertX</span></code></a></p></td>
+</tr>
+<tr class="row-even"><td><p><em>enableMenu</em></p></td>
+<td><p>(bool) Whether to display a context menu when
+right-clicking on the ViewBox background.</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>name</em></p></td>
+<td><p>(str) Used to register this ViewBox so that it appears
+in the “Link axis” dropdown inside other ViewBox
+context menus. This allows the user to manually link
+the axes of any other view to this one.</p></td>
+</tr>
+<tr class="row-even"><td><p><em>defaultPadding</em></p></td>
+<td><p>(float) fraction of the data range that will be added
+as padding by default</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqtgraph.ViewBox.addItem">
+<span class="sig-name descname"><span class="pre">addItem</span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">item</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">ignoreBounds</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>,</dd>
+</dl>
+
+<span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pyqtgraph/graphicsItems/ViewBox/ViewBox.html#ViewBox.addItem"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyqtgraph.ViewBox.addItem" title="Link to this definition">#</a></dt>
+<dd><p>Add a QGraphicsItem to this view. The view will include this item when determining how to set its range
+automatically unless <em>ignoreBounds</em> is True.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqtgraph.ViewBox.allChildren">
+<span class="sig-name descname"><span class="pre">allChildren</span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">item</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>,</dd>
+</dl>
+
+<span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pyqtgraph/graphicsItems/ViewBox/ViewBox.html#ViewBox.allChildren"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyqtgraph.ViewBox.allChildren" title="Link to this definition">#</a></dt>
+<dd><p>Return a list of all children and grandchildren of this ViewBox</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqtgraph.ViewBox.autoRange">
+<span class="sig-name descname"><span class="pre">autoRange</span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">padding</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">items</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">item</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>,</dd>
+</dl>
+
+<span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pyqtgraph/graphicsItems/ViewBox/ViewBox.html#ViewBox.autoRange"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyqtgraph.ViewBox.autoRange" title="Link to this definition">#</a></dt>
+<dd><p>Set the range of the view box to make all children visible.
+Note that this is not the same as enableAutoRange, which causes the view to
+automatically auto-range whenever its contents are changed.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<tbody>
+<tr class="row-odd"><td><p><strong>Arguments:</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>padding</p></td>
+<td><p>The fraction of the total data range to add on to the final
+visible range. By default, this value is set between the
+default padding and 0.1 depending on the size of the ViewBox.</p></td>
+</tr>
+<tr class="row-odd"><td><p>items</p></td>
+<td><p>If specified, this is a list of items to consider when
+determining the visible range.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqtgraph.ViewBox.childTransform">
+<span class="sig-name descname"><span class="pre">childTransform</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pyqtgraph/graphicsItems/ViewBox/ViewBox.html#ViewBox.childTransform"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyqtgraph.ViewBox.childTransform" title="Link to this definition">#</a></dt>
+<dd><p>Return the transform that maps from child(item in the childGroup) coordinates to local coordinates.
+(This maps from inside the viewbox to outside)</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqtgraph.ViewBox.childrenBounds">
+<span class="sig-name descname"><span class="pre">childrenBounds</span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">frac</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">orthoRange</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(None,</span> <span class="pre">None)</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">items</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>,</dd>
+</dl>
+
+<span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pyqtgraph/graphicsItems/ViewBox/ViewBox.html#ViewBox.childrenBounds"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyqtgraph.ViewBox.childrenBounds" title="Link to this definition">#</a></dt>
+<dd><p>Return the bounding range of all children.
+[[xmin, xmax], [ymin, ymax]]
+Values may be None if there are no specific bounds for an axis.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqtgraph.ViewBox.disableAutoRange">
+<span class="sig-name descname"><span class="pre">disableAutoRange</span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">axis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>,</dd>
+</dl>
+
+<span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pyqtgraph/graphicsItems/ViewBox/ViewBox.html#ViewBox.disableAutoRange"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyqtgraph.ViewBox.disableAutoRange" title="Link to this definition">#</a></dt>
+<dd><p>Disables auto-range. (See enableAutoRange)</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqtgraph.ViewBox.enableAutoRange">
+<span class="sig-name descname"><span class="pre">enableAutoRange</span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">axis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">enable</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>,</dd>
+</dl>
+
+<span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pyqtgraph/graphicsItems/ViewBox/ViewBox.html#ViewBox.enableAutoRange"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyqtgraph.ViewBox.enableAutoRange" title="Link to this definition">#</a></dt>
+<dd><p>Enable (or disable) auto-range for <em>axis</em>, which may be ViewBox.XAxis, ViewBox.YAxis, or ViewBox.XYAxes for both
+(if <em>axis</em> is omitted, both axes will be changed).
+When enabled, the axis will automatically rescale when items are added/removed or change their shape.
+The argument <em>enable</em> may optionally be a float (0.0-1.0) which indicates the fraction of the data that should
+be visible (this only works with items implementing a dataBounds method, such as PlotDataItem).</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqtgraph.ViewBox.getAspectRatio">
+<span class="sig-name descname"><span class="pre">getAspectRatio</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pyqtgraph/graphicsItems/ViewBox/ViewBox.html#ViewBox.getAspectRatio"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyqtgraph.ViewBox.getAspectRatio" title="Link to this definition">#</a></dt>
+<dd><p>return the current aspect ratio</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqtgraph.ViewBox.getState">
+<span class="sig-name descname"><span class="pre">getState</span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">copy</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>,</dd>
+</dl>
+
+<span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pyqtgraph/graphicsItems/ViewBox/ViewBox.html#ViewBox.getState"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyqtgraph.ViewBox.getState" title="Link to this definition">#</a></dt>
+<dd><p>Return the current state of the ViewBox.
+Linked views are always converted to view names in the returned state.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqtgraph.ViewBox.invertX">
+<span class="sig-name descname"><span class="pre">invertX</span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">b</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>,</dd>
+</dl>
+
+<span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pyqtgraph/graphicsItems/ViewBox/ViewBox.html#ViewBox.invertX"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyqtgraph.ViewBox.invertX" title="Link to this definition">#</a></dt>
+<dd><p>By default, the positive x-axis points rightward on the screen. Use invertX(True) to reverse the x-axis.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqtgraph.ViewBox.invertY">
+<span class="sig-name descname"><span class="pre">invertY</span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">b</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>,</dd>
+</dl>
+
+<span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pyqtgraph/graphicsItems/ViewBox/ViewBox.html#ViewBox.invertY"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyqtgraph.ViewBox.invertY" title="Link to this definition">#</a></dt>
+<dd><p>By default, the positive y-axis points upward on the screen. Use invertY(True) to reverse the y-axis.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqtgraph.ViewBox.itemBoundingRect">
+<span class="sig-name descname"><span class="pre">itemBoundingRect</span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">item</span></span></em>,</dd>
+</dl>
+
+<span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pyqtgraph/graphicsItems/ViewBox/ViewBox.html#ViewBox.itemBoundingRect"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyqtgraph.ViewBox.itemBoundingRect" title="Link to this definition">#</a></dt>
+<dd><p>Return the bounding rect of the item in view coordinates</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqtgraph.ViewBox.keyPressEvent">
+<span class="sig-name descname"><span class="pre">keyPressEvent</span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">ev</span></span></em>,</dd>
+</dl>
+
+<span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pyqtgraph/graphicsItems/ViewBox/ViewBox.html#ViewBox.keyPressEvent"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyqtgraph.ViewBox.keyPressEvent" title="Link to this definition">#</a></dt>
+<dd><p>This routine should capture key presses in the current view box.
+Key presses are used only when mouse mode is RectMode
+The following events are implemented:
+ctrl-A : zooms out to the default “full” view of the plot
+ctrl-+ : moves forward in the zooming stack (if it exists)
+ctrl– : moves backward in the zooming stack (if it exists)</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqtgraph.ViewBox.linkView">
+<span class="sig-name descname"><span class="pre">linkView</span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">axis</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">view</span></span></em>,</dd>
+</dl>
+
+<span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pyqtgraph/graphicsItems/ViewBox/ViewBox.html#ViewBox.linkView"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyqtgraph.ViewBox.linkView" title="Link to this definition">#</a></dt>
+<dd><p>Link X or Y axes of two views and unlink any previously connected axes. <em>axis</em> must be ViewBox.XAxis or ViewBox.YAxis.
+If view is None, the axis is left unlinked.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqtgraph.ViewBox.locate">
+<span class="sig-name descname"><span class="pre">locate</span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">item</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3.0</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">children</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>,</dd>
+</dl>
+
+<span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pyqtgraph/graphicsItems/ViewBox/ViewBox.html#ViewBox.locate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyqtgraph.ViewBox.locate" title="Link to this definition">#</a></dt>
+<dd><p>Temporarily display the bounding rect of an item and lines connecting to the center of the view.
+This is useful for determining the location of items that may be out of the range of the ViewBox.
+if allChildren is True, then the bounding rect of all item’s children will be shown instead.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqtgraph.ViewBox.mapFromItemToView">
+<span class="sig-name descname"><span class="pre">mapFromItemToView</span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">item</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">obj</span></span></em>,</dd>
+</dl>
+
+<span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pyqtgraph/graphicsItems/ViewBox/ViewBox.html#ViewBox.mapFromItemToView"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyqtgraph.ViewBox.mapFromItemToView" title="Link to this definition">#</a></dt>
+<dd><p>Maps <em>obj</em> from the local coordinate system of <em>item</em> to the view coordinates</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqtgraph.ViewBox.mapFromView">
+<span class="sig-name descname"><span class="pre">mapFromView</span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">obj</span></span></em>,</dd>
+</dl>
+
+<span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pyqtgraph/graphicsItems/ViewBox/ViewBox.html#ViewBox.mapFromView"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyqtgraph.ViewBox.mapFromView" title="Link to this definition">#</a></dt>
+<dd><p>Maps from the coordinate system displayed inside the ViewBox to the local coordinates of the ViewBox</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqtgraph.ViewBox.mapFromViewToItem">
+<span class="sig-name descname"><span class="pre">mapFromViewToItem</span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">item</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">obj</span></span></em>,</dd>
+</dl>
+
+<span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pyqtgraph/graphicsItems/ViewBox/ViewBox.html#ViewBox.mapFromViewToItem"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyqtgraph.ViewBox.mapFromViewToItem" title="Link to this definition">#</a></dt>
+<dd><p>Maps <em>obj</em> from view coordinates to the local coordinate system of <em>item</em>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqtgraph.ViewBox.mapSceneToView">
+<span class="sig-name descname"><span class="pre">mapSceneToView</span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">obj</span></span></em>,</dd>
+</dl>
+
+<span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pyqtgraph/graphicsItems/ViewBox/ViewBox.html#ViewBox.mapSceneToView"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyqtgraph.ViewBox.mapSceneToView" title="Link to this definition">#</a></dt>
+<dd><p>Maps from scene coordinates to the coordinate system displayed inside the ViewBox</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqtgraph.ViewBox.mapToView">
+<span class="sig-name descname"><span class="pre">mapToView</span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">obj</span></span></em>,</dd>
+</dl>
+
+<span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pyqtgraph/graphicsItems/ViewBox/ViewBox.html#ViewBox.mapToView"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyqtgraph.ViewBox.mapToView" title="Link to this definition">#</a></dt>
+<dd><p>Maps from the local coordinates of the ViewBox to the coordinate system displayed inside the ViewBox</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqtgraph.ViewBox.mapViewToScene">
+<span class="sig-name descname"><span class="pre">mapViewToScene</span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">obj</span></span></em>,</dd>
+</dl>
+
+<span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pyqtgraph/graphicsItems/ViewBox/ViewBox.html#ViewBox.mapViewToScene"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyqtgraph.ViewBox.mapViewToScene" title="Link to this definition">#</a></dt>
+<dd><p>Maps from the coordinate system displayed inside the ViewBox to scene coordinates</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqtgraph.ViewBox.register">
+<span class="sig-name descname"><span class="pre">register</span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>,</dd>
+</dl>
+
+<span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pyqtgraph/graphicsItems/ViewBox/ViewBox.html#ViewBox.register"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyqtgraph.ViewBox.register" title="Link to this definition">#</a></dt>
+<dd><p>Add this ViewBox to the registered list of views.</p>
+<p>This allows users to manually link the axes of any other ViewBox to
+this one. The specified <em>name</em> will appear in the drop-down lists for
+axis linking in the context menus of all other views.</p>
+<p>The same can be accomplished by initializing the ViewBox with the <em>name</em> attribute.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqtgraph.ViewBox.removeItem">
+<span class="sig-name descname"><span class="pre">removeItem</span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">item</span></span></em>,</dd>
+</dl>
+
+<span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pyqtgraph/graphicsItems/ViewBox/ViewBox.html#ViewBox.removeItem"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyqtgraph.ViewBox.removeItem" title="Link to this definition">#</a></dt>
+<dd><p>Remove an item from this view.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqtgraph.ViewBox.scaleBy">
+<span class="sig-name descname"><span class="pre">scaleBy</span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">s</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">center</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>,</dd>
+</dl>
+
+<span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pyqtgraph/graphicsItems/ViewBox/ViewBox.html#ViewBox.scaleBy"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyqtgraph.ViewBox.scaleBy" title="Link to this definition">#</a></dt>
+<dd><p>Scale by <em>s</em> around given center point (or center of view).
+<em>s</em> may be a Point or tuple (x, y).</p>
+<p>Optionally, x or y may be specified individually. This allows the other
+axis to be left unaffected (note that using a scale factor of 1.0 may
+cause slight changes due to floating-point error).</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqtgraph.ViewBox.screenGeometry">
+<span class="sig-name descname"><span class="pre">screenGeometry</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pyqtgraph/graphicsItems/ViewBox/ViewBox.html#ViewBox.screenGeometry"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyqtgraph.ViewBox.screenGeometry" title="Link to this definition">#</a></dt>
+<dd><p>return the screen geometry of the viewbox</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqtgraph.ViewBox.setAspectLocked">
+<span class="sig-name descname"><span class="pre">setAspectLocked</span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">lock</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">ratio</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>,</dd>
+</dl>
+
+<span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pyqtgraph/graphicsItems/ViewBox/ViewBox.html#ViewBox.setAspectLocked"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyqtgraph.ViewBox.setAspectLocked" title="Link to this definition">#</a></dt>
+<dd><p>If the aspect ratio is locked, view scaling must always preserve the aspect ratio.
+By default, the ratio is set to 1; x and y both have the same scaling.
+This ratio can be overridden (xScale/yScale), or use None to lock in the current ratio.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqtgraph.ViewBox.setAutoPan">
+<span class="sig-name descname"><span class="pre">setAutoPan</span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>,</dd>
+</dl>
+
+<span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pyqtgraph/graphicsItems/ViewBox/ViewBox.html#ViewBox.setAutoPan"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyqtgraph.ViewBox.setAutoPan" title="Link to this definition">#</a></dt>
+<dd><p>Set whether automatic range will only pan (not scale) the view.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqtgraph.ViewBox.setAutoVisible">
+<span class="sig-name descname"><span class="pre">setAutoVisible</span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>,</dd>
+</dl>
+
+<span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pyqtgraph/graphicsItems/ViewBox/ViewBox.html#ViewBox.setAutoVisible"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyqtgraph.ViewBox.setAutoVisible" title="Link to this definition">#</a></dt>
+<dd><p>Set whether automatic range uses only visible data when determining
+the range to show.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqtgraph.ViewBox.setBackgroundColor">
+<span class="sig-name descname"><span class="pre">setBackgroundColor</span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">color</span></span></em>,</dd>
+</dl>
+
+<span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pyqtgraph/graphicsItems/ViewBox/ViewBox.html#ViewBox.setBackgroundColor"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyqtgraph.ViewBox.setBackgroundColor" title="Link to this definition">#</a></dt>
+<dd><p>Set the background color of the ViewBox.</p>
+<p>If color is None, then no background will be drawn.</p>
+<p>Added in version 0.9.9</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqtgraph.ViewBox.setBorder">
+<span class="sig-name descname"><span class="pre">setBorder</span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwds</span></span></em>,</dd>
+</dl>
+
+<span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pyqtgraph/graphicsItems/ViewBox/ViewBox.html#ViewBox.setBorder"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyqtgraph.ViewBox.setBorder" title="Link to this definition">#</a></dt>
+<dd><p>Set the pen used to draw border around the view</p>
+<p>If border is None, then no border will be drawn.</p>
+<p>Added in version 0.9.10</p>
+<p>See <a class="reference internal" href="../functions.html#pyqtgraph.mkPen" title="pyqtgraph.mkPen"><code class="xref py py-func docutils literal notranslate"><span class="pre">mkPen</span></code></a> for arguments.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqtgraph.ViewBox.setDefaultPadding">
+<span class="sig-name descname"><span class="pre">setDefaultPadding</span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">padding</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.02</span></span></em>,</dd>
+</dl>
+
+<span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pyqtgraph/graphicsItems/ViewBox/ViewBox.html#ViewBox.setDefaultPadding"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyqtgraph.ViewBox.setDefaultPadding" title="Link to this definition">#</a></dt>
+<dd><p>Sets the fraction of the data range that is used to pad the view range in when auto-ranging.
+By default, this fraction is 0.02.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqtgraph.ViewBox.setLimits">
+<span class="sig-name descname"><span class="pre">setLimits</span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwds</span></span></em>,</dd>
+</dl>
+
+<span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pyqtgraph/graphicsItems/ViewBox/ViewBox.html#ViewBox.setLimits"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyqtgraph.ViewBox.setLimits" title="Link to this definition">#</a></dt>
+<dd><p>Set limits that constrain the possible view ranges.</p>
+<p><strong>Panning limits</strong>. The following arguments define the region within the
+viewbox coordinate system that may be accessed by panning the view.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<tbody>
+<tr class="row-odd"><td><p>xMin</p></td>
+<td><p>Minimum allowed x-axis value</p></td>
+</tr>
+<tr class="row-even"><td><p>xMax</p></td>
+<td><p>Maximum allowed x-axis value</p></td>
+</tr>
+<tr class="row-odd"><td><p>yMin</p></td>
+<td><p>Minimum allowed y-axis value</p></td>
+</tr>
+<tr class="row-even"><td><p>yMax</p></td>
+<td><p>Maximum allowed y-axis value</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>Scaling limits</strong>. These arguments prevent the view being zoomed in or
+out too far.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<tbody>
+<tr class="row-odd"><td><p>minXRange</p></td>
+<td><p>Minimum allowed left-to-right span across the view.</p></td>
+</tr>
+<tr class="row-even"><td><p>maxXRange</p></td>
+<td><p>Maximum allowed left-to-right span across the view.</p></td>
+</tr>
+<tr class="row-odd"><td><p>minYRange</p></td>
+<td><p>Minimum allowed top-to-bottom span across the view.</p></td>
+</tr>
+<tr class="row-even"><td><p>maxYRange</p></td>
+<td><p>Maximum allowed top-to-bottom span across the view.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Added in version 0.9.9</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqtgraph.ViewBox.setLogMode">
+<span class="sig-name descname"><span class="pre">setLogMode</span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">axis</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">logMode</span></span></em>,</dd>
+</dl>
+
+<span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pyqtgraph/graphicsItems/ViewBox/ViewBox.html#ViewBox.setLogMode"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyqtgraph.ViewBox.setLogMode" title="Link to this definition">#</a></dt>
+<dd><p>Informs ViewBox that log mode is active for the specified axis, so that the view range cen be restricted</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqtgraph.ViewBox.setMouseEnabled">
+<span class="sig-name descname"><span class="pre">setMouseEnabled</span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>,</dd>
+</dl>
+
+<span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pyqtgraph/graphicsItems/ViewBox/ViewBox.html#ViewBox.setMouseEnabled"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyqtgraph.ViewBox.setMouseEnabled" title="Link to this definition">#</a></dt>
+<dd><p>Set whether each axis is enabled for mouse interaction. <em>x</em>, <em>y</em> arguments must be True or False.
+This allows the user to pan/scale one axis of the view while leaving the other axis unchanged.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqtgraph.ViewBox.setMouseMode">
+<span class="sig-name descname"><span class="pre">setMouseMode</span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">mode</span></span></em>,</dd>
+</dl>
+
+<span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pyqtgraph/graphicsItems/ViewBox/ViewBox.html#ViewBox.setMouseMode"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyqtgraph.ViewBox.setMouseMode" title="Link to this definition">#</a></dt>
+<dd><p>Set the mouse interaction mode. <em>mode</em> must be either ViewBox.PanMode or ViewBox.RectMode.
+In PanMode, the left mouse button pans the view and the right button scales.
+In RectMode, the left button draws a rectangle which updates the visible region (this mode is more suitable for single-button mice)</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqtgraph.ViewBox.setRange">
+<span class="sig-name descname"><span class="pre">setRange</span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">rect</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">xRange</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">yRange</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">padding</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">update</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">disableAutoRange</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>,</dd>
+</dl>
+
+<span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pyqtgraph/graphicsItems/ViewBox/ViewBox.html#ViewBox.setRange"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyqtgraph.ViewBox.setRange" title="Link to this definition">#</a></dt>
+<dd><p>Set the visible range of the ViewBox.
+Must specify at least one of <em>rect</em>, <em>xRange</em>, or <em>yRange</em>.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<tbody>
+<tr class="row-odd"><td><p><strong>Arguments:</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><em>rect</em></p></td>
+<td><p>(QRectF) The full range that should be visible in the view box.</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>xRange</em></p></td>
+<td><p>(min,max) The range that should be visible along the x-axis.</p></td>
+</tr>
+<tr class="row-even"><td><p><em>yRange</em></p></td>
+<td><p>(min,max) The range that should be visible along the y-axis.</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>padding</em></p></td>
+<td><p>(float) Expand the view by a fraction of the requested range.
+By default, this value is set between the default padding value
+and 0.1 depending on the size of the ViewBox.</p></td>
+</tr>
+<tr class="row-even"><td><p><em>update</em></p></td>
+<td><p>(bool) If True, update the range of the ViewBox immediately.
+Otherwise, the update is deferred until before the next render.</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>disableAutoRange</em></p></td>
+<td><p>(bool) If True, auto-ranging is diabled. Otherwise, it is left
+unchanged.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqtgraph.ViewBox.setState">
+<span class="sig-name descname"><span class="pre">setState</span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">state</span></span></em>,</dd>
+</dl>
+
+<span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pyqtgraph/graphicsItems/ViewBox/ViewBox.html#ViewBox.setState"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyqtgraph.ViewBox.setState" title="Link to this definition">#</a></dt>
+<dd><p>Restore the state of this ViewBox.
+(see also getState)</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqtgraph.ViewBox.setXLink">
+<span class="sig-name descname"><span class="pre">setXLink</span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">view</span></span></em>,</dd>
+</dl>
+
+<span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pyqtgraph/graphicsItems/ViewBox/ViewBox.html#ViewBox.setXLink"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyqtgraph.ViewBox.setXLink" title="Link to this definition">#</a></dt>
+<dd><p>Link this view’s X axis to another view. (see LinkView)</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqtgraph.ViewBox.setXRange">
+<span class="sig-name descname"><span class="pre">setXRange</span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">min</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">max</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">padding</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">update</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>,</dd>
+</dl>
+
+<span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pyqtgraph/graphicsItems/ViewBox/ViewBox.html#ViewBox.setXRange"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyqtgraph.ViewBox.setXRange" title="Link to this definition">#</a></dt>
+<dd><p>Set the visible X range of the view to [<em>min</em>, <em>max</em>].
+The <em>padding</em> argument causes the range to be set larger by the fraction specified.
+(by default, this value is between the default padding and 0.1 depending on the size of the ViewBox)</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqtgraph.ViewBox.setYLink">
+<span class="sig-name descname"><span class="pre">setYLink</span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">view</span></span></em>,</dd>
+</dl>
+
+<span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pyqtgraph/graphicsItems/ViewBox/ViewBox.html#ViewBox.setYLink"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyqtgraph.ViewBox.setYLink" title="Link to this definition">#</a></dt>
+<dd><p>Link this view’s Y axis to another view. (see LinkView)</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqtgraph.ViewBox.setYRange">
+<span class="sig-name descname"><span class="pre">setYRange</span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">min</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">max</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">padding</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">update</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>,</dd>
+</dl>
+
+<span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pyqtgraph/graphicsItems/ViewBox/ViewBox.html#ViewBox.setYRange"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyqtgraph.ViewBox.setYRange" title="Link to this definition">#</a></dt>
+<dd><p>Set the visible Y range of the view to [<em>min</em>, <em>max</em>].
+The <em>padding</em> argument causes the range to be set larger by the fraction specified.
+(by default, this value is between the default padding and 0.1 depending on the size of the ViewBox)</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqtgraph.ViewBox.showAxRect">
+<span class="sig-name descname"><span class="pre">showAxRect</span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">ax</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em>,</dd>
+</dl>
+
+<span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pyqtgraph/graphicsItems/ViewBox/ViewBox.html#ViewBox.showAxRect"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyqtgraph.ViewBox.showAxRect" title="Link to this definition">#</a></dt>
+<dd><p>Set the visible range to the given rectangle
+Passes keyword arguments to setRange</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqtgraph.ViewBox.targetRect">
+<span class="sig-name descname"><span class="pre">targetRect</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pyqtgraph/graphicsItems/ViewBox/ViewBox.html#ViewBox.targetRect"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyqtgraph.ViewBox.targetRect" title="Link to this definition">#</a></dt>
+<dd><p>Return the region which has been requested to be visible.
+(this is not necessarily the same as the region that is <em>actually</em> visible–
+resizing and aspect ratio constraints can cause targetRect() and viewRect() to differ)</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqtgraph.ViewBox.translateBy">
+<span class="sig-name descname"><span class="pre">translateBy</span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">t</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>,</dd>
+</dl>
+
+<span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pyqtgraph/graphicsItems/ViewBox/ViewBox.html#ViewBox.translateBy"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyqtgraph.ViewBox.translateBy" title="Link to this definition">#</a></dt>
+<dd><p>Translate the view by <em>t</em>, which may be a Point or tuple (x, y).</p>
+<p>Alternately, x or y may be specified independently, leaving the other
+axis unchanged (note that using a translation of 0 may still cause
+small changes due to floating-point error).</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqtgraph.ViewBox.unregister">
+<span class="sig-name descname"><span class="pre">unregister</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pyqtgraph/graphicsItems/ViewBox/ViewBox.html#ViewBox.unregister"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyqtgraph.ViewBox.unregister" title="Link to this definition">#</a></dt>
+<dd><p>Remove this ViewBox from the list of linkable views. (see <a class="reference internal" href="#pyqtgraph.ViewBox.register" title="pyqtgraph.ViewBox.register"><code class="xref py py-func docutils literal notranslate"><span class="pre">register()</span></code></a>)</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqtgraph.ViewBox.viewPixelSize">
+<span class="sig-name descname"><span class="pre">viewPixelSize</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pyqtgraph/graphicsItems/ViewBox/ViewBox.html#ViewBox.viewPixelSize"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyqtgraph.ViewBox.viewPixelSize" title="Link to this definition">#</a></dt>
+<dd><p>Return the (width, height) of a screen pixel in view coordinates.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqtgraph.ViewBox.viewRange">
+<span class="sig-name descname"><span class="pre">viewRange</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pyqtgraph/graphicsItems/ViewBox/ViewBox.html#ViewBox.viewRange"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyqtgraph.ViewBox.viewRange" title="Link to this definition">#</a></dt>
+<dd><p>Return a the view’s visible range as a list: [[xmin, xmax], [ymin, ymax]]</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqtgraph.ViewBox.viewRect">
+<span class="sig-name descname"><span class="pre">viewRect</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pyqtgraph/graphicsItems/ViewBox/ViewBox.html#ViewBox.viewRect"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyqtgraph.ViewBox.viewRect" title="Link to this definition">#</a></dt>
+<dd><p>Return a QRectF bounding the region visible within the ViewBox</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="graphitem.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">GraphItem</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="linearregionitem.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">LinearRegionItem</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pyqtgraph.ViewBox"><code class="docutils literal notranslate"><span class="pre">ViewBox</span></code></a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pyqtgraph.ViewBox.__init__"><code class="docutils literal notranslate"><span class="pre">__init__()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pyqtgraph.ViewBox.addItem"><code class="docutils literal notranslate"><span class="pre">addItem()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pyqtgraph.ViewBox.allChildren"><code class="docutils literal notranslate"><span class="pre">allChildren()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pyqtgraph.ViewBox.autoRange"><code class="docutils literal notranslate"><span class="pre">autoRange()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pyqtgraph.ViewBox.childTransform"><code class="docutils literal notranslate"><span class="pre">childTransform()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pyqtgraph.ViewBox.childrenBounds"><code class="docutils literal notranslate"><span class="pre">childrenBounds()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pyqtgraph.ViewBox.disableAutoRange"><code class="docutils literal notranslate"><span class="pre">disableAutoRange()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pyqtgraph.ViewBox.enableAutoRange"><code class="docutils literal notranslate"><span class="pre">enableAutoRange()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pyqtgraph.ViewBox.getAspectRatio"><code class="docutils literal notranslate"><span class="pre">getAspectRatio()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pyqtgraph.ViewBox.getState"><code class="docutils literal notranslate"><span class="pre">getState()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pyqtgraph.ViewBox.invertX"><code class="docutils literal notranslate"><span class="pre">invertX()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pyqtgraph.ViewBox.invertY"><code class="docutils literal notranslate"><span class="pre">invertY()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pyqtgraph.ViewBox.itemBoundingRect"><code class="docutils literal notranslate"><span class="pre">itemBoundingRect()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pyqtgraph.ViewBox.keyPressEvent"><code class="docutils literal notranslate"><span class="pre">keyPressEvent()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pyqtgraph.ViewBox.linkView"><code class="docutils literal notranslate"><span class="pre">linkView()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pyqtgraph.ViewBox.locate"><code class="docutils literal notranslate"><span class="pre">locate()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pyqtgraph.ViewBox.mapFromItemToView"><code class="docutils literal notranslate"><span class="pre">mapFromItemToView()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pyqtgraph.ViewBox.mapFromView"><code class="docutils literal notranslate"><span class="pre">mapFromView()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pyqtgraph.ViewBox.mapFromViewToItem"><code class="docutils literal notranslate"><span class="pre">mapFromViewToItem()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pyqtgraph.ViewBox.mapSceneToView"><code class="docutils literal notranslate"><span class="pre">mapSceneToView()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pyqtgraph.ViewBox.mapToView"><code class="docutils literal notranslate"><span class="pre">mapToView()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pyqtgraph.ViewBox.mapViewToScene"><code class="docutils literal notranslate"><span class="pre">mapViewToScene()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pyqtgraph.ViewBox.register"><code class="docutils literal notranslate"><span class="pre">register()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pyqtgraph.ViewBox.removeItem"><code class="docutils literal notranslate"><span class="pre">removeItem()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pyqtgraph.ViewBox.scaleBy"><code class="docutils literal notranslate"><span class="pre">scaleBy()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pyqtgraph.ViewBox.screenGeometry"><code class="docutils literal notranslate"><span class="pre">screenGeometry()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pyqtgraph.ViewBox.setAspectLocked"><code class="docutils literal notranslate"><span class="pre">setAspectLocked()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pyqtgraph.ViewBox.setAutoPan"><code class="docutils literal notranslate"><span class="pre">setAutoPan()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pyqtgraph.ViewBox.setAutoVisible"><code class="docutils literal notranslate"><span class="pre">setAutoVisible()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pyqtgraph.ViewBox.setBackgroundColor"><code class="docutils literal notranslate"><span class="pre">setBackgroundColor()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pyqtgraph.ViewBox.setBorder"><code class="docutils literal notranslate"><span class="pre">setBorder()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pyqtgraph.ViewBox.setDefaultPadding"><code class="docutils literal notranslate"><span class="pre">setDefaultPadding()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pyqtgraph.ViewBox.setLimits"><code class="docutils literal notranslate"><span class="pre">setLimits()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pyqtgraph.ViewBox.setLogMode"><code class="docutils literal notranslate"><span class="pre">setLogMode()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pyqtgraph.ViewBox.setMouseEnabled"><code class="docutils literal notranslate"><span class="pre">setMouseEnabled()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pyqtgraph.ViewBox.setMouseMode"><code class="docutils literal notranslate"><span class="pre">setMouseMode()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pyqtgraph.ViewBox.setRange"><code class="docutils literal notranslate"><span class="pre">setRange()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pyqtgraph.ViewBox.setState"><code class="docutils literal notranslate"><span class="pre">setState()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pyqtgraph.ViewBox.setXLink"><code class="docutils literal notranslate"><span class="pre">setXLink()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pyqtgraph.ViewBox.setXRange"><code class="docutils literal notranslate"><span class="pre">setXRange()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pyqtgraph.ViewBox.setYLink"><code class="docutils literal notranslate"><span class="pre">setYLink()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pyqtgraph.ViewBox.setYRange"><code class="docutils literal notranslate"><span class="pre">setYRange()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pyqtgraph.ViewBox.showAxRect"><code class="docutils literal notranslate"><span class="pre">showAxRect()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pyqtgraph.ViewBox.targetRect"><code class="docutils literal notranslate"><span class="pre">targetRect()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pyqtgraph.ViewBox.translateBy"><code class="docutils literal notranslate"><span class="pre">translateBy()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pyqtgraph.ViewBox.unregister"><code class="docutils literal notranslate"><span class="pre">unregister()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pyqtgraph.ViewBox.viewPixelSize"><code class="docutils literal notranslate"><span class="pre">viewPixelSize()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pyqtgraph.ViewBox.viewRange"><code class="docutils literal notranslate"><span class="pre">viewRange()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pyqtgraph.ViewBox.viewRect"><code class="docutils literal notranslate"><span class="pre">viewRect()</span></code></a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../_static/scripts/bootstrap.js?digest=a95f357e85573c9b56d5"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=a95f357e85573c9b56d5"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2011 - 2026, PyQtGraph developers.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.0.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.19.0.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

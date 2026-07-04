@@ -1,0 +1,1433 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="../../_static/docset-icon.png" sizes="16x16" rel="icon" type="image/png">
+    <link href="../../_static/docset-icon@2x.png" sizes="32x32" rel="icon" type="image/png">
+    <link href="../../_static/peegee_03_square_no_bg_32_cleaned.ico" rel="icon" type="image/x-icon">
+    <title>ImageItem &#8212; pyqtgraph 0.15.0.dev0 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=a95f357e85573c9b56d5" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=a95f357e85573c9b56d5" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css?v=4ae1632d" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinxcontrib-images/LightBox2/lightbox2/dist/css/lightbox.min.css?v=6e7d0de0" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinxcontrib-images/LightBox2/lightbox2-customize/pointer.css?v=c97663ff" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=006a86f1" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../../_static/scripts/fontawesome.js?digest=a95f357e85573c9b56d5"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=a95f357e85573c9b56d5" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=a95f357e85573c9b56d5" />
+
+    <script src="../../_static/documentation_options.js?v=e3e50566"></script>
+    <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script src="../../_static/sphinxcontrib-images/LightBox2/lightbox2/dist/js/lightbox-plus-jquery.min.js?v=f0ca4bb6"></script>
+    <script src="../../_static/sphinxcontrib-images/LightBox2/lightbox2-customize/jquery-noconflict.js?v=12818e64"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'api_reference/graphicsItems/imageitem';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="ColorBarItem" href="colorbaritem.html" />
+    <link rel="prev" title="PlotItem" href="plotitem.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="0.15.0.dev0" />
+  
+    
+    <script src="../../_static/searchtools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../searchindex.js"></script>
+  
+  <script async type="text/javascript" src="/_/static/javascript/readthedocs-addons.js"></script><meta name="readthedocs-project-slug" content="pyqtgraph" /><meta name="readthedocs-version-slug" content="latest" /><meta name="readthedocs-resolver-filename" content="/api_reference/graphicsItems/imageitem.html" /><meta name="readthedocs-http-status" content="200" /></head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/peegee_02.svg" class="logo__image only-light" alt="pyqtgraph 0.15.0.dev0 documentation - Home"/>
+    <img src="../../_static/peegee_02.svg" class="logo__image only-dark pst-js-only" alt="pyqtgraph 0.15.0.dev0 documentation - Home"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../getting_started/index.html">
+    Getting Started
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../user_guide/index.html">
+    User Guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../developer_guide/index.html">
+    Developer Guide
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="../index.html">
+    API Reference
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/pyqtgraph/pyqtgraph" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i><span class="visually-hidden">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://fosstodon.org/@pyqtgraph" title="Mastodon" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-mastodon fa-lg" aria-hidden="true"></i><span class="visually-hidden">Mastodon</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../getting_started/index.html">
+    Getting Started
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../user_guide/index.html">
+    User Guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../developer_guide/index.html">
+    Developer Guide
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="../index.html">
+    API Reference
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/pyqtgraph/pyqtgraph" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i><span class="visually-hidden">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://fosstodon.org/@pyqtgraph" title="Mastodon" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-mastodon fa-lg" aria-hidden="true"></i><span class="visually-hidden">Mastodon</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../config_options.html">Global Configuration Options</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../functions.html">PyQtGraph’s Helper Functions</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">PyQtGraph’s Graphics Items</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="plotdataitem.html">PlotDataItem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plotitem.html">PlotItem</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">ImageItem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="colorbaritem.html">ColorBarItem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pcolormeshitem.html">PColorMeshItem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="graphitem.html">GraphItem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="viewbox.html">ViewBox</a></li>
+<li class="toctree-l2"><a class="reference internal" href="linearregionitem.html">LinearRegionItem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="infiniteline.html">InfiniteLine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="roi.html">ROI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="graphicslayout.html">GraphicsLayout</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plotcurveitem.html">PlotCurveItem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scatterplotitem.html">ScatterPlotItem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="isocurveitem.html">IsocurveItem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="axisitem.html">AxisItem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="textitem.html">TextItem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="errorbaritem.html">ErrorBarItem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bargraphitem.html">BarGraphItem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arrowitem.html">ArrowItem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fillbetweenitem.html">FillBetweenItem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="curvepoint.html">CurvePoint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="curvearrow.html">CurveArrow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="griditem.html">GridItem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scalebar.html">ScaleBar</a></li>
+<li class="toctree-l2"><a class="reference internal" href="labelitem.html">LabelItem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vtickgroup.html">VTickGroup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="legenditem.html">LegendItem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gradienteditoritem.html">GradientEditorItem</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="histogramlutitem.html">HistogramLUTItem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gradientlegend.html">GradientLegend</a></li>
+<li class="toctree-l2"><a class="reference internal" href="buttonitem.html">ButtonItem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="graphicsobject.html">GraphicsObject</a></li>
+<li class="toctree-l2"><a class="reference internal" href="graphicswidget.html">GraphicsWidget</a></li>
+<li class="toctree-l2"><a class="reference internal" href="graphicsitem.html">GraphicsItem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="uigraphicsitem.html">UIGraphicsItem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="graphicswidgetanchor.html">GraphicsWidgetAnchor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dateaxisitem.html">DateAxisItem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="targetitem.html">TargetItem</a></li>
+
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../widgets/index.html">PyQtGraph’s Widgets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../3dgraphics/index.html">PyQtGraph’s 3D Graphics System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../colormap.html">Color Maps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../parametertree/index.html">Parameter Trees</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dockarea.html">Dock Area Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../graphicsscene/index.html">GraphicsScene and Mouse Events</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exporters/index.html">API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../flowchart/index.html">Visual Programming with Flowcharts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../point.html">Point</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../transform3d.html">Transform3D</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../uml_overview.html">UML class diagram</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../index.html" class="nav-link">API Reference</a></li>
+    
+    
+    <li class="breadcrumb-item"><a href="index.html" class="nav-link">PyQtGraph’s Graphics Items</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">ImageItem</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="imageitem">
+<h1>ImageItem<a class="headerlink" href="#imageitem" title="Link to this heading">#</a></h1>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading">#</a></h2>
+<p><a class="reference internal" href="#pyqtgraph.ImageItem" title="pyqtgraph.ImageItem"><code class="xref py py-class docutils literal notranslate"><span class="pre">ImageItem</span></code></a> displays images inside a
+<a class="reference internal" href="../widgets/graphicsview.html#pyqtgraph.GraphicsView" title="pyqtgraph.GraphicsView"><code class="xref py py-class docutils literal notranslate"><span class="pre">GraphicsView</span></code></a>, or a <a class="reference internal" href="viewbox.html#pyqtgraph.ViewBox" title="pyqtgraph.ViewBox"><code class="xref py py-class docutils literal notranslate"><span class="pre">ViewBox</span></code></a>, which may itself be
+part of a <a class="reference internal" href="plotitem.html#pyqtgraph.PlotItem" title="pyqtgraph.PlotItem"><code class="xref py py-class docutils literal notranslate"><span class="pre">PlotItem</span></code></a>. It is designed for rapid updates as needed for
+a video display. The supplied data is optionally scaled (see
+<a class="reference internal" href="#pyqtgraph.ImageItem.setLevels" title="pyqtgraph.ImageItem.setLevels"><code class="xref py py-meth docutils literal notranslate"><span class="pre">ImageItem.setLevels</span></code></a>) and/or colored according
+to a lookup table (see <a class="reference internal" href="#pyqtgraph.ImageItem.setColorMap" title="pyqtgraph.ImageItem.setColorMap"><code class="xref py py-meth docutils literal notranslate"><span class="pre">ImageItem.setColorMap</span></code></a>
+and  <a class="reference internal" href="#pyqtgraph.ImageItem.setLookupTable" title="pyqtgraph.ImageItem.setLookupTable"><code class="xref py py-meth docutils literal notranslate"><span class="pre">ImageItem.setLookupTable</span></code></a>).</p>
+<p>Data is provided as a NumPy array with an ordering of either</p>
+<ul class="simple">
+<li><p><cite>col-major</cite>, where the shape of the array represents (width, height) or</p></li>
+<li><p><cite>row-major</cite>, where the shape of the array represents (height, width).</p></li>
+</ul>
+<p>While <cite>col-major</cite> is the default, <cite>row-major</cite> ordering typically has the best
+performance. In either ordering, a third dimension can be added to the array to hold
+individual <code class="code highlight python docutils literal highlight-python"><span class="p">[</span><span class="n">R</span><span class="p">,</span><span class="n">G</span><span class="p">,</span><span class="n">B</span><span class="p">]</span></code> or <code class="code highlight python docutils literal highlight-python"><span class="p">[</span><span class="n">R</span><span class="p">,</span><span class="n">G</span><span class="p">,</span><span class="n">B</span><span class="p">,</span><span class="n">A</span><span class="p">]</span></code> channels/components.</p>
+</section>
+<section id="notes">
+<h2>Notes<a class="headerlink" href="#notes" title="Link to this heading">#</a></h2>
+<p><a class="reference internal" href="#pyqtgraph.ImageItem" title="pyqtgraph.ImageItem"><code class="xref py py-class docutils literal notranslate"><span class="pre">ImageItem</span></code></a> is frequently used in conjunction with
+<a class="reference internal" href="colorbaritem.html#pyqtgraph.ColorBarItem" title="pyqtgraph.ColorBarItem"><code class="xref py py-class docutils literal notranslate"><span class="pre">ColorBarItem</span></code></a> to provide a color map display and interactive level
+adjustments, or with <a class="reference internal" href="histogramlutitem.html#pyqtgraph.HistogramLUTItem" title="pyqtgraph.HistogramLUTItem"><code class="xref py py-class docutils literal notranslate"><span class="pre">HistogramLUTItem</span></code></a> or
+<a class="reference internal" href="../widgets/histogramlutwidget.html#pyqtgraph.HistogramLUTWidget" title="pyqtgraph.HistogramLUTWidget"><code class="xref py py-class docutils literal notranslate"><span class="pre">HistogramLUTWidget</span></code></a> for a full GUI to control the levels and lookup
+table used to display the image.</p>
+<p>An image can be placed into a plot area of a given extent directly through the
+<a class="reference internal" href="#pyqtgraph.ImageItem.setRect" title="pyqtgraph.ImageItem.setRect"><code class="xref py py-meth docutils literal notranslate"><span class="pre">ImageItem.setRect</span></code></a> method or the <cite>rect</cite> keyword.
+This is internally realized through assigning a <a class="reference external" href="https://doc.qt.io/qt-6/qtransform.html" title="(in Qt6 v6.11)"><code class="docutils literal notranslate"><span class="pre">QTransform</span></code></a>. For other
+translation, scaling or rotations effects that persist for all later image data, the
+user can also directly define and assign such a transform, as shown in the example
+below.</p>
+</section>
+<section id="performance">
+<span id="imageitem-performance"></span><h2>Performance<a class="headerlink" href="#performance" title="Link to this heading">#</a></h2>
+<p>The performance of <a class="reference internal" href="#pyqtgraph.ImageItem" title="pyqtgraph.ImageItem"><code class="xref py py-class docutils literal notranslate"><span class="pre">ImageItem</span></code></a> can vary <em>significantly</em> based on
+attributes of the <cite>image</cite>, <cite>levels</cite> and <cite>lut</cite> input arguments. It should not be
+assumed that the default parameters are the most performant, as the default values are
+largely there to preserve backwards compatibility.</p>
+<p>The following guidance should be observed if performance is an important factor</p>
+<ul class="simple">
+<li><p>Instantiate <a class="reference internal" href="#pyqtgraph.ImageItem" title="pyqtgraph.ImageItem"><code class="xref py py-class docutils literal notranslate"><span class="pre">ImageItem</span></code></a> with <code class="code highlight python docutils literal highlight-python"><span class="n">axisOrder</span><span class="o">=</span><span class="s1">&#39;row-major&#39;</span></code></p>
+<ul>
+<li><p>Alternatively, set the global configuration optionally
+<code class="code highlight python docutils literal highlight-python"><span class="n">pyqtgraph</span><span class="o">.</span><span class="n">setConfigOption</span><span class="p">(</span><span class="s1">&#39;imageAxisOrder&#39;</span><span class="p">,</span> <span class="s1">&#39;row-major&#39;</span><span class="p">)</span></code></p></li>
+</ul>
+</li>
+<li><p>Use C-contiguous image data.</p></li>
+<li><p>For 1 or 3 channel data, use <cite>uint8</cite>, <cite>uint16</cite>, <cite>float32</cite>, or <cite>float64</cite> <cite>image</cite>
+dtype.</p></li>
+<li><p>For 4-channel data, use <cite>uint8</cite> or <cite>uint16</cite> with <code class="code highlight python docutils literal highlight-python"><span class="n">levels</span><span class="o">=</span><span class="kc">None</span></code>.</p></li>
+<li><p><cite>levels</cite> should be set to either to <code class="docutils literal notranslate"><span class="pre">None</span></code> or to single channel <code class="docutils literal notranslate"><span class="pre">[min,</span> <span class="pre">max]</span></code></p>
+<ul>
+<li><p>Not setting <cite>levels</cite> will trigger autoLevels sampling</p></li>
+</ul>
+</li>
+<li><p>If using LUTs (lookup tables), ensure they have a dtype of <cite>uint8</cite> and have 256
+points or less. That can be accomplished with calling:</p>
+<ul>
+<li><p><a class="reference internal" href="#pyqtgraph.ImageItem.setColorMap" title="pyqtgraph.ImageItem.setColorMap"><code class="xref py py-func docutils literal notranslate"><span class="pre">ImageItem.setColorMap</span></code></a> or</p></li>
+<li><p><a class="reference internal" href="#pyqtgraph.ImageItem.setLookupTable" title="pyqtgraph.ImageItem.setLookupTable"><code class="xref py py-func docutils literal notranslate"><span class="pre">ImageItem.setLookupTable</span></code></a> with
+<code class="code highlight python docutils literal highlight-python"><span class="n">ColorMap</span><span class="o">.</span><span class="n">getLookupTable</span><span class="p">(</span><span class="n">nPts</span><span class="o">=</span><span class="mi">256</span><span class="p">)</span></code> (default is <code class="code highlight python docutils literal highlight-python"><span class="n">nPts</span><span class="o">=</span><span class="mi">512</span></code>)</p></li>
+</ul>
+</li>
+<li><p>For floating point <cite>image</cite> arrays, prefer <cite>float32</cite> dtype to <cite>float64</cite> and avoid
+<code class="docutils literal notranslate"><span class="pre">NaN</span></code> values.</p></li>
+<li><p>Enable Numba with <code class="code highlight python docutils literal highlight-python"><span class="n">pyqtgraph</span><span class="o">.</span><span class="n">setConfigOption</span><span class="p">(</span><span class="s1">&#39;useNumba&#39;</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span></code></p>
+<ul>
+<li><p>JIT compilation will only accelerate repeated image display.</p></li>
+</ul>
+</li>
+</ul>
+<p>Internally, pyqtgraph attempts to directly construct a <a class="reference external" href="https://doc.qt.io/qt-6/qimage.html" title="(in Qt6 v6.11)"><code class="docutils literal notranslate"><span class="pre">QImage</span></code></a> using a
+combination of <a class="reference external" href="https://doc.qt.io/qt-6/qimage.html#Format-enum" title="(in Qt6 v6.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">QImage.Format</span></code></a> options and
+<a class="reference external" href="https://doc.qt.io/qt-6/qimage.html#setColorTable" title="(in Qt6 v6.11)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">QImage.setColorTable</span></code></a> if necessary. This does not work in
+all cases that pyqtgraph supports.  If pyqtgraph is unable to construct the
+<a class="reference external" href="https://doc.qt.io/qt-6/qimage.html" title="(in Qt6 v6.11)"><code class="docutils literal notranslate"><span class="pre">QImage</span></code></a> in such a fashion, it will fall back on
+<a class="reference internal" href="../functions.html#pyqtgraph.functions.makeARGB" title="pyqtgraph.functions.makeARGB"><code class="xref py py-func docutils literal notranslate"><span class="pre">makeARGB()</span></code></a> to manipulate the data in a manner that
+<a class="reference external" href="https://doc.qt.io/qt-6/qimage.html" title="(in Qt6 v6.11)"><code class="docutils literal notranslate"><span class="pre">QImage</span></code></a> can read it in.  There is a <em>significant</em> performance penalty when
+having to use <a class="reference internal" href="../functions.html#pyqtgraph.functions.makeARGB" title="pyqtgraph.functions.makeARGB"><code class="xref py py-func docutils literal notranslate"><span class="pre">makeARGB()</span></code></a>.</p>
+<p>For applications that are <em>very</em> performance sensitive, every effort should be made so
+that the arguments passed to <a class="reference internal" href="#pyqtgraph.ImageItem.setImage" title="pyqtgraph.ImageItem.setImage"><code class="xref py py-meth docutils literal notranslate"><span class="pre">ImageItem.setImage</span></code></a>
+do not call <a class="reference internal" href="../functions.html#pyqtgraph.functions.makeARGB" title="pyqtgraph.functions.makeARGB"><code class="xref py py-func docutils literal notranslate"><span class="pre">makeARGB()</span></code></a>.</p>
+</section>
+<section id="examples">
+<span id="imageitem-examples"></span><h2>Examples<a class="headerlink" href="#examples" title="Link to this heading">#</a></h2>
+<section id="scale-and-position-imageitem">
+<h3>Scale and Position ImageItem<a class="headerlink" href="#scale-and-position-imageitem" title="Link to this heading">#</a></h3>
+<p>In the following example, it is demonstrated how a user scale and translate a
+<a class="reference internal" href="#pyqtgraph.ImageItem" title="pyqtgraph.ImageItem"><code class="xref py py-class docutils literal notranslate"><span class="pre">ImageItem</span></code></a> within a <a class="reference internal" href="viewbox.html#pyqtgraph.ViewBox" title="pyqtgraph.ViewBox"><code class="xref py py-class docutils literal notranslate"><span class="pre">ViewBox</span></code></a> to occupy a specific
+position and size.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pyqtgraph</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pg</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pyqtgraph.exporters</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">exp</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pyqtgraph.Qt</span><span class="w"> </span><span class="kn">import</span> <span class="n">QtGui</span><span class="p">,</span> <span class="n">mkQApp</span>
+
+<span class="n">mkQApp</span><span class="p">(</span><span class="s2">&quot;ImageItem transform example&quot;</span><span class="p">)</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">MainWindow</span><span class="p">(</span><span class="n">pg</span><span class="o">.</span><span class="n">GraphicsLayoutWidget</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; example application main window &quot;&quot;&quot;</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">resize</span><span class="p">(</span><span class="mi">440</span><span class="p">,</span><span class="mi">400</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+        <span class="n">plot</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">addPlot</span><span class="p">()</span>
+
+        <span class="c1"># Set To Larger Font</span>
+        <span class="n">leftAxis</span> <span class="o">=</span> <span class="n">plot</span><span class="o">.</span><span class="n">getAxis</span><span class="p">(</span><span class="s1">&#39;left&#39;</span><span class="p">)</span>
+        <span class="n">bottomAxis</span> <span class="o">=</span> <span class="n">plot</span><span class="o">.</span><span class="n">getAxis</span><span class="p">(</span><span class="s1">&#39;bottom&#39;</span><span class="p">)</span>
+        <span class="n">font</span> <span class="o">=</span> <span class="n">QtGui</span><span class="o">.</span><span class="n">QFont</span><span class="p">(</span><span class="s2">&quot;Roboto&quot;</span><span class="p">,</span> <span class="mi">18</span><span class="p">)</span>
+        <span class="n">leftAxis</span><span class="o">.</span><span class="n">setTickFont</span><span class="p">(</span><span class="n">font</span><span class="p">)</span>
+        <span class="n">bottomAxis</span><span class="o">.</span><span class="n">setTickFont</span><span class="p">(</span><span class="n">font</span><span class="p">)</span>
+
+<span class="hll">        <span class="c1"># Example: Transformed display of ImageItem</span>
+</span><span class="hll">        <span class="n">tr</span> <span class="o">=</span> <span class="n">QtGui</span><span class="o">.</span><span class="n">QTransform</span><span class="p">()</span>  <span class="c1"># prepare ImageItem transformation:</span>
+</span><span class="hll">        <span class="n">tr</span><span class="o">.</span><span class="n">scale</span><span class="p">(</span><span class="mf">6.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">)</span>       <span class="c1"># scale horizontal and vertical axes</span>
+</span><span class="hll">        <span class="n">tr</span><span class="o">.</span><span class="n">translate</span><span class="p">(</span><span class="o">-</span><span class="mf">1.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.5</span><span class="p">)</span> <span class="c1"># move 3x3 image to locate center at axis origin</span>
+</span><span class="hll">
+</span><span class="hll">        <span class="n">img</span> <span class="o">=</span> <span class="n">pg</span><span class="o">.</span><span class="n">ImageItem</span><span class="p">(</span>
+</span><span class="hll">            <span class="n">image</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="mi">3</span><span class="p">),</span>
+</span><span class="hll">            <span class="n">levels</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+</span><span class="hll">        <span class="p">)</span> <span class="c1"># create example image</span>
+</span><span class="hll">        <span class="n">img</span><span class="o">.</span><span class="n">setTransform</span><span class="p">(</span><span class="n">tr</span><span class="p">)</span> <span class="c1"># assign transform</span>
+</span>
+        <span class="n">plot</span><span class="o">.</span><span class="n">addItem</span><span class="p">(</span> <span class="n">img</span> <span class="p">)</span>  <span class="c1"># add ImageItem to PlotItem</span>
+        <span class="n">plot</span><span class="o">.</span><span class="n">showAxes</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>  <span class="c1"># frame it with a full set of axes</span>
+        <span class="n">plot</span><span class="o">.</span><span class="n">invertY</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>   <span class="c1"># vertical axis counts top to bottom</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">timer</span> <span class="o">=</span> <span class="n">pg</span><span class="o">.</span><span class="n">QtCore</span><span class="o">.</span><span class="n">QTimer</span><span class="p">(</span> <span class="n">singleShot</span><span class="o">=</span><span class="kc">True</span> <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">timer</span><span class="o">.</span><span class="n">timeout</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">export</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">timer</span><span class="o">.</span><span class="n">start</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+</pre></div>
+</div>
+<a class=""
+               data-lightbox="group-83f1c8ba-0189-4566-924c-d9c90856574f"
+               href="../../_images/example_imageitem_transform1.png"
+               title="Transformed Image Display"
+               data-title="Transformed Image Display"
+               
+               ><img src="../../_images/example_imageitem_transform1.png"
+                     class=""
+                     width="49%"
+                     height="auto"
+                     alt="Example of transformed image display"/>
+                </a></section>
+</section>
+<section id="inheritance">
+<h2>Inheritance<a class="headerlink" href="#inheritance" title="Link to this heading">#</a></h2>
+<div class="graphviz"><object data="../../_images/inheritance-dc5bb0181427b9d8e1148485249476565c4a323e.svg" type="image/svg+xml" class="inheritance graphviz">
+<p class="warning">Inheritance diagram of pyqtgraph.graphicsItems.ImageItem.ImageItem</p></object></div>
+</section>
+<section id="api">
+<h2>API<a class="headerlink" href="#api" title="Link to this heading">#</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="pyqtgraph.ImageItem">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">pyqtgraph.</span></span><span class="sig-name descname"><span class="pre">ImageItem</span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">image</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.4)"><span class="pre">ndarray</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kargs</span></span></em>,</dd>
+</dl>
+
+<span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pyqtgraph/graphicsItems/ImageItem.html#ImageItem"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyqtgraph.ImageItem" title="Link to this definition">#</a></dt>
+<dd><p>Graphics object used to display image data.</p>
+<p>ImageItem can render images with 1, 3 or 4 channels, use lookup tables to apply
+false colors to images, and users can either set levels limits, or rely on
+the auto-sampling.</p>
+<p>Performance can vary wildly based on the attributes of the inputs provided, see
+<a class="reference internal" href="#imageitem-performance"><span class="std std-ref">performance</span></a> for guidance if performance is an
+important factor.</p>
+<p>There is optional <cite>numba</cite> and <cite>cupy</cite> support.</p>
+<p><strong>Bases:</strong> <a class="reference internal" href="graphicsobject.html#pyqtgraph.GraphicsObject" title="pyqtgraph.GraphicsObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyqtgraph.GraphicsObject</span></code></a></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>image</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.4)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a> or <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a>, <em>default</em> <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a>) – Image data.</p></li>
+<li><p><strong>**kargs</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a>, <em>optional</em>) – Arguments directed to <cite>setImage</cite> and <cite>setOpts</cite>, refer to each method for
+documentation for possible arguments.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Signals<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>sigImageChanged</strong> (<a class="reference external" href="https://doc.qt.io/qt-6/signalsandslots.html" title="(in Qt6 v6.11.0)"><code class="docutils literal notranslate"><span class="pre">Signal</span></code></a>) – Emitted when the image is changed.</p></li>
+<li><p><strong>sigRemoveRequested</strong> (<a class="reference external" href="https://doc.qt.io/qt-6/signalsandslots.html" title="(in Qt6 v6.11.0)"><code class="docutils literal notranslate"><span class="pre">Signal</span></code></a>) – Emitted when there is a request to remove the image. Signal emits the instance
+of the <a class="reference internal" href="#pyqtgraph.ImageItem" title="pyqtgraph.ImageItem"><code class="xref py py-class docutils literal notranslate"><span class="pre">ImageItem</span></code></a> whose removal is requested.</p></li>
+</ul>
+</dd>
+</dl>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<dl class="simple">
+<dt><a class="reference internal" href="#pyqtgraph.ImageItem.setImage" title="pyqtgraph.ImageItem.setImage"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setImage</span></code></a></dt><dd><p>For descriptions of available keyword arguments.</p>
+</dd>
+<dt><a class="reference internal" href="#pyqtgraph.ImageItem.setOpts" title="pyqtgraph.ImageItem.setOpts"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setOpts</span></code></a></dt><dd><p>For information on supported formats.</p>
+</dd>
+</dl>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqtgraph.ImageItem.clear">
+<span class="sig-name descname"><span class="pre">clear</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pyqtgraph/graphicsItems/ImageItem.html#ImageItem.clear"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyqtgraph.ImageItem.clear" title="Link to this definition">#</a></dt>
+<dd><p>Clear the assigned image.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqtgraph.ImageItem.getColorMap">
+<span class="sig-name descname"><span class="pre">getColorMap</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="../colormap.html#pyqtgraph.ColorMap" title="pyqtgraph.colormap.ColorMap"><span class="pre">ColorMap</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></span></span><a class="reference internal" href="../../_modules/pyqtgraph/graphicsItems/ImageItem.html#ImageItem.getColorMap"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyqtgraph.ImageItem.getColorMap" title="Link to this definition">#</a></dt>
+<dd><p>Retrieve the <a class="reference internal" href="../colormap.html#pyqtgraph.ColorMap" title="pyqtgraph.ColorMap"><code class="xref py py-class docutils literal notranslate"><span class="pre">ColorMap</span></code></a> object currently used.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The assigned <a class="reference internal" href="../colormap.html#pyqtgraph.ColorMap" title="pyqtgraph.ColorMap"><code class="xref py py-class docutils literal notranslate"><span class="pre">ColorMap</span></code></a>, or <cite>None</cite> if not available.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="../colormap.html#pyqtgraph.ColorMap" title="pyqtgraph.colormap.ColorMap"><code class="xref py py-class docutils literal notranslate"><span class="pre">ColorMap</span></code></a> | <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqtgraph.ImageItem.getHistogram">
+<span class="sig-name descname"><span class="pre">getHistogram</span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">bins</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'auto'</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">step</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://numpy.org/doc/stable/reference/arrays.scalars.html#numpy.generic" title="(in NumPy v2.4)"><span class="pre">generic</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'auto'</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">perChannel</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><span class="pre">bool</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">targetImageSize</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">200</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em>,</dd>
+</dl>
+
+<span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.14)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.14)"><span class="pre">tuple</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.4)"><span class="pre">ndarray</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.4)"><span class="pre">ndarray</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.14)"><span class="pre">tuple</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.4)"><span class="pre">ndarray</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.4)"><span class="pre">ndarray</span></a><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.14)"><span class="pre">tuple</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../../_modules/pyqtgraph/graphicsItems/ImageItem.html#ImageItem.getHistogram"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyqtgraph.ImageItem.getHistogram" title="Link to this definition">#</a></dt>
+<dd><p>Generate arrays containing the histogram values.</p>
+<p>Similar to <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.histogram.html#numpy.histogram" title="(in NumPy v2.4)"><code class="xref py py-func docutils literal notranslate"><span class="pre">numpy.histogram()</span></code></a></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>bins</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a> or <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>, <em>default</em> <code class="docutils literal notranslate"><span class="pre">'auto'</span></code>) – The <cite>bins</cite> argument and any extra keyword arguments are passed to
+<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.histogram.html#numpy.histogram" title="(in NumPy v2.4)"><code class="xref py py-func docutils literal notranslate"><span class="pre">numpy.histogram()</span></code></a>. If <code class="docutils literal notranslate"><span class="pre">bins</span> <span class="pre">==</span> <span class="pre">'auto'</span></code>, a bin number is
+automatically chosen based on the image characteristics.</p></li>
+<li><p><strong>step</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a> or <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>, <em>default</em> <code class="docutils literal notranslate"><span class="pre">'auto'</span></code>) – The <cite>step</cite> argument causes pixels to be skipped when computing the
+histogram to save time. If <cite>step</cite> is ‘auto’, then a step is chosen such
+that the analyzed data has dimensions approximating <cite>targetImageSize</cite>
+for each axis.</p></li>
+<li><p><strong>perChannel</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a>, <em>default</em> <a class="reference external" href="https://docs.python.org/3/library/constants.html#False" title="(in Python v3.14)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">False</span></code></a>) – If <code class="docutils literal notranslate"><span class="pre">True</span></code>, then a histogram is computed for each channel, and the output
+is a list of the results.</p></li>
+<li><p><strong>targetImageSize</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>, <em>default</em> <code class="docutils literal notranslate"><span class="pre">200</span></code>) – This parameter is used if <code class="docutils literal notranslate"><span class="pre">step</span> <span class="pre">==</span> <span class="pre">'auto'</span></code>, If so, the <cite>step</cite> size is
+calculated by <code class="docutils literal notranslate"><span class="pre">step</span> <span class="pre">=</span> <span class="pre">ceil(image.shape[0]</span> <span class="pre">/</span> <span class="pre">targetImageSize)</span></code>.</p></li>
+<li><p><strong>**kwargs</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a>, <em>optional</em>) – Dictionary of arguments passed to <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.histogram.html#numpy.histogram" title="(in NumPy v2.4)"><code class="xref py py-func docutils literal notranslate"><span class="pre">numpy.histogram()</span></code></a>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Returns <cite>x</cite> and <cite>y</cite> arrays containing the histogram values for the current
+image. For an explanation of the return format, see
+<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.histogram.html#numpy.histogram" title="(in NumPy v2.4)"><code class="xref py py-func docutils literal notranslate"><span class="pre">numpy.histogram()</span></code></a>.
+Returns <code class="docutils literal notranslate"><span class="pre">[(numpy.ndarray,</span> <span class="pre">numpy.ndarray),...]</span></code> if <code class="docutils literal notranslate"><span class="pre">perChannel=True</span></code>, one
+element per channel.
+Returns <code class="docutils literal notranslate"><span class="pre">(None,</span> <span class="pre">None)</span></code> is there is no image, or image size is 0.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code></a>[<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.4)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></a>, <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.4)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></a>]] | <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code></a>[<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.4)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></a>, <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.4)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></a>] | <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a>]</span></p>
+</dd>
+<dt class="field-even">Warns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>RuntimeWarning</strong> – Emits when <cite>targetHistogramSize</cite> argument is passed in, which does nothing.</p>
+</dd>
+</dl>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<dl class="simple">
+<dt><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.histogram.html#numpy.histogram" title="(in NumPy v2.4)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.histogram</span></code></a></dt><dd><p>Describes return format in greater detail.</p>
+</dd>
+<dt><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.histogram_bin_edges.html#numpy.histogram_bin_edges" title="(in NumPy v2.4)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.histogram_bin_edges</span></code></a></dt><dd><p>Details the different string values accepted as the <cite>bins</cite> parameter.</p>
+</dd>
+</dl>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqtgraph.ImageItem.getLevels">
+<span class="sig-name descname"><span class="pre">getLevels</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.4)"><span class="pre">ndarray</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></span></span><a class="reference internal" href="../../_modules/pyqtgraph/graphicsItems/ImageItem.html#ImageItem.getLevels"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyqtgraph.ImageItem.getLevels" title="Link to this definition">#</a></dt>
+<dd><p>Return the array representing the current level settings.</p>
+<p>See <a class="reference internal" href="#pyqtgraph.ImageItem.setLevels" title="pyqtgraph.ImageItem.setLevels"><code class="xref py py-meth docutils literal notranslate"><span class="pre">setLevels()</span></code></a>. When <cite>autoLevels</cite> is active, the format is
+<code class="docutils literal notranslate"><span class="pre">[blackLevel,</span> <span class="pre">whiteLevel]</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The value that the levels are set to.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.4)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></a> | <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqtgraph.ImageItem.nanPolicy">
+<span class="sig-name descname"><span class="pre">nanPolicy</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></span></span><a class="reference internal" href="../../_modules/pyqtgraph/graphicsItems/ImageItem.html#ImageItem.nanPolicy"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyqtgraph.ImageItem.nanPolicy" title="Link to this definition">#</a></dt>
+<dd><p>Retrieve the string representing the current NaN policy.</p>
+<p>See :meth:setNanPolicy.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The NaN policy that this ImageItem uses during downsampling.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqtgraph.ImageItem.pixelSize">
+<span class="sig-name descname"><span class="pre">pixelSize</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.14)"><span class="pre">tuple</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><span class="pre">float</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><span class="pre">float</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../../_modules/pyqtgraph/graphicsItems/ImageItem.html#ImageItem.pixelSize"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyqtgraph.ImageItem.pixelSize" title="Link to this definition">#</a></dt>
+<dd><p>Get the <cite>x</cite> and <cite>y</cite> size of each pixel in the view coordinate system.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The <cite>x</cite> and <cite>y</cite> size of each pixel in scene space.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a>]</span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqtgraph.ImageItem.quickMinMax">
+<span class="sig-name descname"><span class="pre">quickMinMax</span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">targetSize</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1000000</span></span></em>,</dd>
+</dl>
+
+<span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.14)"><span class="pre">tuple</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><span class="pre">float</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><span class="pre">float</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../../_modules/pyqtgraph/graphicsItems/ImageItem.html#ImageItem.quickMinMax"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyqtgraph.ImageItem.quickMinMax" title="Link to this definition">#</a></dt>
+<dd><p>Estimate the min and max values of the image data by sub-sampling.</p>
+<p>Sampling is performed at regular strides chosen to evaluate a number of
+samples equal to or less than <cite>targetSize</cite>.  Returns the estimated min and max
+values of the image data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>targetSize</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>, <em>default</em> <code class="docutils literal notranslate"><span class="pre">1_000_000</span></code>) – The number of pixels to downsample the image to.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Estimated minimum and maximum values of the image data.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a>]</span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqtgraph.ImageItem.save">
+<span class="sig-name descname"><span class="pre">save</span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">fileName</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/pathlib.html#pathlib.Path" title="(in Python v3.14)"><span class="pre">Path</span></a></span></em>,</dd>
+<dd><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>,</dd>
+</dl>
+
+<span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></span></span><a class="reference internal" href="../../_modules/pyqtgraph/graphicsItems/ImageItem.html#ImageItem.save"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyqtgraph.ImageItem.save" title="Link to this definition">#</a></dt>
+<dd><p>Save this image to file.</p>
+<p>Note that this saves the visible image, after scale/color changes, not the
+original data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>fileName</strong> (<a class="reference external" href="https://docs.python.org/3/library/os.html#os.PathLike" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">os.PathLike</span></code></a>) – File path to save the image data to.</p></li>
+<li><p><strong>*args</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code></a>) – Arguments that are passed to <a class="reference external" href="https://doc.qt.io/qt-6/qimage.html#save" title="(in Qt6 v6.11)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">QImage.save</span></code></a>.</p></li>
+</ul>
+</dd>
+</dl>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<dl class="simple">
+<dt><a class="reference external" href="https://doc.qt.io/qt-6/qimage.html#save" title="(in Qt6 v6.11)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">QImage.save</span></code></a> :</dt><dd><p><code class="docutils literal notranslate"><span class="pre">*args</span></code> is relayed to this method.</p>
+</dd>
+</dl>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqtgraph.ImageItem.setAutoDownsample">
+<span class="sig-name descname"><span class="pre">setAutoDownsample</span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">active</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><span class="pre">bool</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>,</dd>
+</dl>
+
+<span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pyqtgraph/graphicsItems/ImageItem.html#ImageItem.setAutoDownsample"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyqtgraph.ImageItem.setAutoDownsample" title="Link to this definition">#</a></dt>
+<dd><p>Control automatic downsampling for this ImageItem.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>active</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a>, <em>default</em> <a class="reference external" href="https://docs.python.org/3/library/constants.html#True" title="(in Python v3.14)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">True</span></code></a>) – If <cite>active</cite> is <code class="docutils literal notranslate"><span class="pre">True</span></code>, the image is automatically downsampled to match
+the screen resolution. This improves performance for large images and
+reduces aliasing. If <cite>autoDownsample</cite> is not specified, then ImageItem will
+choose whether to downsample the image based on its size. <code class="docutils literal notranslate"><span class="pre">False</span></code>
+disables automatic downsampling.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqtgraph.ImageItem.setAutoLevels">
+<span class="sig-name descname"><span class="pre">setAutoLevels</span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">bState</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><span class="pre">bool</span></a></span></em>,</dd>
+</dl>
+
+<span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pyqtgraph/graphicsItems/ImageItem.html#ImageItem.setAutoLevels"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyqtgraph.ImageItem.setAutoLevels" title="Link to this definition">#</a></dt>
+<dd><p>Controls whether automatic image scaling takes place for this ImageItem,
+if not otherwise overridden by <code class="docutils literal notranslate"><span class="pre">autoLevels</span></code> or <code class="docutils literal notranslate"><span class="pre">levels</span></code> keyword
+arguments in a call to <a class="reference internal" href="#pyqtgraph.ImageItem.setImage" title="pyqtgraph.ImageItem.setImage"><code class="xref py py-func docutils literal notranslate"><span class="pre">setImage()</span></code></a>.</p>
+<dl class="field-list simple">
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqtgraph.ImageItem.setBorder">
+<span class="sig-name descname"><span class="pre">setBorder</span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">b</span></span></em>,</dd>
+</dl>
+
+<span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pyqtgraph/graphicsItems/ImageItem.html#ImageItem.setBorder"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyqtgraph.ImageItem.setBorder" title="Link to this definition">#</a></dt>
+<dd><p>Define the color of the border drawn around the image.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>b</strong> (<a class="reference internal" href="../functions.html#pyqtgraph.functions.color_like" title="pyqtgraph.functions.color_like"><code class="xref py py-obj docutils literal notranslate"><span class="pre">color_like</span></code></a>) – Accepts all arguments supported by <a class="reference internal" href="../functions.html#pyqtgraph.mkPen" title="pyqtgraph.mkPen"><code class="xref py py-func docutils literal notranslate"><span class="pre">mkPen()</span></code></a>.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqtgraph.ImageItem.setColorMap">
+<span class="sig-name descname"><span class="pre">setColorMap</span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">colorMap</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../colormap.html#pyqtgraph.ColorMap" title="pyqtgraph.colormap.ColorMap"><span class="pre">ColorMap</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></span></em>,</dd>
+</dl>
+
+<span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pyqtgraph/graphicsItems/ImageItem.html#ImageItem.setColorMap"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyqtgraph.ImageItem.setColorMap" title="Link to this definition">#</a></dt>
+<dd><p>Set a color map for false color display of a monochrome image.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>colorMap</strong> (<a class="reference internal" href="../colormap.html#pyqtgraph.ColorMap" title="pyqtgraph.ColorMap"><code class="xref py py-class docutils literal notranslate"><span class="pre">ColorMap</span></code></a> or <cite>str</cite>) – A string argument will be passed to
+<a class="reference internal" href="../colormap.html#pyqtgraph.colormap.get" title="pyqtgraph.colormap.get"><code class="xref py py-func docutils literal notranslate"><span class="pre">colormap.get()</span></code></a>.</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#TypeError" title="(in Python v3.14)"><strong>TypeError</strong></a> – Raised when <cite>colorMap</cite> is not of type <cite>str</cite> or <a class="reference internal" href="../colormap.html#pyqtgraph.ColorMap" title="pyqtgraph.ColorMap"><code class="xref py py-class docutils literal notranslate"><span class="pre">ColorMap</span></code></a>.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqtgraph.ImageItem.setCompositionMode">
+<span class="sig-name descname"><span class="pre">setCompositionMode</span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://doc.qt.io/qt-6/qpainter.html#CompositionMode-enum" title="(in Qt6 v6.11)"><span class="pre">CompositionMode</span></a></span></em>,</dd>
+</dl>
+
+<span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pyqtgraph/graphicsItems/ImageItem.html#ImageItem.setCompositionMode"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyqtgraph.ImageItem.setCompositionMode" title="Link to this definition">#</a></dt>
+<dd><p>Change the composition mode of the item, useful when overlaying multiple items.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>mode</strong> (<a class="reference external" href="https://doc.qt.io/qt-6/qpainter.html#CompositionMode-enum" title="(in Qt6 v6.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">QPainter.CompositionMode</span></code></a>) – Composition of the item, often used when overlaying items.  Common
+options include:</p>
+<ul class="simple">
+<li><p><cite>QPainter.CompositionMode.CompositionMode_SourceOver</cite>
+Image replaces the background if it is opaque. Otherwise, it uses the
+alpha channel to blend the image with the background, default.</p></li>
+<li><p><cite>QPainter.CompositionMode.CompositionMode_Overlay</cite> Image color is
+mixed with the background color to reflect the lightness or darkness of
+the background.</p></li>
+<li><p><cite>QPainter.CompositionMode.CompositionMode_Plus</cite> Both the alpha and
+color of the image and background pixels are added together.</p></li>
+<li><p><cite>QPainter.CompositionMode.CompositionMode_Plus</cite> The output is the
+image color multiplied by the background.</p></li>
+</ul>
+<p>See <a class="reference external" href="https://doc.qt.io/qt-6/qpainter.html#CompositionMode-enum" title="(in Qt6 v6.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">QPainter.CompositionMode</span></code></a> in the Qt
+documentation for more options and details.</p>
+</dd>
+</dl>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<dl class="simple">
+<dt><a class="reference external" href="https://doc.qt.io/qt-6/qpainter.html#CompositionMode-enum" title="(in Qt6 v6.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">QPainter.CompositionMode</span></code></a> :</dt><dd><p>Details all the possible composition mode options accepted.</p>
+</dd>
+</dl>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqtgraph.ImageItem.setImage">
+<span class="sig-name descname"><span class="pre">setImage</span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">image</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.4)"><span class="pre">ndarray</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">autoLevels</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><span class="pre">bool</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">levelSamples</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">65536</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em>,</dd>
+</dl>
+
+<span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pyqtgraph/graphicsItems/ImageItem.html#ImageItem.setImage"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyqtgraph.ImageItem.setImage" title="Link to this definition">#</a></dt>
+<dd><p>Update the image displayed by this ImageItem.</p>
+<p>All keywords supported by <a class="reference internal" href="#pyqtgraph.ImageItem.setOpts" title="pyqtgraph.ImageItem.setOpts"><code class="xref py py-meth docutils literal notranslate"><span class="pre">setOpts()</span></code></a> are also allowed here.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>image</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.4)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a> or <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a>, <em>default</em> <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a>) – Image data given as NumPy array with an integer or floating point dtype of
+any bit depth. A 2-dimensional array describes single-valued
+(monochromatic) data. A 3-dimensional array is used to give individual
+color components. The third dimension must be of length 3 (RGB) or 4
+(RGBA). <code class="docutils literal notranslate"><span class="pre">np.nan</span></code> values are treated as transparent pixels.</p></li>
+<li><p><strong>autoLevels</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a> or <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a>, <em>default</em> <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a>) – If <code class="docutils literal notranslate"><span class="pre">True</span></code>, ImageItem will automatically select levels based on the maximum
+and minimum values encountered in the data. For performance reasons, this
+search sub-samples the images and may miss individual bright or dark points
+in the data set. If <code class="docutils literal notranslate"><span class="pre">False</span></code>, the search will be omitted. If <code class="docutils literal notranslate"><span class="pre">None</span></code>, the
+value set by <a class="reference internal" href="#pyqtgraph.ImageItem.setOpts" title="pyqtgraph.ImageItem.setOpts"><code class="xref py py-func docutils literal notranslate"><span class="pre">setOpts()</span></code></a> is used, unless a <code class="docutils literal notranslate"><span class="pre">levels</span></code>
+keyword argument is given, which implies <cite>False</cite>.</p></li>
+<li><p><strong>levelSamples</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>, <em>default</em> <code class="docutils literal notranslate"><span class="pre">65536</span></code>) – Only used when <code class="docutils literal notranslate"><span class="pre">autoLevels</span> <span class="pre">is</span> <span class="pre">None</span></code>.  When determining minimum and
+maximum values, ImageItem only inspects a subset of pixels no larger than
+this number. Setting this larger than the total number of pixels considers
+all values. See <cite>quickMinMax</cite>.</p></li>
+<li><p><strong>**kwargs</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a>, <em>optional</em>) – Extra arguments that are passed to <cite>setOpts</cite>.</p></li>
+</ul>
+</dd>
+</dl>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<dl class="simple">
+<dt><a class="reference internal" href="#pyqtgraph.ImageItem.quickMinMax" title="pyqtgraph.ImageItem.quickMinMax"><code class="xref py py-obj docutils literal notranslate"><span class="pre">quickMinMax</span></code></a></dt><dd><p>See this method for how levelSamples value is utilized.</p>
+</dd>
+<dt><a class="reference internal" href="../functions.html#pyqtgraph.functions.makeARGB" title="pyqtgraph.functions.makeARGB"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyqtgraph.functions.makeARGB()</span></code></a></dt><dd><p>See this function for how image data is modified prior to rendering.</p>
+</dd>
+</dl>
+</div>
+<div class="admonition-notes admonition">
+<p class="admonition-title">Notes</p>
+<p>For backward compatibility, image data is assumed to be in column-major order
+(column, row) by default. However, most data is stored in row-major order
+(row, column). It can either be transposed before assignment</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">imageitem</span><span class="o">.</span><span class="n">setImage</span><span class="p">(</span><span class="n">imagedata</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>or the interpretation of the data can be changed locally through the
+<cite>axisOrder</cite> keyword or by changing the <cite>imageAxisOrder</cite>
+<a class="reference internal" href="../config_options.html#apiref-config"><span class="std std-ref">global configuration option</span></a>.</p>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqtgraph.ImageItem.setLevels">
+<span class="sig-name descname"><span class="pre">setLevels</span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">levels</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ArrayLike</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">update</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><span class="pre">bool</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>,</dd>
+</dl>
+
+<span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pyqtgraph/graphicsItems/ImageItem.html#ImageItem.setLevels"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyqtgraph.ImageItem.setLevels" title="Link to this definition">#</a></dt>
+<dd><p>Set image scaling levels.</p>
+<p>Calling this method, even with <code class="docutils literal notranslate"><span class="pre">levels=None</span></code> will disable auto leveling
+which is equivalent to <a class="reference internal" href="#pyqtgraph.ImageItem.setImage" title="pyqtgraph.ImageItem.setImage"><code class="xref py py-meth docutils literal notranslate"><span class="pre">setImage()</span></code></a> with <code class="docutils literal notranslate"><span class="pre">autoLevels=False</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>levels</strong> (<a class="reference external" href="https://numpy.org/doc/stable/glossary.html#term-array_like" title="(in NumPy v2.4)"><span class="xref std std-term">array_like</span></a> or <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a>) – Sets the numerical values that correspond to the limits of the color range.</p>
+<ul>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">[blackLevel,</span> <span class="pre">whiteLevel]</span></code></dt><dd><p>sets black and white levels for monochrome data and can be used with a
+lookup table.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">[[minR,</span> <span class="pre">maxR],</span> <span class="pre">[minG,</span> <span class="pre">maxG],</span> <span class="pre">[minB,</span> <span class="pre">maxB]]</span></code></dt><dd><p>sets individual scaling for RGB values. Not compatible with lookup
+tables.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">None</span></code></dt><dd><p>Disables the application of levels, but setting to <code class="docutils literal notranslate"><span class="pre">None</span></code> prevents
+the auto-levels mechanism from sampling the image.  Not compatible with
+images that use floating point dtypes.</p>
+</dd>
+</dl>
+</li>
+</ul>
+</li>
+<li><p><strong>update</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a>, <em>default</em> <a class="reference external" href="https://docs.python.org/3/library/constants.html#True" title="(in Python v3.14)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">True</span></code></a>) – Update the image immediately to reflect the new levels.</p></li>
+</ul>
+</dd>
+</dl>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<dl class="simple">
+<dt><a class="reference internal" href="../functions.html#pyqtgraph.functions.makeARGB" title="pyqtgraph.functions.makeARGB"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pyqtgraph.functions.makeARGB</span></code></a></dt><dd><p>For more details on how levels are applied.</p>
+</dd>
+</dl>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqtgraph.ImageItem.setLookupTable">
+<span class="sig-name descname"><span class="pre">setLookupTable</span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">lut</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ArrayLike</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/collections.abc.html#collections.abc.Callable" title="(in Python v3.14)"><span class="pre">Callable</span></a></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">update</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><span class="pre">bool</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>,</dd>
+</dl>
+
+<span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pyqtgraph/graphicsItems/ImageItem.html#ImageItem.setLookupTable"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyqtgraph.ImageItem.setLookupTable" title="Link to this definition">#</a></dt>
+<dd><p>Set lookup table <cite>lut</cite> to use for false color display of a monochrome image.</p>
+<p>Ordinarily, this table is supplied by a <a class="reference internal" href="histogramlutitem.html#pyqtgraph.HistogramLUTItem" title="pyqtgraph.HistogramLUTItem"><code class="xref py py-class docutils literal notranslate"><span class="pre">HistogramLUTItem</span></code></a>,
+<a class="reference internal" href="gradienteditoritem.html#pyqtgraph.GradientEditorItem" title="pyqtgraph.GradientEditorItem"><code class="xref py py-class docutils literal notranslate"><span class="pre">GradientEditorItem</span></code></a> or <a class="reference internal" href="colorbaritem.html#pyqtgraph.ColorBarItem" title="pyqtgraph.ColorBarItem"><code class="xref py py-class docutils literal notranslate"><span class="pre">ColorBarItem</span></code></a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>lut</strong> (<a class="reference external" href="https://numpy.org/doc/stable/glossary.html#term-array_like" title="(in NumPy v2.4)"><span class="xref std std-term">array_like</span></a> or <a class="reference external" href="https://docs.python.org/3/library/collections.abc.html#collections.abc.Callable" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Callable</span></code></a>) – If <cite>lut</cite> is an np.ndarray, ensure the dtype is <cite>np.uint8</cite>. Alternatively
+can be a callable that accepts the current image as an argument and
+returns the lookup table to use. Support for callable will be removed
+in a future version of pyqtgraph.</p></li>
+<li><p><strong>update</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a>, <em>default</em> <a class="reference external" href="https://docs.python.org/3/library/constants.html#True" title="(in Python v3.14)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">True</span></code></a>) – Update the intermediate image.</p></li>
+</ul>
+</dd>
+</dl>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<dl class="simple">
+<dt><a class="reference internal" href="../functions.html#pyqtgraph.functions.makeARGB" title="pyqtgraph.functions.makeARGB"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyqtgraph.functions.makeARGB()</span></code></a></dt><dd><p>See this function for more information on how this is used.</p>
+</dd>
+<dt><a class="reference internal" href="../colormap.html#pyqtgraph.ColorMap.getLookupTable" title="pyqtgraph.ColorMap.getLookupTable"><code class="xref py py-meth docutils literal notranslate"><span class="pre">ColorMap.getLookupTable</span></code></a></dt><dd><p>Can construct a lookup table from a <a class="reference internal" href="../colormap.html#pyqtgraph.ColorMap" title="pyqtgraph.ColorMap"><code class="xref py py-class docutils literal notranslate"><span class="pre">ColorMap</span></code></a> object.</p>
+</dd>
+</dl>
+</div>
+<div class="admonition-notes admonition">
+<p class="admonition-title">Notes</p>
+<p>For performance reasons, if not passing a callable, every effort should be made
+to keep the number of entries to <cite>&lt;= 256</cite>.</p>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqtgraph.ImageItem.setNanPolicy">
+<span class="sig-name descname"><span class="pre">setNanPolicy</span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">nanPolicy</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></span></em>,</dd>
+</dl>
+
+<span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pyqtgraph/graphicsItems/ImageItem.html#ImageItem.setNanPolicy"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyqtgraph.ImageItem.setNanPolicy" title="Link to this definition">#</a></dt>
+<dd><p>Control how NaN values are handled during downsampling for this ImageItem.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>nanPolicy</strong> (<code class="docutils literal notranslate"><span class="pre">{'propagate',</span> <span class="pre">'omit'}</span></code>) – If ‘nanPolicy’ is ‘ignore’, NaNs are automatically ignored during
+downsampling, at the expense of performance. If ‘nanPolicy’ is ‘propagate’,
+NaNs are kept during downsampling. Unless a different policy was specified,
+a new ImageItem is created with <code class="docutils literal notranslate"><span class="pre">nanPolicy='propagate'</span></code>.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqtgraph.ImageItem.setOpts">
+<span class="sig-name descname"><span class="pre">setOpts</span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">update</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><span class="pre">bool</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em>,</dd>
+</dl>
+
+<span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pyqtgraph/graphicsItems/ImageItem.html#ImageItem.setOpts"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyqtgraph.ImageItem.setOpts" title="Link to this definition">#</a></dt>
+<dd><p>Set display and processing options for this ImageItem.</p>
+<p><a class="reference internal" href="#pyqtgraph.ImageItem" title="pyqtgraph.ImageItem"><code class="xref py py-class docutils literal notranslate"><span class="pre">ImageItem</span></code></a> and <a class="reference internal" href="#pyqtgraph.ImageItem.setImage" title="pyqtgraph.ImageItem.setImage"><code class="xref py py-meth docutils literal notranslate"><span class="pre">setImage()</span></code></a> support all keyword
+arguments listed here.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>update</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a>, <em>default</em> <a class="reference external" href="https://docs.python.org/3/library/constants.html#True" title="(in Python v3.14)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">True</span></code></a>) – Controls if image immediately updates to reflect the new options.</p></li>
+<li><p><strong>**kwargs</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a>, <em>optional</em>) – Extra arguments that are directed to the respective methods.  Expected
+keys include:</p>
+<ul>
+<li><p><cite>autoDownsample</cite> whose value is directed to <a class="reference internal" href="#pyqtgraph.ImageItem.setAutoDownsample" title="pyqtgraph.ImageItem.setAutoDownsample"><code class="xref py py-meth docutils literal notranslate"><span class="pre">setAutoDownsample()</span></code></a></p></li>
+<li><p><cite>nanPolicy</cite> whose value is directed to <a class="reference internal" href="#pyqtgraph.ImageItem.setNanPolicy" title="pyqtgraph.ImageItem.setNanPolicy"><code class="xref py py-meth docutils literal notranslate"><span class="pre">setNanPolicy()</span></code></a></p></li>
+<li><p><cite>axisOrder</cite>, which needs to be one of {‘row-major’, ‘col-major’},
+determines the relationship between the numpy axis and visual axis
+of the data.</p></li>
+<li><p><cite>border</cite>, whose value is directed to <a class="reference internal" href="#pyqtgraph.ImageItem.setBorder" title="pyqtgraph.ImageItem.setBorder"><code class="xref py py-meth docutils literal notranslate"><span class="pre">setBorder()</span></code></a></p></li>
+<li><p><cite>colorMap</cite>, whose value is directed to <a class="reference internal" href="#pyqtgraph.ImageItem.setColorMap" title="pyqtgraph.ImageItem.setColorMap"><code class="xref py py-meth docutils literal notranslate"><span class="pre">setColorMap()</span></code></a></p></li>
+<li><p><cite>compositionMode</cite>, whose value is directed to <a class="reference internal" href="#pyqtgraph.ImageItem.setCompositionMode" title="pyqtgraph.ImageItem.setCompositionMode"><code class="xref py py-meth docutils literal notranslate"><span class="pre">setCompositionMode()</span></code></a></p></li>
+<li><p><cite>levels</cite> whose value is directed to <a class="reference internal" href="#pyqtgraph.ImageItem.setLevels" title="pyqtgraph.ImageItem.setLevels"><code class="xref py py-meth docutils literal notranslate"><span class="pre">setLevels()</span></code></a></p></li>
+<li><p><cite>lut</cite>, whose value  is directed to <a class="reference internal" href="#pyqtgraph.ImageItem.setLookupTable" title="pyqtgraph.ImageItem.setLookupTable"><code class="xref py py-meth docutils literal notranslate"><span class="pre">setLookupTable()</span></code></a></p></li>
+<li><p><cite>opacify</cite> whose value is directed to
+<a class="reference external" href="https://doc.qt.io/qt-6/qgraphicsitem.html#setOpacity" title="(in Qt6 v6.11)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">QGraphicsItem.setOpacity</span></code></a></p></li>
+<li><p><cite>rect</cite> whose value is directed to <a class="reference internal" href="#pyqtgraph.ImageItem.setRect" title="pyqtgraph.ImageItem.setRect"><code class="xref py py-meth docutils literal notranslate"><span class="pre">setRect()</span></code></a></p></li>
+<li><p><cite>removable</cite> boolean, determines if the context menu is available</p></li>
+</ul>
+</li>
+</ul>
+</dd>
+</dl>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<dl class="simple">
+<dt><a class="reference internal" href="#pyqtgraph.ImageItem.setAutoDownsample" title="pyqtgraph.ImageItem.setAutoDownsample"><code class="xref py py-meth docutils literal notranslate"><span class="pre">setAutoDownsample()</span></code></a></dt><dd><p>Accepts the value of <code class="docutils literal notranslate"><span class="pre">kwargs['autoDownsample']</span></code>.</p>
+</dd>
+<dt><a class="reference internal" href="#pyqtgraph.ImageItem.setAutoLevels" title="pyqtgraph.ImageItem.setAutoLevels"><code class="xref py py-meth docutils literal notranslate"><span class="pre">setAutoLevels()</span></code></a></dt><dd><p>Accepts the value of <code class="docutils literal notranslate"><span class="pre">kwargs['autoLevels']</span></code>.</p>
+</dd>
+<dt><a class="reference internal" href="#pyqtgraph.ImageItem.setNanPolicy" title="pyqtgraph.ImageItem.setNanPolicy"><code class="xref py py-meth docutils literal notranslate"><span class="pre">setNanPolicy()</span></code></a></dt><dd><p>Accepts the value of <code class="docutils literal notranslate"><span class="pre">kwargs['nanPolicy']</span></code>.</p>
+</dd>
+<dt><a class="reference internal" href="#pyqtgraph.ImageItem.setBorder" title="pyqtgraph.ImageItem.setBorder"><code class="xref py py-meth docutils literal notranslate"><span class="pre">setBorder()</span></code></a></dt><dd><p>Accepts the value of <code class="docutils literal notranslate"><span class="pre">kwargs['border']</span></code>.</p>
+</dd>
+<dt><a class="reference internal" href="#pyqtgraph.ImageItem.setColorMap" title="pyqtgraph.ImageItem.setColorMap"><code class="xref py py-meth docutils literal notranslate"><span class="pre">setColorMap()</span></code></a></dt><dd><p>Accepts the value of <code class="docutils literal notranslate"><span class="pre">kwargs['colorMap']</span></code>.</p>
+</dd>
+<dt><a class="reference internal" href="#pyqtgraph.ImageItem.setCompositionMode" title="pyqtgraph.ImageItem.setCompositionMode"><code class="xref py py-meth docutils literal notranslate"><span class="pre">setCompositionMode()</span></code></a></dt><dd><p>Accepts the value of <code class="docutils literal notranslate"><span class="pre">kwargs['compositionMode']</span></code>.</p>
+</dd>
+<dt><a class="reference internal" href="#pyqtgraph.ImageItem.setImage" title="pyqtgraph.ImageItem.setImage"><code class="xref py py-meth docutils literal notranslate"><span class="pre">setImage()</span></code></a></dt><dd><p>Accepts the value of <code class="docutils literal notranslate"><span class="pre">kwargs['image']</span></code>.</p>
+</dd>
+<dt><a class="reference internal" href="#pyqtgraph.ImageItem.setLevels" title="pyqtgraph.ImageItem.setLevels"><code class="xref py py-meth docutils literal notranslate"><span class="pre">setLevels()</span></code></a></dt><dd><p>Accepts the value of <code class="docutils literal notranslate"><span class="pre">kwargs['levels']</span></code>.</p>
+</dd>
+<dt><a class="reference internal" href="#pyqtgraph.ImageItem.setLookupTable" title="pyqtgraph.ImageItem.setLookupTable"><code class="xref py py-meth docutils literal notranslate"><span class="pre">setLookupTable()</span></code></a></dt><dd><p>Accepts the value of <code class="docutils literal notranslate"><span class="pre">kwargs['lut']</span></code>.</p>
+</dd>
+<dt><a class="reference external" href="https://doc.qt.io/qt-6/qgraphicsitem.html#setOpacity" title="(in Qt6 v6.11)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">QGraphicsItem.setOpacity</span></code></a></dt><dd><p>Accepts the value of <code class="docutils literal notranslate"><span class="pre">kwargs['opacity']</span></code>.</p>
+</dd>
+<dt><a class="reference internal" href="#pyqtgraph.ImageItem.setRect" title="pyqtgraph.ImageItem.setRect"><code class="xref py py-meth docutils literal notranslate"><span class="pre">setRect()</span></code></a></dt><dd><p>Accepts the value of <code class="docutils literal notranslate"><span class="pre">kwargs['rect']</span></code>.</p>
+</dd>
+</dl>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqtgraph.ImageItem.setPxMode">
+<span class="sig-name descname"><span class="pre">setPxMode</span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">b</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><span class="pre">bool</span></a></span></em>,</dd>
+</dl>
+
+<span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pyqtgraph/graphicsItems/ImageItem.html#ImageItem.setPxMode"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyqtgraph.ImageItem.setPxMode" title="Link to this definition">#</a></dt>
+<dd><p>Set whether item ignores transformations and draws directly to screen pixels.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>b</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a>) – If <code class="docutils literal notranslate"><span class="pre">True</span></code>, the item will not inherit any scale or rotation
+transformations from its parent items, but its position will be transformed
+as usual.</p>
+</dd>
+</dl>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<dl class="simple">
+<dt><a class="reference external" href="https://doc.qt.io/qt-6/qgraphicsitem.html#GraphicsItemFlag-enum" title="(in Qt6 v6.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">QGraphicsItem.GraphicsItemFlag</span></code></a> :</dt><dd><p>Read the description of <cite>ItemIgnoresTransformations</cite> for more information.</p>
+</dd>
+</dl>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqtgraph.ImageItem.setRect">
+<span class="sig-name descname"><span class="pre">setRect</span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>,</dd>
+</dl>
+
+<span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pyqtgraph/graphicsItems/ImageItem.html#ImageItem.setRect"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyqtgraph.ImageItem.setRect" title="Link to this definition">#</a></dt>
+<dd><p>Set view rectangle for the <a class="reference internal" href="#pyqtgraph.ImageItem" title="pyqtgraph.ImageItem"><code class="xref py py-class docutils literal notranslate"><span class="pre">ImageItem</span></code></a> to occupy.</p>
+<p>In addition to accepting a <a class="reference external" href="https://doc.qt.io/qt-6/qrectf.html" title="(in Qt6 v6.11)"><code class="docutils literal notranslate"><span class="pre">QRectF</span></code></a>, you can pass the numerical values
+representing the  <cite>x, y, w, h</cite>, where <cite>x, y</cite> represent the x, y coordinates
+of the top left corner, and <cite>w</cite> and <cite>h</cite> represent the width and height
+respectively.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>*args</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code></a>) – Contains one of <a class="reference external" href="https://doc.qt.io/qt-6/qrectf.html" title="(in Qt6 v6.11)"><code class="docutils literal notranslate"><span class="pre">QRectF</span></code></a>, <a class="reference external" href="https://doc.qt.io/qt-6/qrect.html" title="(in Qt6 v6.11)"><code class="docutils literal notranslate"><span class="pre">QRect</span></code></a>, or arguments that can be
+used to construct <a class="reference external" href="https://doc.qt.io/qt-6/qrectf.html" title="(in Qt6 v6.11)"><code class="docutils literal notranslate"><span class="pre">QRectF</span></code></a>.</p>
+</dd>
+</dl>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<dl class="simple">
+<dt><a class="reference external" href="https://doc.qt.io/qt-6/qrectf.html" title="(in Qt6 v6.11)"><code class="docutils literal notranslate"><span class="pre">QRectF</span></code></a></dt><dd><p>See constructor methods for allowable <cite>*args</cite>.</p>
+</dd>
+</dl>
+</div>
+<div class="admonition-notes admonition">
+<p class="admonition-title">Notes</p>
+<p>This method cannot be used before an image is assigned. See the
+<a class="reference internal" href="#imageitem-examples"><span class="std std-ref">examples</span></a> for how to manually set transformations.</p>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="plotitem.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">PlotItem</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="colorbaritem.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">ColorBarItem</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#notes">Notes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#performance">Performance</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#examples">Examples</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#scale-and-position-imageitem">Scale and Position ImageItem</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inheritance">Inheritance</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#api">API</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pyqtgraph.ImageItem"><code class="docutils literal notranslate"><span class="pre">ImageItem</span></code></a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#pyqtgraph.ImageItem.clear"><code class="docutils literal notranslate"><span class="pre">clear()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#pyqtgraph.ImageItem.getColorMap"><code class="docutils literal notranslate"><span class="pre">getColorMap()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#pyqtgraph.ImageItem.getHistogram"><code class="docutils literal notranslate"><span class="pre">getHistogram()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#pyqtgraph.ImageItem.getLevels"><code class="docutils literal notranslate"><span class="pre">getLevels()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#pyqtgraph.ImageItem.nanPolicy"><code class="docutils literal notranslate"><span class="pre">nanPolicy()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#pyqtgraph.ImageItem.pixelSize"><code class="docutils literal notranslate"><span class="pre">pixelSize()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#pyqtgraph.ImageItem.quickMinMax"><code class="docutils literal notranslate"><span class="pre">quickMinMax()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#pyqtgraph.ImageItem.save"><code class="docutils literal notranslate"><span class="pre">save()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#pyqtgraph.ImageItem.setAutoDownsample"><code class="docutils literal notranslate"><span class="pre">setAutoDownsample()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#pyqtgraph.ImageItem.setAutoLevels"><code class="docutils literal notranslate"><span class="pre">setAutoLevels()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#pyqtgraph.ImageItem.setBorder"><code class="docutils literal notranslate"><span class="pre">setBorder()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#pyqtgraph.ImageItem.setColorMap"><code class="docutils literal notranslate"><span class="pre">setColorMap()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#pyqtgraph.ImageItem.setCompositionMode"><code class="docutils literal notranslate"><span class="pre">setCompositionMode()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#pyqtgraph.ImageItem.setImage"><code class="docutils literal notranslate"><span class="pre">setImage()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#pyqtgraph.ImageItem.setLevels"><code class="docutils literal notranslate"><span class="pre">setLevels()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#pyqtgraph.ImageItem.setLookupTable"><code class="docutils literal notranslate"><span class="pre">setLookupTable()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#pyqtgraph.ImageItem.setNanPolicy"><code class="docutils literal notranslate"><span class="pre">setNanPolicy()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#pyqtgraph.ImageItem.setOpts"><code class="docutils literal notranslate"><span class="pre">setOpts()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#pyqtgraph.ImageItem.setPxMode"><code class="docutils literal notranslate"><span class="pre">setPxMode()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#pyqtgraph.ImageItem.setRect"><code class="docutils literal notranslate"><span class="pre">setRect()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../_static/scripts/bootstrap.js?digest=a95f357e85573c9b56d5"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=a95f357e85573c9b56d5"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2011 - 2026, PyQtGraph developers.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.0.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.19.0.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

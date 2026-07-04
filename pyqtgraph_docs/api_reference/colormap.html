@@ -1,0 +1,1216 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="../_static/docset-icon.png" sizes="16x16" rel="icon" type="image/png">
+    <link href="../_static/docset-icon@2x.png" sizes="32x32" rel="icon" type="image/png">
+    <link href="../_static/peegee_03_square_no_bg_32_cleaned.ico" rel="icon" type="image/x-icon">
+    <title>Color Maps &#8212; pyqtgraph 0.15.0.dev0 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=a95f357e85573c9b56d5" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=a95f357e85573c9b56d5" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=4ae1632d" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinxcontrib-images/LightBox2/lightbox2/dist/css/lightbox.min.css?v=6e7d0de0" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinxcontrib-images/LightBox2/lightbox2-customize/pointer.css?v=c97663ff" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=006a86f1" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../_static/scripts/fontawesome.js?digest=a95f357e85573c9b56d5"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=a95f357e85573c9b56d5" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=a95f357e85573c9b56d5" />
+
+    <script src="../_static/documentation_options.js?v=e3e50566"></script>
+    <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script src="../_static/sphinxcontrib-images/LightBox2/lightbox2/dist/js/lightbox-plus-jquery.min.js?v=f0ca4bb6"></script>
+    <script src="../_static/sphinxcontrib-images/LightBox2/lightbox2-customize/jquery-noconflict.js?v=12818e64"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'api_reference/colormap';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Parameter Trees" href="parametertree/index.html" />
+    <link rel="prev" title="MeshData" href="3dgraphics/meshdata.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="0.15.0.dev0" />
+  
+    
+    <script src="../_static/searchtools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../searchindex.js"></script>
+  
+  <script async type="text/javascript" src="/_/static/javascript/readthedocs-addons.js"></script><meta name="readthedocs-project-slug" content="pyqtgraph" /><meta name="readthedocs-version-slug" content="latest" /><meta name="readthedocs-resolver-filename" content="/api_reference/colormap.html" /><meta name="readthedocs-http-status" content="200" /></head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/peegee_02.svg" class="logo__image only-light" alt="pyqtgraph 0.15.0.dev0 documentation - Home"/>
+    <img src="../_static/peegee_02.svg" class="logo__image only-dark pst-js-only" alt="pyqtgraph 0.15.0.dev0 documentation - Home"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../getting_started/index.html">
+    Getting Started
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../user_guide/index.html">
+    User Guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../developer_guide/index.html">
+    Developer Guide
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="index.html">
+    API Reference
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/pyqtgraph/pyqtgraph" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i><span class="visually-hidden">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://fosstodon.org/@pyqtgraph" title="Mastodon" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-mastodon fa-lg" aria-hidden="true"></i><span class="visually-hidden">Mastodon</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../getting_started/index.html">
+    Getting Started
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../user_guide/index.html">
+    User Guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../developer_guide/index.html">
+    Developer Guide
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="index.html">
+    API Reference
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/pyqtgraph/pyqtgraph" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i><span class="visually-hidden">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://fosstodon.org/@pyqtgraph" title="Mastodon" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-mastodon fa-lg" aria-hidden="true"></i><span class="visually-hidden">Mastodon</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="config_options.html">Global Configuration Options</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functions.html">PyQtGraph’s Helper Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="graphicsItems/index.html">PyQtGraph’s Graphics Items</a></li>
+<li class="toctree-l1"><a class="reference internal" href="widgets/index.html">PyQtGraph’s Widgets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3dgraphics/index.html">PyQtGraph’s 3D Graphics System</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Color Maps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="parametertree/index.html">Parameter Trees</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dockarea.html">Dock Area Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="graphicsscene/index.html">GraphicsScene and Mouse Events</a></li>
+<li class="toctree-l1"><a class="reference internal" href="exporters/index.html">API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flowchart/index.html">Visual Programming with Flowcharts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="point.html">Point</a></li>
+<li class="toctree-l1"><a class="reference internal" href="transform3d.html">Transform3D</a></li>
+<li class="toctree-l1"><a class="reference internal" href="uml_overview.html">UML class diagram</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="index.html" class="nav-link">API Reference</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Color Maps</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="color-maps">
+<span id="apiref-colormap"></span><h1>Color Maps<a class="headerlink" href="#color-maps" title="Link to this heading">#</a></h1>
+<p>A color map defines a relationship between scalar data values and a range of colors. Color maps are
+commonly used to generate false color images, color scatter-plot points, and illustrate the height
+of surface plots.</p>
+<p>PyQtGraph’s <a class="reference internal" href="#pyqtgraph.ColorMap" title="pyqtgraph.ColorMap"><code class="xref py py-class docutils literal notranslate"><span class="pre">ColorMap</span></code></a> can conveniently be applied to images and interactively
+adjusted by using <a class="reference internal" href="graphicsItems/colorbaritem.html#pyqtgraph.ColorBarItem" title="pyqtgraph.ColorBarItem"><code class="xref py py-class docutils literal notranslate"><span class="pre">ColorBarItem</span></code></a>.
+To provide interactively user-defined color mappings, see
+<a class="reference internal" href="graphicsItems/gradienteditoritem.html#pyqtgraph.GradientEditorItem" title="pyqtgraph.GradientEditorItem"><code class="xref py py-class docutils literal notranslate"><span class="pre">GradientEditorItem</span></code></a> and <a class="reference internal" href="widgets/gradientwidget.html#pyqtgraph.GradientWidget" title="pyqtgraph.GradientWidget"><code class="xref py py-class docutils literal notranslate"><span class="pre">GradientWidget</span></code></a>, which wraps it.
+<a class="reference internal" href="graphicsItems/gradienteditoritem.html#pyqtgraph.GradientEditorItem" title="pyqtgraph.GradientEditorItem"><code class="xref py py-class docutils literal notranslate"><span class="pre">GradientEditorItem</span></code></a> combines the editing with a histogram and controls for
+interactively adjusting image levels.</p>
+<p>Setting a color map and adding a color bar can be as simple as:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>plot.addItem( img_item := pg.ImageItem(img_data) )
+plot.addColorBar( img_item, colorMap=&#39;viridis&#39;, values=(0, 1) )    ```
+</pre></div>
+</div>
+<p>ColorMap can also be used a convenient source of colors from a consistent palette or to generate
+<a class="reference external" href="https://doc.qt.io/qt-6/qpen.html" title="(in Qt6 v6.11)"><code class="docutils literal notranslate"><span class="pre">QPen</span></code></a> and <a class="reference external" href="https://doc.qt.io/qt-6/qbrush.html" title="(in Qt6 v6.11)"><code class="docutils literal notranslate"><span class="pre">QBrush</span></code></a> objects used to draw lines and fills that are colored according to
+their values along the horizontal or vertical axis.</p>
+<section id="sources-for-color-maps">
+<h2>Sources for color maps<a class="headerlink" href="#sources-for-color-maps" title="Link to this heading">#</a></h2>
+<p>Color maps can be user defined by assigning a number of <em>stops</em> over the range of 0 to 1. A color
+is given for each stop, and the in-between values are generated by interpolation.</p>
+<p>When map colors directly represent values, an improperly designed map can obscure detail over
+certain ranges of values, while creating false detail in others. PyQtGraph includes the
+perceptually uniform color maps provided by the
+<a class="reference external" href="https://colorcet.holoviz.org/">Colorcet project</a>. Color maps can also be imported from the
+<code class="docutils literal notranslate"><span class="pre">colorcet</span></code> library or from <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code>, if either of these is installed.</p>
+<p>To see all available color maps, please run the <cite>ColorMap</cite> demonstration available in the suite of
+<a class="reference internal" href="../getting_started/introduction.html#examples"><span class="std std-ref">Examples</span></a>.</p>
+</section>
+<section id="examples">
+<h2>Examples<a class="headerlink" href="#examples" title="Link to this heading">#</a></h2>
+<p>False color display of a 2D data set. Display levels are controlled by
+a <a class="reference internal" href="graphicsItems/colorbaritem.html#pyqtgraph.ColorBarItem" title="pyqtgraph.ColorBarItem"><code class="xref py py-class docutils literal notranslate"><span class="pre">ColorBarItem</span></code></a>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># prepare demonstration data:</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">fromfunction</span><span class="p">(</span><span class="k">lambda</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">:</span> <span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="mf">0.3</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">i</span><span class="p">))</span> <span class="o">*</span> <span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="n">j</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">))</span>
+<span class="n">noisy_data</span> <span class="o">=</span> <span class="n">data</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="mf">0.2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="p">)</span>
+
+<span class="c1"># Example: False color image with interactive level adjustment</span>
+<span class="n">img</span> <span class="o">=</span> <span class="n">pg</span><span class="o">.</span><span class="n">ImageItem</span><span class="p">(</span><span class="n">image</span><span class="o">=</span><span class="n">noisy_data</span><span class="p">)</span> <span class="c1"># create monochrome image from demonstration data</span>
+<span class="n">plot</span><span class="o">.</span><span class="n">addItem</span><span class="p">(</span> <span class="n">img</span> <span class="p">)</span>            <span class="c1"># add to PlotItem &#39;plot&#39;</span>
+<span class="n">cm</span> <span class="o">=</span> <span class="n">pg</span><span class="o">.</span><span class="n">colormap</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;CET-L9&#39;</span><span class="p">)</span> <span class="c1"># prepare a linear color map</span>
+<span class="n">bar</span> <span class="o">=</span> <span class="n">pg</span><span class="o">.</span><span class="n">ColorBarItem</span><span class="p">(</span> <span class="n">values</span><span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">20_000</span><span class="p">),</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cm</span> <span class="p">)</span> <span class="c1"># prepare interactive color bar</span>
+<span class="c1"># Have ColorBarItem control colors of img and appear in &#39;plot&#39;:</span>
+<span class="n">bar</span><span class="o">.</span><span class="n">setImageItem</span><span class="p">(</span> <span class="n">img</span><span class="p">,</span> <span class="n">insert_in</span><span class="o">=</span><span class="n">plot</span> <span class="p">)</span> 
+</pre></div>
+</div>
+<p>Using QtGui.QPen and QtGui.QBrush to color plots according to the plotted value:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Prepare demonstration data</span>
+<span class="n">raw</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mi">400</span><span class="p">)</span>
+<span class="n">y_data1</span> <span class="o">=</span> <span class="p">(</span> <span class="p">(</span><span class="n">raw</span><span class="o">+</span><span class="mf">0.1</span><span class="p">)</span><span class="o">%</span><span class="mi">1</span> <span class="p">)</span> <span class="o">**</span> <span class="mi">4</span>
+<span class="n">y_data2</span> <span class="o">=</span> <span class="p">(</span> <span class="p">(</span><span class="n">raw</span><span class="o">+</span><span class="mf">0.1</span><span class="p">)</span><span class="o">%</span><span class="mi">1</span> <span class="p">)</span> <span class="o">**</span> <span class="mi">4</span> <span class="o">-</span> <span class="p">(</span> <span class="p">(</span><span class="n">raw</span><span class="o">+</span><span class="mf">0.6</span><span class="p">)</span><span class="o">%</span><span class="mi">1</span> <span class="p">)</span> <span class="o">**</span> <span class="mi">4</span>
+
+<span class="c1"># Example 1: Gradient pen</span>
+<span class="n">cm</span> <span class="o">=</span> <span class="n">pg</span><span class="o">.</span><span class="n">colormap</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;CET-L17&#39;</span><span class="p">)</span> <span class="c1"># prepare a linear color map</span>
+<span class="n">cm</span><span class="o">.</span><span class="n">reverse</span><span class="p">()</span>                    <span class="c1"># reverse it to put light colors at the top </span>
+<span class="n">pen</span> <span class="o">=</span> <span class="n">cm</span><span class="o">.</span><span class="n">getPen</span><span class="p">(</span> <span class="n">span</span><span class="o">=</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span><span class="mf">1.0</span><span class="p">),</span> <span class="n">width</span><span class="o">=</span><span class="mi">5</span> <span class="p">)</span> <span class="c1"># gradient from blue (y=0) to white (y=1)</span>
+<span class="c1"># plot a curve drawn with a pen colored according to y value:</span>
+<span class="n">curve1</span> <span class="o">=</span> <span class="n">pg</span><span class="o">.</span><span class="n">PlotDataItem</span><span class="p">(</span> <span class="n">y</span><span class="o">=</span><span class="n">y_data1</span><span class="p">,</span> <span class="n">pen</span><span class="o">=</span><span class="n">pen</span> <span class="p">)</span>
+
+<span class="c1"># Example 2: Gradient brush</span>
+<span class="n">cm</span> <span class="o">=</span> <span class="n">pg</span><span class="o">.</span><span class="n">colormap</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;CET-D1&#39;</span><span class="p">)</span> <span class="c1"># prepare a diverging color map</span>
+<span class="n">cm</span><span class="o">.</span><span class="n">setMappingMode</span><span class="p">(</span><span class="s1">&#39;diverging&#39;</span><span class="p">)</span> <span class="c1"># set mapping mode</span>
+<span class="n">brush</span> <span class="o">=</span> <span class="n">cm</span><span class="o">.</span><span class="n">getBrush</span><span class="p">(</span> <span class="n">span</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">)</span> <span class="p">)</span> <span class="c1"># gradient from blue at -1 to red at +1</span>
+<span class="c1"># plot a curve that is filled to zero with the gradient brush:</span>
+<span class="n">curve2</span> <span class="o">=</span> <span class="n">pg</span><span class="o">.</span><span class="n">PlotDataItem</span><span class="p">(</span> <span class="n">y</span><span class="o">=</span><span class="n">y_data2</span><span class="p">,</span> <span class="n">pen</span><span class="o">=</span><span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="n">brush</span><span class="o">=</span><span class="n">brush</span><span class="p">,</span> <span class="n">fillLevel</span><span class="o">=</span><span class="mf">0.0</span> <span class="p">)</span>
+</pre></div>
+</div>
+<a class=""
+               data-lightbox="group-bd99a016-3c10-4a70-a7c9-b00d7a798dec"
+               href="../_images/example_false_color_image1.png"
+               title="False color image"
+               data-title="False color image"
+               
+               ><img src="../_images/example_false_color_image1.png"
+                     class=""
+                     width="49%"
+                     height="auto"
+                     alt="Example of a false color image"/>
+                </a><a class=""
+               data-lightbox="group-3952f04f-1b7b-43ea-b4f8-42002030b5c8"
+               href="../_images/example_gradient_plot1.png"
+               title="Drawing and filling plots with gradients"
+               data-title="Drawing and filling plots with gradients"
+               
+               ><img src="../_images/example_gradient_plot1.png"
+                     class=""
+                     width="49%"
+                     height="auto"
+                     alt="Example of drawing and filling plots with gradients"/>
+                </a><p>The use of color maps is also demonstrated in the <cite>ImageView</cite>, <cite>Color Gradient Plots</cite> and <cite>ColorBarItem</cite>
+<a class="reference internal" href="../getting_started/introduction.html#examples"><span class="std std-ref">Examples</span></a>.</p>
+</section>
+<section id="api-reference">
+<h2>API Reference<a class="headerlink" href="#api-reference" title="Link to this heading">#</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="pyqtgraph.colormap.listMaps">
+<span class="sig-prename descclassname"><span class="pre">pyqtgraph.colormap.</span></span><span class="sig-name descname"><span class="pre">listMaps</span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">source</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>,</dd>
+</dl>
+
+<span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyqtgraph/colormap.html#listMaps"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyqtgraph.colormap.listMaps" title="Link to this definition">#</a></dt>
+<dd><div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Experimental, subject to change.</p>
+</div>
+<p>List available color maps.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>source</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>, <em>optional</em>) –</p>
+<p>Color map source. If omitted, locally stored maps are listed. Otherwise:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>‘matplotlib’ lists maps that can be imported from Matplotlib</p></li>
+<li><p>‘colorcet’ lists maps that can be imported from ColorCET</p></li>
+</ul>
+</div></blockquote>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Known color map names.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a> of <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyqtgraph.colormap.get">
+<span class="sig-prename descclassname"><span class="pre">pyqtgraph.colormap.</span></span><span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">source</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">skipCache</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>,</dd>
+</dl>
+
+<span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyqtgraph/colormap.html#get"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyqtgraph.colormap.get" title="Link to this definition">#</a></dt>
+<dd><div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Experimental, subject to change.</p>
+</div>
+<p>Returns a ColorMap object from a local definition or imported from another library.
+The generated ColorMap objects are cached for fast repeated access.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul>
+<li><p><strong>name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>) – Name of color map. In addition to the included maps, this can also
+be a path to a file in the local folder. See the files in the
+<code class="docutils literal notranslate"><span class="pre">pyqtgraph/colors/maps/</span></code> folder for examples of the format.</p></li>
+<li><p><strong>source</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>, <em>optional</em>) –</p>
+<p>If omitted, a locally stored map is returned. Otherwise:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>‘matplotlib’ imports a map defined by Matplotlib.</p></li>
+<li><p>‘colorcet’ imports a map defined by ColorCET.</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p><strong>skipCache</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a>, <em>optional</em>) – If <cite>skipCache=True</cite>, the internal cache is skipped and a new
+ColorMap object is generated. This can load an unaltered copy
+when the previous ColorMap object has been modified.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyqtgraph.colormap.getFromMatplotlib">
+<span class="sig-prename descclassname"><span class="pre">pyqtgraph.colormap.</span></span><span class="sig-name descname"><span class="pre">getFromMatplotlib</span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>,</dd>
+</dl>
+
+<span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyqtgraph/colormap.html#getFromMatplotlib"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyqtgraph.colormap.getFromMatplotlib" title="Link to this definition">#</a></dt>
+<dd><p>Generates a ColorMap object from a Matplotlib definition.
+Same as <code class="docutils literal notranslate"><span class="pre">colormap.get(name,</span> <span class="pre">source='matplotlib')</span></code>.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyqtgraph.colormap.getFromColorcet">
+<span class="sig-prename descclassname"><span class="pre">pyqtgraph.colormap.</span></span><span class="sig-name descname"><span class="pre">getFromColorcet</span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>,</dd>
+</dl>
+
+<span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyqtgraph/colormap.html#getFromColorcet"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyqtgraph.colormap.getFromColorcet" title="Link to this definition">#</a></dt>
+<dd><p>Generates a ColorMap object from a colorcet definition. Same as <code class="docutils literal notranslate"><span class="pre">colormap.get(name,</span> <span class="pre">source='colorcet')</span></code>.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyqtgraph.colormap.modulatedBarData">
+<span class="sig-prename descclassname"><span class="pre">pyqtgraph.colormap.</span></span><span class="sig-name descname"><span class="pre">modulatedBarData</span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">length</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">768</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">width</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">32</span></span></em>,</dd>
+</dl>
+
+<span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyqtgraph/colormap.html#modulatedBarData"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyqtgraph.colormap.modulatedBarData" title="Link to this definition">#</a></dt>
+<dd><p>Returns an NumPy array that represents a modulated color bar ranging from 0 to 1.
+This is used to judge the perceived variation of the color gradient.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>length</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>) – Length of the data set. Values will vary from 0 to 1 over this axis.</p></li>
+<li><p><strong>width</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>) – Width of the data set. The modulation will vary from 0% to 4% over this axis.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pyqtgraph.ColorMap">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">pyqtgraph.</span></span><span class="sig-name descname"><span class="pre">ColorMap</span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">pos</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">color</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">mapping</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">ColorMap.CLIP</span></span></em>,</dd>
+</dl>
+
+<span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyqtgraph/colormap.html#ColorMap"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyqtgraph.ColorMap" title="Link to this definition">#</a></dt>
+<dd><p>ColorMap stores a mapping of specific data values to colors, for example:</p>
+<blockquote>
+<div><div class="line-block">
+<div class="line">0.0 → black</div>
+<div class="line">0.2 → red</div>
+<div class="line">0.6 → yellow</div>
+<div class="line">1.0 → white</div>
+</div>
+</div></blockquote>
+<p>The colors for intermediate values are determined by interpolating between
+the two nearest colors in RGB color space.</p>
+<p>A ColorMap object provides access to the interpolated colors by indexing with a float value:
+<code class="docutils literal notranslate"><span class="pre">cm[0.5]</span></code> returns a QColor corresponding to the center of ColorMap <cite>cm</cite>.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqtgraph.ColorMap.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">pos</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">color</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">mapping</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">ColorMap.CLIP</span></span></em>,</dd>
+</dl>
+
+<span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyqtgraph/colormap.html#ColorMap.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyqtgraph.ColorMap.__init__" title="Link to this definition">#</a></dt>
+<dd><dl class="field-list">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul>
+<li><p><strong>pos</strong> (<a class="reference external" href="https://numpy.org/doc/stable/glossary.html#term-array_like" title="(in NumPy v2.4)"><span class="xref std std-term">array_like</span></a> of <a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a>, <em>optional</em>) – Assigned positions of specified colors. <cite>None</cite> sets equal spacing.
+Values need to be in range 0.0-1.0.</p></li>
+<li><p><strong>color</strong> (<a class="reference external" href="https://numpy.org/doc/stable/glossary.html#term-array_like" title="(in NumPy v2.4)"><span class="xref std std-term">array_like</span></a> of <a class="reference internal" href="functions.html#pyqtgraph.functions.color_like" title="pyqtgraph.functions.color_like"><code class="xref py py-obj docutils literal notranslate"><span class="pre">color_like</span></code></a>) – List of colors, interpreted via <a class="reference internal" href="functions.html#pyqtgraph.mkColor" title="pyqtgraph.mkColor"><code class="xref py py-func docutils literal notranslate"><span class="pre">mkColor()</span></code></a>.</p></li>
+<li><p><strong>mapping</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a> or <a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>, <em>optional</em>) – Controls how values outside the 0 to 1 range are mapped to colors.
+See <a class="reference internal" href="#pyqtgraph.ColorMap.setMappingMode" title="pyqtgraph.ColorMap.setMappingMode"><code class="xref py py-func docutils literal notranslate"><span class="pre">setMappingMode()</span></code></a> for details.</p>
+<p>The default of <cite>ColorMap.CLIP</cite> continues to show
+the colors assigned to 0 and 1 for all values below or above this range, respectively.</p>
+</li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqtgraph.ColorMap.getBrush">
+<span class="sig-name descname"><span class="pre">getBrush</span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">span</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(0.0,</span> <span class="pre">1.0)</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">orientation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'vertical'</span></span></em>,</dd>
+</dl>
+
+<span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyqtgraph/colormap.html#ColorMap.getBrush"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyqtgraph.ColorMap.getBrush" title="Link to this definition">#</a></dt>
+<dd><p>Returns a QBrush painting with the color map applied over the selected span of plot values.
+When the mapping mode is set to <cite>ColorMap.MIRROR</cite>, the selected span includes the color map twice,
+first in reversed order and then normal.</p>
+<p>It is recommended to store and reuse this gradient brush instead of regenerating it repeatedly.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul>
+<li><p><strong>span</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code></a> of <a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a>, <em>optional</em>) –</p>
+<p>Span of data values covered by the gradient:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Color map value 0.0 will appear at <cite>min</cite>,</p></li>
+<li><p>Color map value 1.0 will appear at <cite>max</cite>.</p></li>
+</ul>
+</div></blockquote>
+<p>Default value is (0., 1.)</p>
+</li>
+<li><p><strong>orientation</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>, <em>default</em> <code class="docutils literal notranslate"><span class="pre">'vertical'</span></code>) –</p>
+<p>Orientation of the gradient:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>‘vertical’: <cite>span</cite> corresponds to the <cite>y</cite> coordinate.</p></li>
+<li><p>‘horizontal’: <cite>span</cite> corresponds to the <cite>x</cite> coordinate.</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqtgraph.ColorMap.getByIndex">
+<span class="sig-name descname"><span class="pre">getByIndex</span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">idx</span></span></em>,</dd>
+</dl>
+
+<span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyqtgraph/colormap.html#ColorMap.getByIndex"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyqtgraph.ColorMap.getByIndex" title="Link to this definition">#</a></dt>
+<dd><p>Retrieve a QColor by the index of the stop it is assigned to.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqtgraph.ColorMap.getColors">
+<span class="sig-name descname"><span class="pre">getColors</span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>,</dd>
+</dl>
+
+<span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyqtgraph/colormap.html#ColorMap.getColors"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyqtgraph.ColorMap.getColors" title="Link to this definition">#</a></dt>
+<dd><p>Returns a list of the colors associated with the stops of the color map.</p>
+<dl class="simple">
+<dt>The parameter <cite>mode</cite> can be one of</dt><dd><ul class="simple">
+<li><p><cite>ColorMap.BYTE</cite> or ‘byte’ to return colors as RGBA tuples in byte format (0 to 255)</p></li>
+<li><p><cite>ColorMap.FLOAT</cite> or ‘float’ to return colors as RGBA tuples in float format (0.0 to 1.0)</p></li>
+<li><p><cite>ColorMap.QCOLOR</cite> or ‘qcolor’ to return a list of QColors</p></li>
+</ul>
+</dd>
+</dl>
+<p>The default is byte format.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqtgraph.ColorMap.getGradient">
+<span class="sig-name descname"><span class="pre">getGradient</span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">p1</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">p2</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>,</dd>
+</dl>
+
+<span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyqtgraph/colormap.html#ColorMap.getGradient"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyqtgraph.ColorMap.getGradient" title="Link to this definition">#</a></dt>
+<dd><p>Returns a QtGui.QLinearGradient corresponding to this ColorMap.
+The span and orientation is given by two points in plot coordinates.</p>
+<p>When no parameters are given for <cite>p1</cite> and <cite>p2</cite>, the gradient is mapped to the
+<cite>y</cite> coordinates 0 to 1, unless the color map is defined for a more limited range.</p>
+<p>This is a somewhat expensive operation, and it is recommended to store and reuse the returned
+gradient instead of repeatedly regenerating it.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p1</strong> (<a class="reference external" href="https://doc.qt.io/qt-6/qpointf.html" title="(in Qt6 v6.11)"><code class="docutils literal notranslate"><span class="pre">QPointF</span></code></a>, <em>optional</em>) – Starting point (value 0) of the gradient. Default value is QPointF(0., 0.)</p></li>
+<li><p><strong>p2</strong> (<a class="reference external" href="https://doc.qt.io/qt-6/qpointf.html" title="(in Qt6 v6.11)"><code class="docutils literal notranslate"><span class="pre">QPointF</span></code></a>, <em>optional</em>) – End point (value 1) of the gradient. Default parameter <cite>dy</cite> is the span of <code class="docutils literal notranslate"><span class="pre">max(pos)</span> <span class="pre">-</span> <span class="pre">min(pos)</span></code>
+over which the color map is defined, typically <cite>dy=1</cite>.  Default is QPointF(dy, 0.)</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqtgraph.ColorMap.getLookupTable">
+<span class="sig-name descname"><span class="pre">getLookupTable</span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">start</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">stop</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">nPts</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">512</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">ColorMap.BYTE</span></span></em>,</dd>
+</dl>
+
+<span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyqtgraph/colormap.html#ColorMap.getLookupTable"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyqtgraph.ColorMap.getLookupTable" title="Link to this definition">#</a></dt>
+<dd><p>Returns an equally-spaced lookup table of RGB(A) values created
+by interpolating the specified color stops.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>start</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a>, <em>default</em> <code class="docutils literal notranslate"><span class="pre">0.0</span></code>) – The starting value in the lookup table</p></li>
+<li><p><strong>stop</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a>, <em>default</em> <code class="docutils literal notranslate"><span class="pre">1.0</span></code>) – The final value in the lookup table</p></li>
+<li><p><strong>nPts</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>, <em>default</em> <code class="docutils literal notranslate"><span class="pre">512</span></code>) – The number of points in the returned lookup table.</p></li>
+<li><p><strong>alpha</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a>, <em>optional</em>) – Specifies whether or not alpha values are included in the table.
+If alpha is None, it will be automatically determined.</p></li>
+<li><p><strong>mode</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a> or <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>, <em>default</em> <code class="docutils literal notranslate"><span class="pre">'byte'</span></code>) – Determines return type as described in <a class="reference internal" href="#pyqtgraph.ColorMap.map" title="pyqtgraph.ColorMap.map"><code class="xref py py-func docutils literal notranslate"><span class="pre">map()</span></code></a>, can be
+either <cite>ColorMap.BYTE</cite> (0 to 255), <cite>ColorMap.FLOAT</cite> (0.0 to 1.0) or <cite>ColorMap.QColor</cite>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul>
+<li><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.4)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a> of <code class="docutils literal notranslate"><span class="pre">{``ColorMap.BYTE</span></code>, <code class="docutils literal notranslate"><span class="pre">ColorMap.FLOAT</span></code>}`` – for <cite>ColorMap.BYTE</cite> or <cite>ColorMap.FLOAT</cite>:</p>
+<p>RGB values for each <cite>data</cite> value, arranged in the same shape as <cite>data</cite>.
+If alpha values are included the array has shape (<cite>nPts</cite>, 4), otherwise (<cite>nPts</cite>, 3).</p>
+</li>
+<li><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a> of <a class="reference external" href="https://doc.qt.io/qt-6/qcolor.html" title="(in Qt6 v6.11)"><code class="docutils literal notranslate"><span class="pre">QColor</span></code></a> – for <cite>ColorMap.QCOLOR</cite>:</p>
+<p>Colors for each <cite>data</cite> value as QColor objects.</p>
+</li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqtgraph.ColorMap.getPen">
+<span class="sig-name descname"><span class="pre">getPen</span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">span</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(0.0,</span> <span class="pre">1.0)</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">orientation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'vertical'</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">width</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>,</dd>
+</dl>
+
+<span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyqtgraph/colormap.html#ColorMap.getPen"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyqtgraph.ColorMap.getPen" title="Link to this definition">#</a></dt>
+<dd><p>Returns a QPen that draws according to the color map based on vertical or horizontal position.</p>
+<p>It is recommended to store and reuse this gradient pen instead of regenerating it repeatedly.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul>
+<li><p><strong>span</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code></a> of <a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a>) –</p>
+<p>Span of the data values covered by the gradient:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Color map value 0.0 will appear at <cite>min</cite>.</p></li>
+<li><p>Color map value 1.0 will appear at <cite>max</cite>.</p></li>
+</ul>
+</div></blockquote>
+<p>Default is (0., 1.)</p>
+</li>
+<li><p><strong>orientation</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>, <em>default</em> <code class="docutils literal notranslate"><span class="pre">'vertical'</span></code>) –</p>
+<p>Orientation of the gradient:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>‘vertical’ creates a vertical gradient, where <cite>span</cite> corresponds to the <cite>y</cite> coordinate.</p></li>
+<li><p>‘horizontal’ creates a horizontal gradient, where <cite>span</cite> corresponds to the <cite>x</cite> coordinate.</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p><strong>width</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a> or <a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a>) – Width of the pen in pixels on screen.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqtgraph.ColorMap.getStops">
+<span class="sig-name descname"><span class="pre">getStops</span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>,</dd>
+</dl>
+
+<span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyqtgraph/colormap.html#ColorMap.getStops"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyqtgraph.ColorMap.getStops" title="Link to this definition">#</a></dt>
+<dd><p>Returns a tuple (stops, colors) containing a list of all stops (ranging 0.0 to 1.0)
+and a list of the associated colors.</p>
+<dl class="simple">
+<dt>The parameter <cite>mode</cite> can be one of</dt><dd><ul class="simple">
+<li><p><cite>ColorMap.BYTE</cite> or ‘byte’ to return colors as RGBA tuples in byte format (0 to 255)</p></li>
+<li><p><cite>ColorMap.FLOAT</cite> or ‘float’ to return colors as RGBA tuples in float format (0.0 to 1.0)</p></li>
+<li><p><cite>ColorMap.QCOLOR</cite> or ‘qcolor’ to return a list of QColors</p></li>
+</ul>
+</dd>
+</dl>
+<p>The default is byte format.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqtgraph.ColorMap.getSubset">
+<span class="sig-name descname"><span class="pre">getSubset</span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">start</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">span</span></span></em>,</dd>
+</dl>
+
+<span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyqtgraph/colormap.html#ColorMap.getSubset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyqtgraph.ColorMap.getSubset" title="Link to this definition">#</a></dt>
+<dd><p>Returns a new ColorMap object that extracts the subset specified by ‘start’ and ‘length’
+to the full 0.0 to 1.0 range. A negative length results in a color map that is reversed
+relative to the original.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>start</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a>) – Starting value that defines the 0.0 value of the new color map.
+Possible value between 0.0 to 1.0</p></li>
+<li><p><strong>span</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a>) – Span of the extracted region. The original color map will be
+treated as cyclical if the extracted interval exceeds the
+0.0 to 1.0 range.  Possible values between -1.0 to 1.0.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqtgraph.ColorMap.isMapTrivial">
+<span class="sig-name descname"><span class="pre">isMapTrivial</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyqtgraph/colormap.html#ColorMap.isMapTrivial"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyqtgraph.ColorMap.isMapTrivial" title="Link to this definition">#</a></dt>
+<dd><p>Returns <cite>True</cite> if the gradient has exactly two stops in it: Black at 0.0 and white at 1.0.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqtgraph.ColorMap.linearize">
+<span class="sig-name descname"><span class="pre">linearize</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyqtgraph/colormap.html#ColorMap.linearize"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyqtgraph.ColorMap.linearize" title="Link to this definition">#</a></dt>
+<dd><p>Adjusts the positions assigned to color stops to approximately equalize the perceived color difference
+for a fixed step.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqtgraph.ColorMap.map">
+<span class="sig-name descname"><span class="pre">map</span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">ColorMap.BYTE</span></span></em>,</dd>
+</dl>
+
+<span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyqtgraph/colormap.html#ColorMap.map"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyqtgraph.ColorMap.map" title="Link to this definition">#</a></dt>
+<dd><p>Returns an array of colors corresponding to a single value or an array of values.
+Data must be either a scalar position or an array (any shape) of positions.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul>
+<li><p><strong>data</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a> or <a class="reference external" href="https://numpy.org/doc/stable/glossary.html#term-array_like" title="(in NumPy v2.4)"><span class="xref std std-term">array_like</span></a> of <a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a>) – Scalar value(s) to be mapped to colors</p></li>
+<li><p><strong>mode</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a> or <a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>, <em>optional</em>) –</p>
+<p>Determines return format:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><cite>ColorMap.BYTE</cite> or ‘byte’: Colors are returned as 0-255 unsigned bytes. (default)</p></li>
+<li><p><cite>ColorMap.FLOAT</cite> or ‘float’: Colors are returned as 0.0-1.0 floats.</p></li>
+<li><p><cite>ColorMap.QCOLOR</cite> or ‘qcolor’: Colors are returned as QColor objects.</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul>
+<li><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.4)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a> of <code class="docutils literal notranslate"><span class="pre">{``ColorMap.BYTE</span></code>, <code class="docutils literal notranslate"><span class="pre">ColorMap.FLOAT</span></code>, QColor}`` – for <cite>ColorMap.BYTE</cite> or <cite>ColorMap.FLOAT</cite>:</p>
+<p>RGB values for each <cite>data</cite> value, arranged in the same shape as <cite>data</cite>.</p>
+</li>
+<li><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a> of <a class="reference external" href="https://doc.qt.io/qt-6/qcolor.html" title="(in Qt6 v6.11)"><code class="docutils literal notranslate"><span class="pre">QColor</span></code></a> – for <cite>ColorMap.QCOLOR</cite>:</p>
+<p>Colors for each <cite>data</cite> value as QColor objects.</p>
+</li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqtgraph.ColorMap.mapToByte">
+<span class="sig-name descname"><span class="pre">mapToByte</span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>,</dd>
+</dl>
+
+<span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyqtgraph/colormap.html#ColorMap.mapToByte"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyqtgraph.ColorMap.mapToByte" title="Link to this definition">#</a></dt>
+<dd><p>Convenience function; see <a class="reference internal" href="#pyqtgraph.ColorMap.map" title="pyqtgraph.ColorMap.map"><code class="xref py py-func docutils literal notranslate"><span class="pre">map()</span></code></a>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqtgraph.ColorMap.mapToFloat">
+<span class="sig-name descname"><span class="pre">mapToFloat</span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>,</dd>
+</dl>
+
+<span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyqtgraph/colormap.html#ColorMap.mapToFloat"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyqtgraph.ColorMap.mapToFloat" title="Link to this definition">#</a></dt>
+<dd><p>Convenience function; see <a class="reference internal" href="#pyqtgraph.ColorMap.map" title="pyqtgraph.ColorMap.map"><code class="xref py py-func docutils literal notranslate"><span class="pre">map()</span></code></a>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqtgraph.ColorMap.mapToQColor">
+<span class="sig-name descname"><span class="pre">mapToQColor</span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>,</dd>
+</dl>
+
+<span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyqtgraph/colormap.html#ColorMap.mapToQColor"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyqtgraph.ColorMap.mapToQColor" title="Link to this definition">#</a></dt>
+<dd><p>Convenience function; see <a class="reference internal" href="#pyqtgraph.ColorMap.map" title="pyqtgraph.ColorMap.map"><code class="xref py py-func docutils literal notranslate"><span class="pre">map()</span></code></a>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqtgraph.ColorMap.reverse">
+<span class="sig-name descname"><span class="pre">reverse</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyqtgraph/colormap.html#ColorMap.reverse"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyqtgraph.ColorMap.reverse" title="Link to this definition">#</a></dt>
+<dd><p>Reverses the color map, so that the color assigned to a value of 1 now appears at 0 and vice versa.
+This is convenient to adjust imported color maps.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqtgraph.ColorMap.setMappingMode">
+<span class="sig-name descname"><span class="pre">setMappingMode</span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">mapping</span></span></em>,</dd>
+</dl>
+
+<span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyqtgraph/colormap.html#ColorMap.setMappingMode"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyqtgraph.ColorMap.setMappingMode" title="Link to this definition">#</a></dt>
+<dd><p>Sets the way that values outside of the range 0 to 1 are mapped to colors.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>mapping</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a> or <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>) – Sets mapping mode to</p>
+<ul class="simple">
+<li><p><cite>ColorMap.CLIP</cite> or ‘clip’: Values are clipped to the range 0 to 1. ColorMap defaults to this.</p></li>
+<li><p><cite>ColorMap.REPEAT</cite> or ‘repeat’: Colors repeat cyclically, i.e. range 1 to 2 repeats the colors for 0 to 1.</p></li>
+<li><p><cite>ColorMap.MIRROR</cite> or ‘mirror’: The range 0 to -1 uses same colors (in reverse order) as 0 to 1.</p></li>
+<li><p><cite>ColorMap.DIVERGING</cite> or ‘diverging’: Colors are mapped to -1 to 1 such that the central value appears at 0.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqtgraph.ColorMap.usesAlpha">
+<span class="sig-name descname"><span class="pre">usesAlpha</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyqtgraph/colormap.html#ColorMap.usesAlpha"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyqtgraph.ColorMap.usesAlpha" title="Link to this definition">#</a></dt>
+<dd><p>Returns <cite>True</cite> if any stops have assigned colors with alpha &lt; 255.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="3dgraphics/meshdata.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">MeshData</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="parametertree/index.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Parameter Trees</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sources-for-color-maps">Sources for color maps</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#examples">Examples</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#api-reference">API Reference</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pyqtgraph.colormap.listMaps"><code class="docutils literal notranslate"><span class="pre">listMaps()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pyqtgraph.colormap.get"><code class="docutils literal notranslate"><span class="pre">get()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pyqtgraph.colormap.getFromMatplotlib"><code class="docutils literal notranslate"><span class="pre">getFromMatplotlib()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pyqtgraph.colormap.getFromColorcet"><code class="docutils literal notranslate"><span class="pre">getFromColorcet()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pyqtgraph.colormap.modulatedBarData"><code class="docutils literal notranslate"><span class="pre">modulatedBarData()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pyqtgraph.ColorMap"><code class="docutils literal notranslate"><span class="pre">ColorMap</span></code></a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#pyqtgraph.ColorMap.__init__"><code class="docutils literal notranslate"><span class="pre">__init__()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#pyqtgraph.ColorMap.getBrush"><code class="docutils literal notranslate"><span class="pre">getBrush()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#pyqtgraph.ColorMap.getByIndex"><code class="docutils literal notranslate"><span class="pre">getByIndex()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#pyqtgraph.ColorMap.getColors"><code class="docutils literal notranslate"><span class="pre">getColors()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#pyqtgraph.ColorMap.getGradient"><code class="docutils literal notranslate"><span class="pre">getGradient()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#pyqtgraph.ColorMap.getLookupTable"><code class="docutils literal notranslate"><span class="pre">getLookupTable()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#pyqtgraph.ColorMap.getPen"><code class="docutils literal notranslate"><span class="pre">getPen()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#pyqtgraph.ColorMap.getStops"><code class="docutils literal notranslate"><span class="pre">getStops()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#pyqtgraph.ColorMap.getSubset"><code class="docutils literal notranslate"><span class="pre">getSubset()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#pyqtgraph.ColorMap.isMapTrivial"><code class="docutils literal notranslate"><span class="pre">isMapTrivial()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#pyqtgraph.ColorMap.linearize"><code class="docutils literal notranslate"><span class="pre">linearize()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#pyqtgraph.ColorMap.map"><code class="docutils literal notranslate"><span class="pre">map()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#pyqtgraph.ColorMap.mapToByte"><code class="docutils literal notranslate"><span class="pre">mapToByte()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#pyqtgraph.ColorMap.mapToFloat"><code class="docutils literal notranslate"><span class="pre">mapToFloat()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#pyqtgraph.ColorMap.mapToQColor"><code class="docutils literal notranslate"><span class="pre">mapToQColor()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#pyqtgraph.ColorMap.reverse"><code class="docutils literal notranslate"><span class="pre">reverse()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#pyqtgraph.ColorMap.setMappingMode"><code class="docutils literal notranslate"><span class="pre">setMappingMode()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#pyqtgraph.ColorMap.usesAlpha"><code class="docutils literal notranslate"><span class="pre">usesAlpha()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=a95f357e85573c9b56d5"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=a95f357e85573c9b56d5"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2011 - 2026, PyQtGraph developers.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.0.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.19.0.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

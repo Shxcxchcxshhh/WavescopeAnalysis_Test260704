@@ -1,0 +1,705 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="../_static/docset-icon.png" sizes="16x16" rel="icon" type="image/png">
+    <link href="../_static/docset-icon@2x.png" sizes="32x32" rel="icon" type="image/png">
+    <link href="../_static/peegee_03_square_no_bg_32_cleaned.ico" rel="icon" type="image/x-icon">
+    <title>How to use pyqtgraph &#8212; pyqtgraph 0.15.0.dev0 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=a95f357e85573c9b56d5" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=a95f357e85573c9b56d5" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=4ae1632d" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinxcontrib-images/LightBox2/lightbox2/dist/css/lightbox.min.css?v=6e7d0de0" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinxcontrib-images/LightBox2/lightbox2-customize/pointer.css?v=c97663ff" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=006a86f1" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../_static/scripts/fontawesome.js?digest=a95f357e85573c9b56d5"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=a95f357e85573c9b56d5" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=a95f357e85573c9b56d5" />
+
+    <script src="../_static/documentation_options.js?v=e3e50566"></script>
+    <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script src="../_static/sphinxcontrib-images/LightBox2/lightbox2/dist/js/lightbox-plus-jquery.min.js?v=f0ca4bb6"></script>
+    <script src="../_static/sphinxcontrib-images/LightBox2/lightbox2-customize/jquery-noconflict.js?v=12818e64"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'getting_started/how_to_use';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Plotting in pyqtgraph" href="plotting.html" />
+    <link rel="prev" title="Installation" href="installation.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="0.15.0.dev0" />
+  
+    
+    <script src="../_static/searchtools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../searchindex.js"></script>
+  
+  <script async type="text/javascript" src="/_/static/javascript/readthedocs-addons.js"></script><meta name="readthedocs-project-slug" content="pyqtgraph" /><meta name="readthedocs-version-slug" content="latest" /><meta name="readthedocs-resolver-filename" content="/getting_started/how_to_use.html" /><meta name="readthedocs-http-status" content="200" /></head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/peegee_02.svg" class="logo__image only-light" alt="pyqtgraph 0.15.0.dev0 documentation - Home"/>
+    <img src="../_static/peegee_02.svg" class="logo__image only-dark pst-js-only" alt="pyqtgraph 0.15.0.dev0 documentation - Home"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="index.html">
+    Getting Started
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../user_guide/index.html">
+    User Guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../developer_guide/index.html">
+    Developer Guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../api_reference/index.html">
+    API Reference
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/pyqtgraph/pyqtgraph" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i><span class="visually-hidden">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://fosstodon.org/@pyqtgraph" title="Mastodon" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-mastodon fa-lg" aria-hidden="true"></i><span class="visually-hidden">Mastodon</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="index.html">
+    Getting Started
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../user_guide/index.html">
+    User Guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../developer_guide/index.html">
+    Developer Guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../api_reference/index.html">
+    API Reference
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/pyqtgraph/pyqtgraph" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i><span class="visually-hidden">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://fosstodon.org/@pyqtgraph" title="Mastodon" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-mastodon fa-lg" aria-hidden="true"></i><span class="visually-hidden">Mastodon</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">How to use pyqtgraph</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plotting.html">Plotting in pyqtgraph</a></li>
+<li class="toctree-l1"><a class="reference internal" href="images.html">Displaying images and video</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3dgraphics.html">3D Graphics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="prototyping.html">Rapid GUI prototyping</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qtcrashcourse.html">Qt Crash Course</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="index.html" class="nav-link">Getting Started</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">How to use pyqtgraph</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="how-to-use-pyqtgraph">
+<h1>How to use pyqtgraph<a class="headerlink" href="#how-to-use-pyqtgraph" title="Link to this heading">#</a></h1>
+<p>There are a few suggested ways to use pyqtgraph:</p>
+<ul class="simple">
+<li><p>From the interactive shell (python -i, ipython, etc)</p></li>
+<li><p>Displaying pop-up windows from an application</p></li>
+<li><p>Embedding widgets in a PyQt application</p></li>
+</ul>
+<section id="command-line-use">
+<h2>Command-line use<a class="headerlink" href="#command-line-use" title="Link to this heading">#</a></h2>
+<p>PyQtGraph makes it very easy to visualize data from the command line. Observe:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pyqtgraph</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pg</span>
+<span class="n">pg</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>   <span class="c1"># data can be a list of values or a numpy array</span>
+</pre></div>
+</div>
+<p>The example above would open a window displaying a line plot of the data given. The call to <a class="reference internal" href="../api_reference/functions.html#pyqtgraph.plot" title="pyqtgraph.plot"><code class="xref py py-func docutils literal notranslate"><span class="pre">pg.plot</span></code></a> returns a handle to the <a class="reference internal" href="../api_reference/widgets/plotwidget.html#pyqtgraph.PlotWidget" title="pyqtgraph.PlotWidget"><code class="xref py py-class docutils literal notranslate"><span class="pre">plot</span> <span class="pre">widget</span></code></a> that is created, allowing more data to be added to the same window. <strong>Note:</strong> interactive plotting from the python prompt is only available with PyQt; PySide does not run the Qt event loop while the interactive prompt is running. If you wish to use pyqtgraph interactively with PySide, see the ‘console’ <a class="reference internal" href="introduction.html#examples"><span class="std std-ref">example</span></a>.</p>
+<p>Further examples:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pw</span> <span class="o">=</span> <span class="n">pg</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xVals</span><span class="p">,</span> <span class="n">yVals</span><span class="p">,</span> <span class="n">pen</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>  <span class="c1"># plot x vs y in red</span>
+<span class="n">pw</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xVals</span><span class="p">,</span> <span class="n">yVals2</span><span class="p">,</span> <span class="n">pen</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">)</span>
+
+<span class="n">win</span> <span class="o">=</span> <span class="n">pg</span><span class="o">.</span><span class="n">GraphicsLayoutWidget</span><span class="p">()</span>  <span class="c1"># Automatically generates grids with multiple items</span>
+<span class="n">win</span><span class="o">.</span><span class="n">addPlot</span><span class="p">(</span><span class="n">data1</span><span class="p">,</span> <span class="n">row</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">win</span><span class="o">.</span><span class="n">addPlot</span><span class="p">(</span><span class="n">data2</span><span class="p">,</span> <span class="n">row</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">win</span><span class="o">.</span><span class="n">addPlot</span><span class="p">(</span><span class="n">data3</span><span class="p">,</span> <span class="n">row</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">colspan</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="n">pg</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">imageData</span><span class="p">)</span>  <span class="c1"># imageData must be a numpy array with 2 to 4 dimensions</span>
+</pre></div>
+</div>
+<p>We’re only scratching the surface here–these functions accept many different data formats and options for customizing the appearance of your data.</p>
+</section>
+<section id="displaying-windows-from-within-an-application">
+<h2>Displaying windows from within an application<a class="headerlink" href="#displaying-windows-from-within-an-application" title="Link to this heading">#</a></h2>
+<p>While I consider this approach somewhat lazy, it is often the case that ‘lazy’ is indistinguishable from ‘highly efficient’. The approach here is simply to use the very same functions that would be used on the command line, but from within an existing application. I often use this when I simply want to get a immediate feedback about the state of data in my application without taking the time to build a user interface for it.</p>
+</section>
+<section id="embedding-widgets-inside-pyqt-applications">
+<h2>Embedding widgets inside PyQt applications<a class="headerlink" href="#embedding-widgets-inside-pyqt-applications" title="Link to this heading">#</a></h2>
+<p>For the serious application developer, all of the functionality in pyqtgraph is available via <a class="reference internal" href="../api_reference/widgets/index.html#api-widgets"><span class="std std-ref">widgets</span></a> that can be embedded just like any other Qt widgets. Most importantly, see: <a class="reference internal" href="../api_reference/widgets/plotwidget.html#pyqtgraph.PlotWidget" title="pyqtgraph.PlotWidget"><code class="xref py py-class docutils literal notranslate"><span class="pre">PlotWidget</span></code></a>, <a class="reference internal" href="../api_reference/widgets/imageview.html#pyqtgraph.ImageView" title="pyqtgraph.ImageView"><code class="xref py py-class docutils literal notranslate"><span class="pre">ImageView</span></code></a>, <a class="reference internal" href="../api_reference/widgets/graphicslayoutwidget.html#pyqtgraph.GraphicsLayoutWidget" title="pyqtgraph.GraphicsLayoutWidget"><code class="xref py py-class docutils literal notranslate"><span class="pre">GraphicsLayoutWidget</span></code></a>, and <a class="reference internal" href="../api_reference/widgets/graphicsview.html#pyqtgraph.GraphicsView" title="pyqtgraph.GraphicsView"><code class="xref py py-class docutils literal notranslate"><span class="pre">GraphicsView</span></code></a>. PyQtGraph’s widgets can be included in Designer’s ui files via the “Promote To…” functionality:</p>
+<ol class="arabic simple">
+<li><p>In Designer, create a QGraphicsView widget (“Graphics View” under the “Display Widgets” category).</p></li>
+<li><p>Right-click on the QGraphicsView and select “Promote To…”.</p></li>
+<li><p>Under “Promoted class name”, enter the class name you wish to use (“PlotWidget”, “GraphicsLayoutWidget”, etc).</p></li>
+<li><p>Under “Header file”, enter “pyqtgraph”.</p></li>
+<li><p>Click “Add”, then click “Promote”.</p></li>
+</ol>
+<p>See the designer documentation for more information on promoting widgets. The “VideoSpeedTest” and “ScatterPlotSpeedTest” examples both demonstrate the use of .ui files that are compiled to .py modules using pyuic5 or pyside-uic. The “designerExample” example demonstrates dynamically generating python classes from .ui files (no pyuic5 / pyside-uic needed).</p>
+</section>
+<section id="hidpi-displays">
+<h2>HiDPI Displays<a class="headerlink" href="#hidpi-displays" title="Link to this heading">#</a></h2>
+<p>PyQtGraph has a method <a class="reference internal" href="#pyqtgraph.Qt.mkQApp" title="pyqtgraph.Qt.mkQApp"><code class="xref py py-func docutils literal notranslate"><span class="pre">mkQApp</span></code></a> that by default sets what we have tested to be the best combination of options to support hidpi displays, when in combination with non-hidpi secondary displays.  For your application, you may have instantiated <code class="docutils literal notranslate"><span class="pre">QApplication</span></code> yourself, in which case we advise setting these options <em>before</em> runing <code class="docutils literal notranslate"><span class="pre">QApplication.exec_()</span></code>.</p>
+<p>For Qt6 bindings, this functionally “just works” without having to set any attributes.</p>
+<p>On Versions of Qt &gt;= 5.14 and &lt; 6; you can get ideal behavior with the following lines:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&quot;QT_ENABLE_HIGHDPI_SCALING&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;1&quot;</span>
+<span class="n">QApplication</span><span class="o">.</span><span class="n">setHighDpiScaleFactorRoundingPolicy</span><span class="p">(</span><span class="n">QtCore</span><span class="o">.</span><span class="n">Qt</span><span class="o">.</span><span class="n">HighDpiScaleFactorRoundingPolicy</span><span class="o">.</span><span class="n">PassThrough</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>If you are on Qt &gt;= 5.6 and &lt; 5.14; you can get near ideal behavior with the following lines:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">QApplication</span><span class="o">.</span><span class="n">setAttribute</span><span class="p">(</span><span class="n">QtCore</span><span class="o">.</span><span class="n">Qt</span><span class="o">.</span><span class="n">AA_EnableHighDpiScaling</span><span class="p">)</span>
+<span class="n">QApplication</span><span class="o">.</span><span class="n">setAttribute</span><span class="p">(</span><span class="n">QtCore</span><span class="o">.</span><span class="n">Qt</span><span class="o">.</span><span class="n">AA_UseHighDpiPixmaps</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>With the later, ideal behavior was not achieved.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="pyqtgraph.Qt.mkQApp">
+<span class="sig-prename descclassname"><span class="pre">pyqtgraph.Qt.</span></span><span class="sig-name descname"><span class="pre">mkQApp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyqtgraph/Qt.html#mkQApp"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyqtgraph.Qt.mkQApp" title="Link to this definition">#</a></dt>
+<dd><p>Creates new QApplication or returns current instance if existing.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<tbody>
+<tr class="row-odd"><td><p><strong>Arguments:</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>name</p></td>
+<td><p>(str) Application name, passed to Qt</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://doc.qt.io/qt-6/qapplication.html" title="(in Qt6 v6.11)"><code class="docutils literal notranslate"><span class="pre">QApplication</span></code></a></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="pyqt-and-pyside">
+<h2>PyQt and PySide<a class="headerlink" href="#pyqt-and-pyside" title="Link to this heading">#</a></h2>
+<p>PyQtGraph supports two popular python wrappers for the Qt library: PyQt and PySide. Both packages provide nearly identical
+APIs and functionality, but for various reasons (discussed elsewhere) you may prefer to use one package or the other. When
+pyqtgraph is first imported, if the environment variable <code class="docutils literal notranslate"><span class="pre">PYQTGRAPH_QT_LIB</span></code> is not set, it automatically determines which
+library to use by making the following checks:</p>
+<ol class="arabic simple">
+<li><p>If PyQt6 is already imported, use that</p></li>
+<li><p>Else, if PySide6 is already imported, use that</p></li>
+<li><p>Else, if PyQt5 is already imported, use that</p></li>
+<li><p>Else, attempt to import PyQt6, PySide6, PyQt5, in that order.</p></li>
+</ol>
+<p>If you have both libraries installed on your system and you wish to force pyqtgraph to use one or the other, simply
+make sure it is imported before pyqtgraph:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">PySide6</span>  <span class="c1">## this will force pyqtgraph to use PySide6 instead of PyQt6</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pyqtgraph</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pg</span>
+</pre></div>
+</div>
+</section>
+<section id="embedding-pyqtgraph-as-a-sub-package-of-a-larger-project">
+<h2>Embedding PyQtGraph as a sub-package of a larger project<a class="headerlink" href="#embedding-pyqtgraph-as-a-sub-package-of-a-larger-project" title="Link to this heading">#</a></h2>
+<p>When writing applications or python packages that make use of pyqtgraph, it is most common to install pyqtgraph system-wide (or within a virtualenv) and simply call <cite>import pyqtgraph</cite> from within your application. The main benefit to this is that pyqtgraph is configured independently of your application and thus you (or your users) are free to install newer versions of pyqtgraph without changing anything in your application. This is standard practice when developing with python.</p>
+<p>Occasionally, a specific program needs to be kept in working order for an extended amount of time after development has been completed. This is often the case for single-purpose scientific applications. If we want to ensure that the software will still work ten years later, then it is preferable to tie it to a very specific version of pyqtgraph and <em>avoid</em> importing the system-installed version, which may be much newer and potentially incompatible. This is especially true when the application requires site-specific modifications to the pyqtgraph package.</p>
+<p>To support such a separate local installation, all internal import statements in pyqtgraph are relative. That means that pyqtgraph never refers to itself internally as ‘pyqtgraph’. This allows the package to be renamed or used as a sub-package without any naming conflicts with other versions of pyqtgraph on the system.</p>
+<p>The basic approach is to clone the repository into the appropriate location in your project. When you import pyqtgraph, be sure to use the full name to avoid importing any system-installed pyqtgraph packages. For example, imagine a simple project has the following structure:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">my_project</span><span class="o">/</span>
+    <span class="fm">__init__</span><span class="o">.</span><span class="n">py</span>
+    <span class="n">plotting</span><span class="o">.</span><span class="n">py</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Plotting functions used by this package&quot;&quot;&quot;</span>
+        <span class="kn">import</span><span class="w"> </span><span class="nn">pyqtgraph</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pg</span>
+        <span class="k">def</span><span class="w"> </span><span class="nf">my_plot_function</span><span class="p">(</span><span class="o">*</span><span class="n">data</span><span class="p">):</span>
+            <span class="n">pg</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="o">*</span><span class="n">data</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>To embed a specific version of pyqtgraph, we would clone the pyqtgraph repository inside the project, with a directory name that distinguishes it from a system-wide installation:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>my_project$ git clone https://github.com/pyqtgraph/pyqtgraph.git local_pyqtgraph
+</pre></div>
+</div>
+<p>Then adjust the import statements accordingly:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">my_project</span><span class="o">/</span>
+    <span class="fm">__init__</span><span class="o">.</span><span class="n">py</span>
+    <span class="n">local_pyqtgraph</span><span class="o">/</span>
+    <span class="n">plotting</span><span class="o">.</span><span class="n">py</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Plotting functions used by this package&quot;&quot;&quot;</span>
+        <span class="kn">import</span><span class="w"> </span><span class="nn">local_pyqtgraph.pyqtgraph</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pg</span>  <span class="c1"># be sure to use the local subpackage</span>
+                                                <span class="c1"># rather than any globally-installed</span>
+                                                <span class="c1"># version.</span>
+        <span class="k">def</span><span class="w"> </span><span class="nf">my_plot_function</span><span class="p">(</span><span class="o">*</span><span class="n">data</span><span class="p">):</span>
+            <span class="n">pg</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="o">*</span><span class="n">data</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Use <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">checkout</span> <span class="pre">pyqtgraph-x.x.x</span></code> to select a specific library version from the repository, or use <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">pull</span></code> to pull pyqtgraph updates from upstream (see the git documentation for more information). If you do not plan to make use of git’s versioning features, adding the option <code class="docutils literal notranslate"><span class="pre">--depth</span> <span class="pre">1</span></code> to the <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">clone</span></code> command retrieves only the latest version.</p>
+<p>For projects that already use git for code control, it is also possible to include pyqtgraph as a git subtree within your own repository. The major advantage to this approach is that, in addition to being able to pull pyqtgraph updates from the upstream repository, it is also possible to commit your local pyqtgraph changes into the project repository and push those changes upstream:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>my_project$ git remote add pyqtgraph https://github.com/pyqtgraph/pyqtgraph.git
+my_project$ git fetch pyqtgraph
+my_project$ git merge -s ours --allow-unrelated-histories --no-commit pyqtgraph/master
+my_project$ mkdir local_pyqtgraph
+my_project$ git read-tree -u --prefix=local_pyqtgraph/ pyqtgraph/master
+my_project$ git commit -m &quot;Added pyqtgraph to project repository&quot;
+</pre></div>
+</div>
+<p>See the <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">subtree</span></code> documentation for more information.</p>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="installation.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Installation</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="plotting.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Plotting in pyqtgraph</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#command-line-use">Command-line use</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#displaying-windows-from-within-an-application">Displaying windows from within an application</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#embedding-widgets-inside-pyqt-applications">Embedding widgets inside PyQt applications</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hidpi-displays">HiDPI Displays</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pyqtgraph.Qt.mkQApp"><code class="docutils literal notranslate"><span class="pre">mkQApp()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pyqt-and-pyside">PyQt and PySide</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#embedding-pyqtgraph-as-a-sub-package-of-a-larger-project">Embedding PyQtGraph as a sub-package of a larger project</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=a95f357e85573c9b56d5"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=a95f357e85573c9b56d5"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2011 - 2026, PyQtGraph developers.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.0.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.19.0.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

@@ -1,0 +1,1613 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="../../_static/docset-icon.png" sizes="16x16" rel="icon" type="image/png">
+    <link href="../../_static/docset-icon@2x.png" sizes="32x32" rel="icon" type="image/png">
+    <link href="../../_static/peegee_03_square_no_bg_32_cleaned.ico" rel="icon" type="image/x-icon">
+    <title>PlotItem &#8212; pyqtgraph 0.15.0.dev0 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=a95f357e85573c9b56d5" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=a95f357e85573c9b56d5" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css?v=4ae1632d" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinxcontrib-images/LightBox2/lightbox2/dist/css/lightbox.min.css?v=6e7d0de0" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinxcontrib-images/LightBox2/lightbox2-customize/pointer.css?v=c97663ff" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=006a86f1" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../../_static/scripts/fontawesome.js?digest=a95f357e85573c9b56d5"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=a95f357e85573c9b56d5" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=a95f357e85573c9b56d5" />
+
+    <script src="../../_static/documentation_options.js?v=e3e50566"></script>
+    <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script src="../../_static/sphinxcontrib-images/LightBox2/lightbox2/dist/js/lightbox-plus-jquery.min.js?v=f0ca4bb6"></script>
+    <script src="../../_static/sphinxcontrib-images/LightBox2/lightbox2-customize/jquery-noconflict.js?v=12818e64"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'api_reference/graphicsItems/plotitem';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="ImageItem" href="imageitem.html" />
+    <link rel="prev" title="PlotDataItem" href="plotdataitem.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="0.15.0.dev0" />
+  
+    
+    <script src="../../_static/searchtools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../searchindex.js"></script>
+  
+  <script async type="text/javascript" src="/_/static/javascript/readthedocs-addons.js"></script><meta name="readthedocs-project-slug" content="pyqtgraph" /><meta name="readthedocs-version-slug" content="latest" /><meta name="readthedocs-resolver-filename" content="/api_reference/graphicsItems/plotitem.html" /><meta name="readthedocs-http-status" content="200" /></head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/peegee_02.svg" class="logo__image only-light" alt="pyqtgraph 0.15.0.dev0 documentation - Home"/>
+    <img src="../../_static/peegee_02.svg" class="logo__image only-dark pst-js-only" alt="pyqtgraph 0.15.0.dev0 documentation - Home"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../getting_started/index.html">
+    Getting Started
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../user_guide/index.html">
+    User Guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../developer_guide/index.html">
+    Developer Guide
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="../index.html">
+    API Reference
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/pyqtgraph/pyqtgraph" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i><span class="visually-hidden">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://fosstodon.org/@pyqtgraph" title="Mastodon" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-mastodon fa-lg" aria-hidden="true"></i><span class="visually-hidden">Mastodon</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../getting_started/index.html">
+    Getting Started
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../user_guide/index.html">
+    User Guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../developer_guide/index.html">
+    Developer Guide
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="../index.html">
+    API Reference
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/pyqtgraph/pyqtgraph" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i><span class="visually-hidden">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://fosstodon.org/@pyqtgraph" title="Mastodon" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-mastodon fa-lg" aria-hidden="true"></i><span class="visually-hidden">Mastodon</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../config_options.html">Global Configuration Options</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../functions.html">PyQtGraph’s Helper Functions</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">PyQtGraph’s Graphics Items</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="plotdataitem.html">PlotDataItem</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">PlotItem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="imageitem.html">ImageItem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="colorbaritem.html">ColorBarItem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pcolormeshitem.html">PColorMeshItem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="graphitem.html">GraphItem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="viewbox.html">ViewBox</a></li>
+<li class="toctree-l2"><a class="reference internal" href="linearregionitem.html">LinearRegionItem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="infiniteline.html">InfiniteLine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="roi.html">ROI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="graphicslayout.html">GraphicsLayout</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plotcurveitem.html">PlotCurveItem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scatterplotitem.html">ScatterPlotItem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="isocurveitem.html">IsocurveItem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="axisitem.html">AxisItem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="textitem.html">TextItem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="errorbaritem.html">ErrorBarItem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bargraphitem.html">BarGraphItem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arrowitem.html">ArrowItem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fillbetweenitem.html">FillBetweenItem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="curvepoint.html">CurvePoint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="curvearrow.html">CurveArrow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="griditem.html">GridItem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scalebar.html">ScaleBar</a></li>
+<li class="toctree-l2"><a class="reference internal" href="labelitem.html">LabelItem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vtickgroup.html">VTickGroup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="legenditem.html">LegendItem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gradienteditoritem.html">GradientEditorItem</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="histogramlutitem.html">HistogramLUTItem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gradientlegend.html">GradientLegend</a></li>
+<li class="toctree-l2"><a class="reference internal" href="buttonitem.html">ButtonItem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="graphicsobject.html">GraphicsObject</a></li>
+<li class="toctree-l2"><a class="reference internal" href="graphicswidget.html">GraphicsWidget</a></li>
+<li class="toctree-l2"><a class="reference internal" href="graphicsitem.html">GraphicsItem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="uigraphicsitem.html">UIGraphicsItem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="graphicswidgetanchor.html">GraphicsWidgetAnchor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dateaxisitem.html">DateAxisItem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="targetitem.html">TargetItem</a></li>
+
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../widgets/index.html">PyQtGraph’s Widgets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../3dgraphics/index.html">PyQtGraph’s 3D Graphics System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../colormap.html">Color Maps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../parametertree/index.html">Parameter Trees</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dockarea.html">Dock Area Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../graphicsscene/index.html">GraphicsScene and Mouse Events</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exporters/index.html">API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../flowchart/index.html">Visual Programming with Flowcharts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../point.html">Point</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../transform3d.html">Transform3D</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../uml_overview.html">UML class diagram</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../index.html" class="nav-link">API Reference</a></li>
+    
+    
+    <li class="breadcrumb-item"><a href="index.html" class="nav-link">PyQtGraph’s Graphics Items</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">PlotItem</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="plotitem">
+<h1>PlotItem<a class="headerlink" href="#plotitem" title="Link to this heading">#</a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="pyqtgraph.PlotItem">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">pyqtgraph.</span></span><span class="sig-name descname"><span class="pre">PlotItem</span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">parent</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://doc.qt.io/qt-6/qobject.html" title="(in Qt6 v6.11)"><span class="pre">QObject</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">labels</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.14)"><span class="pre">dict</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">title</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">viewBox</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="viewbox.html#pyqtgraph.ViewBox" title="pyqtgraph.graphicsItems.ViewBox.ViewBox.ViewBox"><span class="pre">ViewBox</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">axisItems</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.14)"><span class="pre">dict</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="axisitem.html#pyqtgraph.AxisItem" title="pyqtgraph.graphicsItems.AxisItem.AxisItem"><span class="pre">AxisItem</span></a><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">enableMenu</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><span class="pre">bool</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em>,</dd>
+</dl>
+
+<span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pyqtgraph/graphicsItems/PlotItem/PlotItem.html#PlotItem"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyqtgraph.PlotItem" title="Link to this definition">#</a></dt>
+<dd><p>GraphicsWidget implementing a standard 2D plotting area with axes.</p>
+<p><strong>Bases:</strong> <a class="reference internal" href="graphicswidget.html#pyqtgraph.GraphicsWidget" title="pyqtgraph.GraphicsWidget"><code class="xref py py-class docutils literal notranslate"><span class="pre">GraphicsWidget</span></code></a></p>
+<p>This class provides the ViewBox-plus-axes that appear when using
+<a class="reference internal" href="../functions.html#pyqtgraph.plot" title="pyqtgraph.plot"><code class="xref py py-func docutils literal notranslate"><span class="pre">pg.plot()</span></code></a>, <a class="reference internal" href="../widgets/plotwidget.html#pyqtgraph.PlotWidget" title="pyqtgraph.PlotWidget"><code class="xref py py-class docutils literal notranslate"><span class="pre">PlotWidget</span></code></a>,
+and :meth :<cite>GraphicsLayout.addPlot() &lt;pyqtgraph.GraphicsLayout.addPlot&gt;</cite>.</p>
+<p>It’s main functionality is:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Manage placement of ViewBox, AxisItems, and LabelItems</p></li>
+<li><p>Create and manage a list of PlotDataItems displayed inside the ViewBox</p></li>
+<li><p>Implement a context menu with commonly used display and analysis options</p></li>
+</ul>
+</div></blockquote>
+<p>Use <a class="reference internal" href="#pyqtgraph.PlotItem.plot" title="pyqtgraph.PlotItem.plot"><code class="xref py py-func docutils literal notranslate"><span class="pre">plot()</span></code></a> to create a new PlotDataItem and
+add it to the view. Use <a class="reference internal" href="#pyqtgraph.PlotItem.addItem" title="pyqtgraph.PlotItem.addItem"><code class="xref py py-func docutils literal notranslate"><span class="pre">addItem()</span></code></a> to
+add any QGraphicsItem to the view.</p>
+<dl class="simple">
+<dt>This class wraps several methods from its internal ViewBox:</dt><dd><ul class="simple">
+<li><p><a class="reference internal" href="viewbox.html#pyqtgraph.ViewBox.setXRange" title="pyqtgraph.ViewBox.setXRange"><code class="xref py py-func docutils literal notranslate"><span class="pre">setXRange</span></code></a></p></li>
+<li><p><a class="reference internal" href="viewbox.html#pyqtgraph.ViewBox.setYRange" title="pyqtgraph.ViewBox.setYRange"><code class="xref py py-func docutils literal notranslate"><span class="pre">setYRange</span></code></a></p></li>
+<li><p><a class="reference internal" href="viewbox.html#pyqtgraph.ViewBox.setRange" title="pyqtgraph.ViewBox.setRange"><code class="xref py py-func docutils literal notranslate"><span class="pre">setRange</span></code></a></p></li>
+<li><p><a class="reference internal" href="viewbox.html#pyqtgraph.ViewBox.autoRange" title="pyqtgraph.ViewBox.autoRange"><code class="xref py py-func docutils literal notranslate"><span class="pre">autoRange</span></code></a></p></li>
+<li><p><a class="reference internal" href="viewbox.html#pyqtgraph.ViewBox.setDefaultPadding" title="pyqtgraph.ViewBox.setDefaultPadding"><code class="xref py py-func docutils literal notranslate"><span class="pre">setDefaultPadding</span></code></a></p></li>
+<li><p><a class="reference internal" href="viewbox.html#pyqtgraph.ViewBox.setXLink" title="pyqtgraph.ViewBox.setXLink"><code class="xref py py-func docutils literal notranslate"><span class="pre">setXLink</span></code></a></p></li>
+<li><p><a class="reference internal" href="viewbox.html#pyqtgraph.ViewBox.setYLink" title="pyqtgraph.ViewBox.setYLink"><code class="xref py py-func docutils literal notranslate"><span class="pre">setYLink</span></code></a></p></li>
+<li><p><a class="reference internal" href="viewbox.html#pyqtgraph.ViewBox.setAutoPan" title="pyqtgraph.ViewBox.setAutoPan"><code class="xref py py-func docutils literal notranslate"><span class="pre">setAutoPan</span></code></a></p></li>
+<li><p><a class="reference internal" href="viewbox.html#pyqtgraph.ViewBox.setAutoVisible" title="pyqtgraph.ViewBox.setAutoVisible"><code class="xref py py-func docutils literal notranslate"><span class="pre">setAutoVisible</span></code></a></p></li>
+<li><p><a class="reference internal" href="viewbox.html#pyqtgraph.ViewBox.setLimits" title="pyqtgraph.ViewBox.setLimits"><code class="xref py py-func docutils literal notranslate"><span class="pre">setLimits</span></code></a></p></li>
+<li><p><a class="reference internal" href="viewbox.html#pyqtgraph.ViewBox.viewRect" title="pyqtgraph.ViewBox.viewRect"><code class="xref py py-func docutils literal notranslate"><span class="pre">viewRect</span></code></a></p></li>
+<li><p><a class="reference internal" href="viewbox.html#pyqtgraph.ViewBox.viewRange" title="pyqtgraph.ViewBox.viewRange"><code class="xref py py-func docutils literal notranslate"><span class="pre">viewRange</span></code></a></p></li>
+<li><p><a class="reference internal" href="viewbox.html#pyqtgraph.ViewBox.setMouseEnabled" title="pyqtgraph.ViewBox.setMouseEnabled"><code class="xref py py-func docutils literal notranslate"><span class="pre">setMouseEnabled</span></code></a></p></li>
+<li><p><a class="reference internal" href="viewbox.html#pyqtgraph.ViewBox.enableAutoRange" title="pyqtgraph.ViewBox.enableAutoRange"><code class="xref py py-func docutils literal notranslate"><span class="pre">enableAutoRange</span></code></a></p></li>
+<li><p><a class="reference internal" href="viewbox.html#pyqtgraph.ViewBox.disableAutoRange" title="pyqtgraph.ViewBox.disableAutoRange"><code class="xref py py-func docutils literal notranslate"><span class="pre">disableAutoRange</span></code></a></p></li>
+<li><p><a class="reference internal" href="viewbox.html#pyqtgraph.ViewBox.setAspectLocked" title="pyqtgraph.ViewBox.setAspectLocked"><code class="xref py py-func docutils literal notranslate"><span class="pre">setAspectLocked</span></code></a></p></li>
+<li><p><a class="reference internal" href="viewbox.html#pyqtgraph.ViewBox.invertY" title="pyqtgraph.ViewBox.invertY"><code class="xref py py-func docutils literal notranslate"><span class="pre">invertY</span></code></a></p></li>
+<li><p><a class="reference internal" href="viewbox.html#pyqtgraph.ViewBox.invertX" title="pyqtgraph.ViewBox.invertX"><code class="xref py py-func docutils literal notranslate"><span class="pre">invertX</span></code></a></p></li>
+<li><p><a class="reference internal" href="viewbox.html#pyqtgraph.ViewBox.register" title="pyqtgraph.ViewBox.register"><code class="xref py py-func docutils literal notranslate"><span class="pre">register</span></code></a></p></li>
+<li><p><a class="reference internal" href="viewbox.html#pyqtgraph.ViewBox.unregister" title="pyqtgraph.ViewBox.unregister"><code class="xref py py-func docutils literal notranslate"><span class="pre">unregister</span></code></a></p></li>
+</ul>
+</dd>
+</dl>
+<p>The ViewBox itself can be accessed by calling <a class="reference internal" href="#pyqtgraph.PlotItem.getViewBox" title="pyqtgraph.PlotItem.getViewBox"><code class="xref py py-func docutils literal notranslate"><span class="pre">getViewBox()</span></code></a></p>
+<dl class="field-list">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul>
+<li><p><strong>parent</strong> (<a class="reference external" href="https://doc.qt.io/qt-6/qobject.html" title="(in Qt6 v6.11)"><code class="docutils literal notranslate"><span class="pre">QObject</span></code></a> or <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a>, <em>default</em> <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a>) – Parent <a class="reference external" href="https://doc.qt.io/qt-6/qobject.html" title="(in Qt6 v6.11)"><code class="docutils literal notranslate"><span class="pre">QObject</span></code></a> assign to the <a class="reference internal" href="#pyqtgraph.PlotItem" title="pyqtgraph.PlotItem"><code class="xref py py-class docutils literal notranslate"><span class="pre">PlotItem</span></code></a>.</p></li>
+<li><p><strong>name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a> or <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a>, <em>default</em> <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a>) – Register the value for this view so that others may link to it.</p></li>
+<li><p><strong>labels</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a> of <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a> or <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a>, <em>default</em> <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a>) – A dictionary specifying the axis labels to display</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s1">&#39;left&#39;</span><span class="p">:</span> <span class="p">(</span><span class="n">args</span><span class="p">),</span> <span class="s1">&#39;bottom&#39;</span><span class="p">:</span> <span class="p">(</span><span class="n">args</span><span class="p">),</span> <span class="o">...</span><span class="p">}</span>
+</pre></div>
+</div>
+<p>The name of each axis and the corresponding arguments are passed to
+<a class="reference internal" href="#pyqtgraph.PlotItem.setLabel" title="pyqtgraph.PlotItem.setLabel"><code class="xref py py-meth docutils literal notranslate"><span class="pre">PlotItem.setLabel()</span></code></a>
+Optionally, PlotItem my also be initialized with the keyword arguments left,
+right, top, or bottom to achieve the same effect.</p>
+</li>
+<li><p><strong>title</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>) – Text to set the title of the PlotItem to.</p></li>
+<li><p><strong>viewBox</strong> (<a class="reference internal" href="viewbox.html#pyqtgraph.ViewBox" title="pyqtgraph.ViewBox"><code class="xref py py-class docutils literal notranslate"><span class="pre">ViewBox</span></code></a> or <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a>, <em>default</em> <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a>) – Have the PlotItem use the provided <a class="reference internal" href="viewbox.html#pyqtgraph.ViewBox" title="pyqtgraph.ViewBox"><code class="xref py py-class docutils literal notranslate"><span class="pre">ViewBox</span></code></a>. If not
+specified, the PlotItem will be constructed with this as its ViewBox.</p></li>
+<li><p><strong>axisItems</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a> of <code class="docutils literal notranslate"><span class="pre">{'left',</span> <span class="pre">'bottom',</span> <span class="pre">'right',</span> <span class="pre">'top</span> <span class="pre">}</span></code> and <a class="reference internal" href="axisitem.html#pyqtgraph.AxisItem" title="pyqtgraph.AxisItem"><code class="xref py py-class docutils literal notranslate"><span class="pre">AxisItem</span></code></a> or <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a>) – Pass pre-constructed <a class="reference internal" href="axisitem.html#pyqtgraph.AxisItem" title="pyqtgraph.AxisItem"><code class="xref py py-class docutils literal notranslate"><span class="pre">AxisItem</span></code></a> objects to be used for the
+<cite>left</cite>, <cite>bottom</cite>, <cite>right</cite> or <cite>top</cite> axis.  Default is None.</p></li>
+<li><p><strong>enableMenu</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a>) – Toggle the enabling or disabling of the right-click context menu.</p></li>
+<li><p><strong>**kwargs</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a>, <em>optional</em>) – Any extra keyword arguments are passed to
+<a class="reference internal" href="#pyqtgraph.PlotItem.plot" title="pyqtgraph.PlotItem.plot"><code class="xref py py-func docutils literal notranslate"><span class="pre">PlotItem.plot()</span></code></a>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Signals<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>sigYRangeChanged</strong> (<a class="reference external" href="https://doc.qt.io/qt-6/signalsandslots.html" title="(in Qt6 v6.11.0)"><code class="docutils literal notranslate"><span class="pre">Signal</span></code></a>) – Signal is emitted when the range on the y-axis changes. Signal contains a
+reference to the <a class="reference internal" href="viewbox.html#pyqtgraph.ViewBox" title="pyqtgraph.ViewBox"><code class="xref py py-class docutils literal notranslate"><span class="pre">ViewBox</span></code></a>, and tuple of (xmin, xmax).</p></li>
+<li><p><strong>sigXRangeChanged</strong> (<a class="reference external" href="https://doc.qt.io/qt-6/signalsandslots.html" title="(in Qt6 v6.11.0)"><code class="docutils literal notranslate"><span class="pre">Signal</span></code></a>) – Signal is emitted when the range on the x-axis changes. Signal contains a
+reference to the <a class="reference internal" href="viewbox.html#pyqtgraph.ViewBox" title="pyqtgraph.ViewBox"><code class="xref py py-class docutils literal notranslate"><span class="pre">ViewBox</span></code></a>, and tuple of (ymin, ymax).</p></li>
+<li><p><strong>sigRangeChanged</strong> (<a class="reference external" href="https://doc.qt.io/qt-6/signalsandslots.html" title="(in Qt6 v6.11.0)"><code class="docutils literal notranslate"><span class="pre">Signal</span></code></a>) – Signal is emitted when the range on either x or y-axis changes. Signal contains
+a reference to the <a class="reference internal" href="viewbox.html#pyqtgraph.ViewBox" title="pyqtgraph.ViewBox"><code class="xref py py-class docutils literal notranslate"><span class="pre">ViewBox</span></code></a>, a list of lists of the form,
+<code class="docutils literal notranslate"><span class="pre">[[x_min,</span> <span class="pre">x_max],</span> <span class="pre">[y_min,</span> <span class="pre">y_max]]</span></code> and a list of two booleans, indicating if
+the range on which axis has changed of the form
+<code class="docutils literal notranslate"><span class="pre">[x_range_changed,</span> <span class="pre">y_range_changed]</span></code>.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqtgraph.PlotItem.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">parent</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://doc.qt.io/qt-6/qobject.html" title="(in Qt6 v6.11)"><span class="pre">QObject</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">labels</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.14)"><span class="pre">dict</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">title</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">viewBox</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="viewbox.html#pyqtgraph.ViewBox" title="pyqtgraph.graphicsItems.ViewBox.ViewBox.ViewBox"><span class="pre">ViewBox</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">axisItems</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.14)"><span class="pre">dict</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="axisitem.html#pyqtgraph.AxisItem" title="pyqtgraph.graphicsItems.AxisItem.AxisItem"><span class="pre">AxisItem</span></a><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">enableMenu</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><span class="pre">bool</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em>,</dd>
+</dl>
+
+<span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pyqtgraph/graphicsItems/PlotItem/PlotItem.html#PlotItem.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyqtgraph.PlotItem.__init__" title="Link to this definition">#</a></dt>
+<dd><dl class="field-list simple">
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqtgraph.PlotItem.addColorBar">
+<span class="sig-name descname"><span class="pre">addColorBar</span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">image</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em>,</dd>
+</dl>
+
+<span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pyqtgraph/graphicsItems/PlotItem/PlotItem.html#PlotItem.addColorBar"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyqtgraph.PlotItem.addColorBar" title="Link to this definition">#</a></dt>
+<dd><p>Add a ColorBarItem and set to the provided image.</p>
+<p>A call like <code class="docutils literal notranslate"><span class="pre">plot.addColorBar(img,</span> <span class="pre">colorMap='viridis')</span></code> is a convenient
+method to assign and show a color map.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>image</strong> (<a class="reference internal" href="imageitem.html#pyqtgraph.ImageItem" title="pyqtgraph.ImageItem"><code class="xref py py-class docutils literal notranslate"><span class="pre">ImageItem</span></code></a> or <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a> of <a class="reference internal" href="imageitem.html#pyqtgraph.ImageItem" title="pyqtgraph.ImageItem"><code class="xref py py-class docutils literal notranslate"><span class="pre">ImageItem</span></code></a>) – See <a class="reference internal" href="colorbaritem.html#pyqtgraph.ColorBarItem.setImageItem" title="pyqtgraph.ColorBarItem.setImageItem"><code class="xref py py-meth docutils literal notranslate"><span class="pre">setImageItem()</span></code></a> for details.</p></li>
+<li><p><strong>**kwargs</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a>, <em>optional</em>) – Keyword arguments passed to the <a class="reference internal" href="colorbaritem.html#pyqtgraph.ColorBarItem" title="pyqtgraph.ColorBarItem"><code class="xref py py-class docutils literal notranslate"><span class="pre">ColorBarItem</span></code></a>
+constructor.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The newly created <a class="reference internal" href="colorbaritem.html#pyqtgraph.ColorBarItem" title="pyqtgraph.ColorBarItem"><code class="xref py py-class docutils literal notranslate"><span class="pre">ColorBarItem</span></code></a> instance.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="colorbaritem.html#pyqtgraph.ColorBarItem" title="pyqtgraph.ColorBarItem"><code class="xref py py-class docutils literal notranslate"><span class="pre">ColorBarItem</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqtgraph.PlotItem.addItem">
+<span class="sig-name descname"><span class="pre">addItem</span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">item</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em>,</dd>
+</dl>
+
+<span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pyqtgraph/graphicsItems/PlotItem/PlotItem.html#PlotItem.addItem"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyqtgraph.PlotItem.addItem" title="Link to this definition">#</a></dt>
+<dd><p>Add a <a class="reference internal" href="graphicsitem.html#pyqtgraph.GraphicsItem" title="pyqtgraph.GraphicsItem"><code class="xref py py-class docutils literal notranslate"><span class="pre">GraphicsItem</span></code></a> to the <a class="reference internal" href="viewbox.html#pyqtgraph.ViewBox" title="pyqtgraph.ViewBox"><code class="xref py py-class docutils literal notranslate"><span class="pre">ViewBox</span></code></a>.</p>
+<p>If the item has plot data (<a class="reference internal" href="plotdataitem.html#pyqtgraph.PlotDataItem" title="pyqtgraph.PlotDataItem"><code class="xref py py-class docutils literal notranslate"><span class="pre">PlotDataItem</span></code></a> ,
+<a class="reference internal" href="plotcurveitem.html#pyqtgraph.PlotCurveItem" title="pyqtgraph.PlotCurveItem"><code class="xref py py-class docutils literal notranslate"><span class="pre">PlotCurveItem</span></code></a>, <a class="reference internal" href="scatterplotitem.html#pyqtgraph.ScatterPlotItem" title="pyqtgraph.ScatterPlotItem"><code class="xref py py-class docutils literal notranslate"><span class="pre">ScatterPlotItem</span></code></a> ), it may
+be included in analysis performed by the PlotItem.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul>
+<li><p><strong>item</strong> (<a class="reference internal" href="graphicsitem.html#pyqtgraph.GraphicsItem" title="pyqtgraph.GraphicsItem"><code class="xref py py-class docutils literal notranslate"><span class="pre">GraphicsItem</span></code></a>) – Item to add to the ViewBox.</p></li>
+<li><p><strong>*args</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code></a>) – Arguments relayed to <a class="reference internal" href="viewbox.html#pyqtgraph.ViewBox.addItem" title="pyqtgraph.ViewBox.addItem"><code class="xref py py-meth docutils literal notranslate"><span class="pre">addItem()</span></code></a>.</p></li>
+<li><p><strong>**kwargs</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a>) – Keyword arguments for adding an item.  Supported arguments include.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Property</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ignoreBounds</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">bool</span></code> - Keyword argument relayed to
+<a class="reference internal" href="viewbox.html#pyqtgraph.ViewBox.addItem" title="pyqtgraph.ViewBox.addItem"><code class="xref py py-meth docutils literal notranslate"><span class="pre">addItem()</span></code></a>.</p></td>
+</tr>
+<tr class="row-odd"><td><p>skipAverage</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">bool</span></code> - If <code class="docutils literal notranslate"><span class="pre">True</span></code>, do not use curve to compute average
+curves.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+</ul>
+</dd>
+</dl>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<dl class="simple">
+<dt><a class="reference internal" href="viewbox.html#pyqtgraph.ViewBox.addItem" title="pyqtgraph.ViewBox.addItem"><code class="xref py py-meth docutils literal notranslate"><span class="pre">addItem()</span></code></a></dt><dd><p>See method for supported arguments to be passed.</p>
+</dd>
+</dl>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqtgraph.PlotItem.addLegend">
+<span class="sig-name descname"><span class="pre">addLegend</span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">offset</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(30,</span> <span class="pre">30)</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em>,</dd>
+</dl>
+
+<span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pyqtgraph/graphicsItems/PlotItem/PlotItem.html#PlotItem.addLegend"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyqtgraph.PlotItem.addLegend" title="Link to this definition">#</a></dt>
+<dd><p>Add a new <a class="reference internal" href="legenditem.html#pyqtgraph.LegendItem" title="pyqtgraph.LegendItem"><code class="xref py py-class docutils literal notranslate"><span class="pre">LegendItem</span></code></a>.</p>
+<p>After the LegendItem is created, it is anchored in the internal
+<a class="reference internal" href="viewbox.html#pyqtgraph.ViewBox" title="pyqtgraph.ViewBox"><code class="xref py py-class docutils literal notranslate"><span class="pre">ViewBox</span></code></a>. Plots added after this will be automatically
+displayed in the legend if they are created with a ‘name’ argument.</p>
+<p>If a <a class="reference internal" href="legenditem.html#pyqtgraph.LegendItem" title="pyqtgraph.LegendItem"><code class="xref py py-class docutils literal notranslate"><span class="pre">LegendItem</span></code></a> has already been created using this method,
+that item will be returned rather than creating a new one.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>offset</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code></a> of <a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>) – The distance to offset the LegendItem, defaults to <code class="docutils literal notranslate"><span class="pre">(30,</span> <span class="pre">30)</span></code>.</p></li>
+<li><p><strong>**kwargs</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a>, <em>optional</em>) – Keyword argument passed to the <a class="reference internal" href="legenditem.html#pyqtgraph.LegendItem" title="pyqtgraph.LegendItem"><code class="xref py py-class docutils literal notranslate"><span class="pre">LegendItem</span></code></a> constructor.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The instance of <a class="reference internal" href="legenditem.html#pyqtgraph.LegendItem" title="pyqtgraph.LegendItem"><code class="xref py py-class docutils literal notranslate"><span class="pre">LegendItem</span></code></a> that was constructed.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="legenditem.html#pyqtgraph.LegendItem" title="pyqtgraph.LegendItem"><code class="xref py py-class docutils literal notranslate"><span class="pre">LegendItem</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqtgraph.PlotItem.addLine">
+<span class="sig-name descname"><span class="pre">addLine</span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">z</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em>,</dd>
+</dl>
+
+<span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pyqtgraph/graphicsItems/PlotItem/PlotItem.html#PlotItem.addLine"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyqtgraph.PlotItem.addLine" title="Link to this definition">#</a></dt>
+<dd><p>Create a new <a class="reference internal" href="infiniteline.html#pyqtgraph.InfiniteLine" title="pyqtgraph.InfiniteLine"><code class="xref py py-class docutils literal notranslate"><span class="pre">InfiniteLine</span></code></a> and add it to the plot.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a> or <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a>) – Position in the x-axis to draw the line. If specified, the line will be
+vertical. Default <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></li>
+<li><p><strong>y</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a> or <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a>) – Position in the y-axis to draw the line. If specified, the line will be
+horizontal. Default <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></li>
+<li><p><strong>z</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a> or <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a>) – Z value to set the line to. This is used to determine which items are on top
+of the other.  See <a class="reference external" href="https://doc.qt.io/qt-6/qgraphicsitem.html#setZValue" title="(in Qt6 v6.11)"><code class="docutils literal notranslate"><span class="pre">setZValue</span></code></a>.</p></li>
+<li><p><strong>**kwargs</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a>) – Keyword arguments to pass to the <a class="reference internal" href="infiniteline.html#pyqtgraph.InfiniteLine" title="pyqtgraph.InfiniteLine"><code class="xref py py-class docutils literal notranslate"><span class="pre">InfiniteLine</span></code></a> instance.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The new <a class="reference internal" href="infiniteline.html#pyqtgraph.InfiniteLine" title="pyqtgraph.InfiniteLine"><code class="xref py py-class docutils literal notranslate"><span class="pre">InfiniteLine</span></code></a> added.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="infiniteline.html#pyqtgraph.InfiniteLine" title="pyqtgraph.InfiniteLine"><code class="xref py py-class docutils literal notranslate"><span class="pre">InfiniteLine</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqtgraph.PlotItem.clear">
+<span class="sig-name descname"><span class="pre">clear</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pyqtgraph/graphicsItems/PlotItem/PlotItem.html#PlotItem.clear"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyqtgraph.PlotItem.clear" title="Link to this definition">#</a></dt>
+<dd><p>Remove all items from the PlotItem’s <a class="reference internal" href="viewbox.html#pyqtgraph.ViewBox" title="pyqtgraph.ViewBox"><code class="xref py py-class docutils literal notranslate"><span class="pre">ViewBox</span></code></a>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqtgraph.PlotItem.clearPlots">
+<span class="sig-name descname"><span class="pre">clearPlots</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pyqtgraph/graphicsItems/PlotItem/PlotItem.html#PlotItem.clearPlots"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyqtgraph.PlotItem.clearPlots" title="Link to this definition">#</a></dt>
+<dd><p>Remove all curves from the PlotItem’s <a class="reference internal" href="viewbox.html#pyqtgraph.ViewBox" title="pyqtgraph.ViewBox"><code class="xref py py-class docutils literal notranslate"><span class="pre">ViewBox</span></code></a>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqtgraph.PlotItem.clipToViewMode">
+<span class="sig-name descname"><span class="pre">clipToViewMode</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><span class="pre">bool</span></a></span></span><a class="reference internal" href="../../_modules/pyqtgraph/graphicsItems/PlotItem/PlotItem.html#PlotItem.clipToViewMode"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyqtgraph.PlotItem.clipToViewMode" title="Link to this definition">#</a></dt>
+<dd><p>Return whether clip-to-view mode is enabled.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">True</span></code> if clip-to-view mode is enabled, <code class="docutils literal notranslate"><span class="pre">False</span></code> otherwise.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqtgraph.PlotItem.getAxis">
+<span class="sig-name descname"><span class="pre">getAxis</span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>,</dd>
+</dl>
+
+<span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pyqtgraph/graphicsItems/PlotItem/PlotItem.html#PlotItem.getAxis"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyqtgraph.PlotItem.getAxis" title="Link to this definition">#</a></dt>
+<dd><p>Return the specified AxisItem.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>name</strong> (<code class="docutils literal notranslate"><span class="pre">{'left',</span> <span class="pre">'bottom',</span> <span class="pre">'right',</span> <span class="pre">'top'}</span></code>) – The name of the axis to return.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The <a class="reference internal" href="axisitem.html#pyqtgraph.AxisItem" title="pyqtgraph.AxisItem"><code class="xref py py-class docutils literal notranslate"><span class="pre">AxisItem</span></code></a>.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="axisitem.html#pyqtgraph.AxisItem" title="pyqtgraph.AxisItem"><code class="xref py py-class docutils literal notranslate"><span class="pre">AxisItem</span></code></a></p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#KeyError" title="(in Python v3.14)"><strong>KeyError</strong></a> – If the specified axis is not present.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqtgraph.PlotItem.getViewBox">
+<span class="sig-name descname"><span class="pre">getViewBox</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="viewbox.html#pyqtgraph.ViewBox" title="pyqtgraph.graphicsItems.ViewBox.ViewBox.ViewBox"><span class="pre">ViewBox</span></a></span></span><a class="reference internal" href="../../_modules/pyqtgraph/graphicsItems/PlotItem/PlotItem.html#PlotItem.getViewBox"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyqtgraph.PlotItem.getViewBox" title="Link to this definition">#</a></dt>
+<dd><p>Return the embedded <a class="reference internal" href="viewbox.html#pyqtgraph.ViewBox" title="pyqtgraph.ViewBox"><code class="xref py py-class docutils literal notranslate"><span class="pre">ViewBox</span></code></a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The <a class="reference internal" href="viewbox.html#pyqtgraph.ViewBox" title="pyqtgraph.ViewBox"><code class="xref py py-class docutils literal notranslate"><span class="pre">ViewBox</span></code></a> that this PlotItem uses.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="viewbox.html#pyqtgraph.ViewBox" title="pyqtgraph.graphicsItems.ViewBox.ViewBox.ViewBox"><code class="xref py py-class docutils literal notranslate"><span class="pre">ViewBox</span></code></a></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqtgraph.PlotItem.hideAxis">
+<span class="sig-name descname"><span class="pre">hideAxis</span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">axis</span></span></em>,</dd>
+</dl>
+
+<span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pyqtgraph/graphicsItems/PlotItem/PlotItem.html#PlotItem.hideAxis"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyqtgraph.PlotItem.hideAxis" title="Link to this definition">#</a></dt>
+<dd><p>Hide an axis.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>axis</strong> (<code class="docutils literal notranslate"><span class="pre">{'left',</span> <span class="pre">'bottom',</span> <span class="pre">'right',</span> <span class="pre">'top'}</span></code>) – The axis to hide.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqtgraph.PlotItem.hideButtons">
+<span class="sig-name descname"><span class="pre">hideButtons</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pyqtgraph/graphicsItems/PlotItem/PlotItem.html#PlotItem.hideButtons"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyqtgraph.PlotItem.hideButtons" title="Link to this definition">#</a></dt>
+<dd><p>Hide auto-scale button (‘A’ in lower-left corner).</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqtgraph.PlotItem.listDataItems">
+<span class="sig-name descname"><span class="pre">listDataItems</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pyqtgraph/graphicsItems/PlotItem/PlotItem.html#PlotItem.listDataItems"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyqtgraph.PlotItem.listDataItems" title="Link to this definition">#</a></dt>
+<dd><p>Return a list of all data items current plotted.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A copy of a list of the data items.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a> of <a class="reference internal" href="plotcurveitem.html#pyqtgraph.PlotCurveItem" title="pyqtgraph.PlotCurveItem"><code class="xref py py-class docutils literal notranslate"><span class="pre">PlotCurveItem</span></code></a>, <a class="reference internal" href="scatterplotitem.html#pyqtgraph.ScatterPlotItem" title="pyqtgraph.ScatterPlotItem"><code class="xref py py-class docutils literal notranslate"><span class="pre">ScatterPlotItem</span></code></a> or <a class="reference internal" href="plotdataitem.html#pyqtgraph.PlotDataItem" title="pyqtgraph.PlotDataItem"><code class="xref py py-class docutils literal notranslate"><span class="pre">PlotDataItem</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqtgraph.PlotItem.menuEnabled">
+<span class="sig-name descname"><span class="pre">menuEnabled</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pyqtgraph/graphicsItems/PlotItem/PlotItem.html#PlotItem.menuEnabled"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyqtgraph.PlotItem.menuEnabled" title="Link to this definition">#</a></dt>
+<dd><p>Return whether the context menu is enabled.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">True</span></code> if the context menu is enabled, <code class="docutils literal notranslate"><span class="pre">False</span></code> otherwise.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqtgraph.PlotItem.multiDataPlot">
+<span class="sig-name descname"><span class="pre">multiDataPlot</span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">constKwargs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em>,</dd>
+</dl>
+
+<span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pyqtgraph/graphicsItems/PlotItem/PlotItem.html#PlotItem.multiDataPlot"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyqtgraph.PlotItem.multiDataPlot" title="Link to this definition">#</a></dt>
+<dd><p>Allow plotting multiple curves on the same plot in one call.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul>
+<li><p><strong>x, y</strong> (<a class="reference external" href="https://numpy.org/doc/stable/glossary.html#term-array_like" title="(in NumPy v2.4)"><span class="xref std std-term">array_like</span></a>) –</p>
+<dl class="simple">
+<dt>Can be in the following formats:</dt><dd><ul class="simple">
+<li><p>{x or y} = [n1, n2, n3, …]: The named argument iterates through
+<code class="docutils literal notranslate"><span class="pre">n</span></code> curves, while the unspecified argument is range(len(n)) for
+each curve.</p></li>
+<li><p>x, [y1, y2, y3, …]</p></li>
+<li><p>[x1, x2, x3, …], [y1, y2, y3, …]</p></li>
+<li><p>[x1, x2, x3, …], y</p></li>
+</ul>
+</dd>
+</dl>
+<p>where <code class="docutils literal notranslate"><span class="pre">x_n</span></code> and <code class="docutils literal notranslate"><span class="pre">y_n</span></code> are <code class="docutils literal notranslate"><span class="pre">ndarray</span></code> data for each curve. Since
+<code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> values are matched using <code class="docutils literal notranslate"><span class="pre">zip</span></code>, unequal lengths mean
+the longer array will be truncated. Note that 2D matrices for either x
+or y are considered lists of curve data.</p>
+</li>
+<li><p><strong>constKwargs</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a>, <em>optional</em>) – A dict of {str: value} passed to each curve during <code class="docutils literal notranslate"><span class="pre">plot()</span></code>.</p></li>
+<li><p><strong>**kwargs</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a>, <em>optional</em>) – A dict of {str: iterable} where the str is the name of a kwarg and the
+iterable is a list of values, one for each plotted curve.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Returns a list of the newly constructed <a class="reference internal" href="plotdataitem.html#pyqtgraph.PlotDataItem" title="pyqtgraph.PlotDataItem"><code class="xref py py-class docutils literal notranslate"><span class="pre">PlotDataItem</span></code></a>
+instances representing the new curves.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a> of <a class="reference internal" href="plotdataitem.html#pyqtgraph.PlotDataItem" title="pyqtgraph.PlotDataItem"><code class="xref py py-class docutils literal notranslate"><span class="pre">PlotDataItem</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqtgraph.PlotItem.plot">
+<span class="sig-name descname"><span class="pre">plot</span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em>,</dd>
+</dl>
+
+<span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pyqtgraph/graphicsItems/PlotItem/PlotItem.html#PlotItem.plot"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyqtgraph.PlotItem.plot" title="Link to this definition">#</a></dt>
+<dd><p>Add and return a new <a class="reference internal" href="plotdataitem.html#pyqtgraph.PlotDataItem" title="pyqtgraph.PlotDataItem"><code class="xref py py-class docutils literal notranslate"><span class="pre">PlotDataItem</span></code></a>.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul>
+<li><p><strong>*args</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code></a>, <em>optional</em>) – Arguments that are passed to the <a class="reference internal" href="plotdataitem.html#pyqtgraph.PlotDataItem" title="pyqtgraph.PlotDataItem"><code class="xref py py-class docutils literal notranslate"><span class="pre">PlotDataItem</span></code></a>
+constructor.</p></li>
+<li><p><strong>**kwargs</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a>, <em>optional</em>) – Keyword arguments that are passed to the <a class="reference internal" href="plotdataitem.html#pyqtgraph.PlotDataItem" title="pyqtgraph.PlotDataItem"><code class="xref py py-class docutils literal notranslate"><span class="pre">PlotDataItem</span></code></a>
+constructor.  In addition, the following keyword arguments are accepted.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Property</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>clear</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">bool</span></code> - Call <a class="reference internal" href="#pyqtgraph.PlotItem.clear" title="pyqtgraph.PlotItem.clear"><code class="xref py py-meth docutils literal notranslate"><span class="pre">clear()</span></code></a> prior to
+creating the new plot instance.</p></td>
+</tr>
+<tr class="row-odd"><td><p>params</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">dict</span></code> or <code class="docutils literal notranslate"><span class="pre">None</span></code> - Arguments to passed as the <cite>params</cite>
+argument to <a class="reference internal" href="#pyqtgraph.PlotItem.addItem" title="pyqtgraph.PlotItem.addItem"><code class="xref py py-meth docutils literal notranslate"><span class="pre">addItem()</span></code></a>.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The newly created <a class="reference internal" href="plotdataitem.html#pyqtgraph.PlotDataItem" title="pyqtgraph.PlotDataItem"><code class="xref py py-class docutils literal notranslate"><span class="pre">PlotDataItem</span></code></a>.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="plotdataitem.html#pyqtgraph.PlotDataItem" title="pyqtgraph.PlotDataItem"><code class="xref py py-class docutils literal notranslate"><span class="pre">PlotDataItem</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqtgraph.PlotItem.removeItem">
+<span class="sig-name descname"><span class="pre">removeItem</span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">item</span></span></em>,</dd>
+</dl>
+
+<span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pyqtgraph/graphicsItems/PlotItem/PlotItem.html#PlotItem.removeItem"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyqtgraph.PlotItem.removeItem" title="Link to this definition">#</a></dt>
+<dd><p>Remove an item from the plot.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>item</strong> (<a class="reference internal" href="graphicsitem.html#pyqtgraph.GraphicsItem" title="pyqtgraph.GraphicsItem"><code class="xref py py-class docutils literal notranslate"><span class="pre">GraphicsItem</span></code></a>) – The item to remove.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqtgraph.PlotItem.scatterPlot">
+<span class="sig-name descname"><span class="pre">scatterPlot</span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em>,</dd>
+</dl>
+
+<span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pyqtgraph/graphicsItems/PlotItem/PlotItem.html#PlotItem.scatterPlot"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyqtgraph.PlotItem.scatterPlot" title="Link to this definition">#</a></dt>
+<dd><p>Create a <a class="reference internal" href="plotdataitem.html#pyqtgraph.PlotDataItem" title="pyqtgraph.PlotDataItem"><code class="xref py py-class docutils literal notranslate"><span class="pre">PlotDataItem</span></code></a> and add it to the plot.</p>
+<p>The <a class="reference internal" href="plotdataitem.html#pyqtgraph.PlotDataItem" title="pyqtgraph.PlotDataItem"><code class="xref py py-class docutils literal notranslate"><span class="pre">PlotDataItem</span></code></a> instance will render the underlying data
+in a scatter plot form.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul>
+<li><p><strong>*args</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code></a>, <em>optional</em>) – Arguments that are passed to the <a class="reference internal" href="plotdataitem.html#pyqtgraph.PlotDataItem" title="pyqtgraph.PlotDataItem"><code class="xref py py-class docutils literal notranslate"><span class="pre">PlotDataItem</span></code></a>
+constructor.</p></li>
+<li><p><strong>**kwargs</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a>, <em>optional</em>) – Keyword arguments that are passed to the <a class="reference internal" href="plotdataitem.html#pyqtgraph.PlotDataItem" title="pyqtgraph.PlotDataItem"><code class="xref py py-class docutils literal notranslate"><span class="pre">PlotDataItem</span></code></a>
+constructor.  In addition, the following keyword arguments are accepted.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Property</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>pen</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">QPen</span></code> - Sets the pen used to draw lines or symbols for the
+plot.  Equivalent to <code class="docutils literal notranslate"><span class="pre">symbolPen</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p>brush</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">QBrush</span></code> - Sets the brush used to fill symbols for the plot.
+Equivalent to <code class="docutils literal notranslate"><span class="pre">symbolBrush</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p>size</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">float</span></code> - Sets the symbol size for the plot. Equivalent to
+<code class="docutils literal notranslate"><span class="pre">symbolSize</span></code>.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The newly created <a class="reference internal" href="plotdataitem.html#pyqtgraph.PlotDataItem" title="pyqtgraph.PlotDataItem"><code class="xref py py-class docutils literal notranslate"><span class="pre">PlotDataItem</span></code></a>.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="plotdataitem.html#pyqtgraph.PlotDataItem" title="pyqtgraph.PlotDataItem"><code class="xref py py-class docutils literal notranslate"><span class="pre">PlotDataItem</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqtgraph.PlotItem.setAxisItems">
+<span class="sig-name descname"><span class="pre">setAxisItems</span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">axisItems</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.14)"><span class="pre">dict</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="axisitem.html#pyqtgraph.AxisItem" title="pyqtgraph.graphicsItems.AxisItem.AxisItem"><span class="pre">AxisItem</span></a><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>,</dd>
+</dl>
+
+<span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></span></span><a class="reference internal" href="../../_modules/pyqtgraph/graphicsItems/PlotItem/PlotItem.html#PlotItem.setAxisItems"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyqtgraph.PlotItem.setAxisItems" title="Link to this definition">#</a></dt>
+<dd><p>Place axis items and initializes non-existing axis items.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>axisItems</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a> of <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a> and <a class="reference internal" href="axisitem.html#pyqtgraph.AxisItem" title="pyqtgraph.AxisItem"><code class="xref py py-class docutils literal notranslate"><span class="pre">AxisItem</span></code></a> or <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a>) – Optional dictionary instructing the PlotItem to use pre-constructed items
+for its axes. The dict keys must be axis names
+{‘left’, ‘bottom’, ‘right’, ‘top’} and the values must be instances of
+<a class="reference internal" href="axisitem.html#pyqtgraph.AxisItem" title="pyqtgraph.AxisItem"><code class="xref py py-class docutils literal notranslate"><span class="pre">AxisItem</span></code></a>.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqtgraph.PlotItem.setClipToView">
+<span class="sig-name descname"><span class="pre">setClipToView</span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">clip</span></span></em>,</dd>
+</dl>
+
+<span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pyqtgraph/graphicsItems/PlotItem/PlotItem.html#PlotItem.setClipToView"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyqtgraph.PlotItem.setClipToView" title="Link to this definition">#</a></dt>
+<dd><p>Set the default clip-to-view mode for new curves.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>clip</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a>) – If <code class="docutils literal notranslate"><span class="pre">True</span></code>, new curves will be clipped to the view box.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqtgraph.PlotItem.setContextMenuActionVisible">
+<span class="sig-name descname"><span class="pre">setContextMenuActionVisible</span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">visible</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><span class="pre">bool</span></a></span></em>,</dd>
+</dl>
+
+<span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></span></span><a class="reference internal" href="../../_modules/pyqtgraph/graphicsItems/PlotItem/PlotItem.html#PlotItem.setContextMenuActionVisible"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyqtgraph.PlotItem.setContextMenuActionVisible" title="Link to this definition">#</a></dt>
+<dd><p>Change the context menu action visibility.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<code class="docutils literal notranslate"><span class="pre">{'Transforms',</span> <span class="pre">'Downsample',</span> <span class="pre">'Average',</span> <span class="pre">'Alpha',</span> <span class="pre">'Grid',</span> <span class="pre">'Points'}</span></code>) – Action name.</p></li>
+<li><p><strong>visible</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a>) – Determines if action will be display. <code class="docutils literal notranslate"><span class="pre">True</span></code> action is visible, <code class="docutils literal notranslate"><span class="pre">False</span></code>
+action is invisible.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqtgraph.PlotItem.setDownsampling">
+<span class="sig-name descname"><span class="pre">setDownsampling</span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">ds</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">auto</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>,</dd>
+</dl>
+
+<span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pyqtgraph/graphicsItems/PlotItem/PlotItem.html#PlotItem.setDownsampling"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyqtgraph.PlotItem.setDownsampling" title="Link to this definition">#</a></dt>
+<dd><p>Set the downsampling mode for the PlotItem.</p>
+<p>Downsampling reduces the number of samples drawn to improve performance.
+The downsampling mode can be set to ‘subsample’, ‘mean’, ‘peak’, or None.
+If downsampling is enabled, the view will display downsampled data when zoomed out,
+but will display original data at high zoom levels.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ds</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a> or <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a> or <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a>, <em>optional</em>) – The downsampling factor. If <code class="docutils literal notranslate"><span class="pre">None</span></code>, the downsampling factor is not
+changed. If <code class="docutils literal notranslate"><span class="pre">True</span></code>, the downsampling factor is set to the value in the
+downsampling spin box. If <code class="docutils literal notranslate"><span class="pre">False</span></code>, downsampling is disabled. If an
+integer, the downsampling factor is set to this value. Default is <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></li>
+<li><p><strong>auto</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a> or <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a>, <em>optional</em>) – If <code class="docutils literal notranslate"><span class="pre">True</span></code>, automatic downsampling is enabled. If <code class="docutils literal notranslate"><span class="pre">False</span></code>, automatic
+downsampling is disabled. If <code class="docutils literal notranslate"><span class="pre">None</span></code>, the automatic downsampling setting
+is not changed. Default is <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></li>
+<li><p><strong>mode</strong> (<code class="docutils literal notranslate"><span class="pre">{'subsample',</span> <span class="pre">'mean',</span> <span class="pre">'peak'}</span></code> or <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a>, <em>optional</em>) – The downsampling mode. If <code class="docutils literal notranslate"><span class="pre">None</span></code>, the downsampling mode is not changed.
+Default is <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ValueError" title="(in Python v3.14)"><strong>ValueError</strong></a> – Raised if the specified downsample mode is not recognized.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqtgraph.PlotItem.setExportMode">
+<span class="sig-name descname"><span class="pre">setExportMode</span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">export</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><span class="pre">bool</span></a></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">opts</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>,</dd>
+</dl>
+
+<span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pyqtgraph/graphicsItems/PlotItem/PlotItem.html#PlotItem.setExportMode"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyqtgraph.PlotItem.setExportMode" title="Link to this definition">#</a></dt>
+<dd><p>Set whether the item will allow export via screenshots or image files.</p>
+<p>If export mode is enabled, then the item will allow export and the export
+options dock will be displayed. If export mode is disabled, then no export
+options will be available and the export dock will be hidden.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>export</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a>) – If <code class="docutils literal notranslate"><span class="pre">True</span></code>, the item will allow export.</p></li>
+<li><p><strong>opts</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a> or <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a>, <em>optional</em>) – A dictionary of export options. If <code class="docutils literal notranslate"><span class="pre">None</span></code>, the default export
+options will be used. By default, <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqtgraph.PlotItem.setLabel">
+<span class="sig-name descname"><span class="pre">setLabel</span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">axis</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></span></em>,</dd>
+<dd><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em>,</dd>
+</dl>
+
+<span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pyqtgraph/graphicsItems/PlotItem/PlotItem.html#PlotItem.setLabel"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyqtgraph.PlotItem.setLabel" title="Link to this definition">#</a></dt>
+<dd><p>Set the label for an axis.</p>
+<p>Basic HTML is allowed. See <a class="reference internal" href="axisitem.html#pyqtgraph.AxisItem.setLabel" title="pyqtgraph.AxisItem.setLabel"><code class="xref py py-func docutils literal notranslate"><span class="pre">AxisItem.setLabel()</span></code></a> for formatting options.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>axis</strong> (<code class="docutils literal notranslate"><span class="pre">{'left',</span> <span class="pre">'bottom',</span> <span class="pre">'right',</span> <span class="pre">'top'}</span></code>) – Specify which <a class="reference internal" href="axisitem.html#pyqtgraph.AxisItem" title="pyqtgraph.AxisItem"><code class="xref py py-class docutils literal notranslate"><span class="pre">AxisItem</span></code></a> to set the label for.</p></li>
+<li><p><strong>*args</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code></a>, <em>optional</em>) – All extra arguments are passed to <a class="reference internal" href="axisitem.html#pyqtgraph.AxisItem.setLabel" title="pyqtgraph.AxisItem.setLabel"><code class="xref py py-meth docutils literal notranslate"><span class="pre">setLabel()</span></code></a>.</p></li>
+<li><p><strong>**kwargs</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a>, <em>optional</em>) – Keyword arguments are passed to <a class="reference internal" href="axisitem.html#pyqtgraph.AxisItem.setLabel" title="pyqtgraph.AxisItem.setLabel"><code class="xref py py-meth docutils literal notranslate"><span class="pre">setLabel()</span></code></a>.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqtgraph.PlotItem.setLabels">
+<span class="sig-name descname"><span class="pre">setLabels</span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em>,</dd>
+</dl>
+
+<span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pyqtgraph/graphicsItems/PlotItem/PlotItem.html#PlotItem.setLabels"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyqtgraph.PlotItem.setLabels" title="Link to this definition">#</a></dt>
+<dd><p>Set the axis labels of the plot.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>**kwargs</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a>, <em>optional</em>) – Keyword arguments are passed to  <a class="reference internal" href="axisitem.html#pyqtgraph.AxisItem.setLabel" title="pyqtgraph.AxisItem.setLabel"><code class="xref py py-meth docutils literal notranslate"><span class="pre">setLabel()</span></code></a>.  The
+special keyword <code class="docutils literal notranslate"><span class="pre">title</span></code> can be used to set the plot title using
+<a class="reference internal" href="#pyqtgraph.PlotItem.setTitle" title="pyqtgraph.PlotItem.setTitle"><code class="xref py py-meth docutils literal notranslate"><span class="pre">setTitle()</span></code></a>.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqtgraph.PlotItem.setLogMode">
+<span class="sig-name descname"><span class="pre">setLogMode</span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>,</dd>
+</dl>
+
+<span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pyqtgraph/graphicsItems/PlotItem/PlotItem.html#PlotItem.setLogMode"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyqtgraph.PlotItem.setLogMode" title="Link to this definition">#</a></dt>
+<dd><p>Set log scaling for <cite>x</cite> and/or <cite>y</cite> axes.</p>
+<p>This informs PlotDataItems to transform logarithmically and switches the axes to
+use log ticking.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a> or <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a>) – If <code class="docutils literal notranslate"><span class="pre">True</span></code>, set the x-axis to log mode. A value of <code class="docutils literal notranslate"><span class="pre">None</span></code> is ignored.</p></li>
+<li><p><strong>y</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a> or <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a>) – If <code class="docutils literal notranslate"><span class="pre">True</span></code>, set the y-axis to log mode. A value of <code class="docutils literal notranslate"><span class="pre">None</span></code> is ignored.</p></li>
+</ul>
+</dd>
+</dl>
+<div class="admonition-notes admonition">
+<p class="admonition-title">Notes</p>
+<p>No other items, in the scene will be affected by this; there is (currently)
+no generic way to redisplay a <a class="reference internal" href="graphicsitem.html#pyqtgraph.GraphicsItem" title="pyqtgraph.GraphicsItem"><code class="xref py py-class docutils literal notranslate"><span class="pre">GraphicsItem</span></code></a> with log
+coordinates.</p>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqtgraph.PlotItem.setMenuEnabled">
+<span class="sig-name descname"><span class="pre">setMenuEnabled</span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">enableMenu</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">enableViewBoxMenu</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'same'</span></span></em>,</dd>
+</dl>
+
+<span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pyqtgraph/graphicsItems/PlotItem/PlotItem.html#PlotItem.setMenuEnabled"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyqtgraph.PlotItem.setMenuEnabled" title="Link to this definition">#</a></dt>
+<dd><p>Enable or disable the context menu for this PlotItem.</p>
+<p>By default, the ViewBox’s context menu will also be affected. Use
+<code class="docutils literal notranslate"><span class="pre">enableViewBoxMenu=None</span></code> to leave the ViewBox unchanged.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>enableMenu</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a>, <em>optional</em>) – Whether to enable or disable the context menu, by default True.</p></li>
+<li><p><strong>enableViewBoxMenu</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a> or <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a>, <em>optional</em>) – Whether to enable or disable the ViewBox context menu.
+If ‘same’, the ViewBox menu will be enabled or disabled as <em>enableMenu</em>.
+If <code class="docutils literal notranslate"><span class="pre">True</span></code> or <code class="docutils literal notranslate"><span class="pre">False</span></code>, the ViewBox menu will be set accordingly.
+If <code class="docutils literal notranslate"><span class="pre">None</span></code>, the ViewBox menu will not be changed.
+By default ‘same’.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqtgraph.PlotItem.setTitle">
+<span class="sig-name descname"><span class="pre">setTitle</span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">title</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">args</span></span></em>,</dd>
+</dl>
+
+<span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pyqtgraph/graphicsItems/PlotItem/PlotItem.html#PlotItem.setTitle"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyqtgraph.PlotItem.setTitle" title="Link to this definition">#</a></dt>
+<dd><p>Set the title of the plot.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>title</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>, <em>optional</em>) – The title text. If <code class="docutils literal notranslate"><span class="pre">None</span></code>, the title will be hidden. The default is
+<code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></li>
+<li><p><strong>**args</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a>) – Additional keyword arguments are passed to
+<a class="reference internal" href="labelitem.html#pyqtgraph.LabelItem.setText" title="pyqtgraph.LabelItem.setText"><code class="xref py py-meth docutils literal notranslate"><span class="pre">setText()</span></code></a>.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqtgraph.PlotItem.showAxes">
+<span class="sig-name descname"><span class="pre">showAxes</span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">selection</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">showValues</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>,</dd>
+</dl>
+
+<span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pyqtgraph/graphicsItems/PlotItem/PlotItem.html#PlotItem.showAxes"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyqtgraph.PlotItem.showAxes" title="Link to this definition">#</a></dt>
+<dd><p>Convenience method for quickly configuring axis settings.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>selection</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a> or <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code></a> of <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a>) – Determines which AxisItems will be displayed. If in tuple form, order is
+(left, top, right, bottom). A single boolean value will set all axes, so
+that <code class="docutils literal notranslate"><span class="pre">showAxes(True)</span></code> configures the axes to draw a frame.</p></li>
+<li><p><strong>showValues</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a> or <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code></a> of <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a>, <em>optional</em>) – Determines if values will be displayed for the ticks of each axis. <code class="docutils literal notranslate"><span class="pre">True</span></code>
+value shows values for left and bottom axis (default). <code class="docutils literal notranslate"><span class="pre">False</span></code> shows no
+values. If in tuple form, order is (left, top, right, bottom). <code class="docutils literal notranslate"><span class="pre">None</span></code>
+leaves settings unchanged. If not specified, left and bottom axes will be
+drawn with values.</p></li>
+<li><p><strong>size</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a> or <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code></a> of <a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a>, <em>optional</em>) – Reserves as fixed amount of space (width for vertical axis, height for
+horizontal axis) for each axis where tick values are enabled. If only a
+single float value is given, it will be applied for both width and height.
+If <code class="docutils literal notranslate"><span class="pre">None</span></code> is given instead of a float value, the axis reverts to automatic
+allocation of space. If in tuple form, order is <code class="docutils literal notranslate"><span class="pre">(width,</span> <span class="pre">height)</span></code>.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqtgraph.PlotItem.showAxis">
+<span class="sig-name descname"><span class="pre">showAxis</span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">axis</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">show</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><span class="pre">bool</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>,</dd>
+</dl>
+
+<span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pyqtgraph/graphicsItems/PlotItem/PlotItem.html#PlotItem.showAxis"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyqtgraph.PlotItem.showAxis" title="Link to this definition">#</a></dt>
+<dd><p>Show or hide an axis.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>axis</strong> (<code class="docutils literal notranslate"><span class="pre">{'left',</span> <span class="pre">'bottom',</span> <span class="pre">'right',</span> <span class="pre">'top'}</span></code>) – The axis to show or hide.</p></li>
+<li><p><strong>show</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a>, <em>optional</em>) – Whether to show or hide the axis, by default True.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqtgraph.PlotItem.showButtons">
+<span class="sig-name descname"><span class="pre">showButtons</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pyqtgraph/graphicsItems/PlotItem/PlotItem.html#PlotItem.showButtons"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyqtgraph.PlotItem.showButtons" title="Link to this definition">#</a></dt>
+<dd><p>Show auto-scale button (‘A’ in lower-left corner).</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqtgraph.PlotItem.showGrid">
+<span class="sig-name descname"><span class="pre">showGrid</span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>,</dd>
+</dl>
+
+<span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pyqtgraph/graphicsItems/PlotItem/PlotItem.html#PlotItem.showGrid"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyqtgraph.PlotItem.showGrid" title="Link to this definition">#</a></dt>
+<dd><p>Show or hide the grid for either axis.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a> or <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a>) – Show the X grid, a value of <code class="docutils literal notranslate"><span class="pre">None</span></code> is ignored.</p></li>
+<li><p><strong>y</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a> or <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a>) – Show the Y grid, a value of <code class="docutils literal notranslate"><span class="pre">None</span></code> is ignored.</p></li>
+<li><p><strong>alpha</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a> or <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a>) – Opacity of the grid, float values need to be between [0.0, 1.0].</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqtgraph.PlotItem.showLabel">
+<span class="sig-name descname"><span class="pre">showLabel</span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">axis</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">show</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>,</dd>
+</dl>
+
+<span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pyqtgraph/graphicsItems/PlotItem/PlotItem.html#PlotItem.showLabel"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyqtgraph.PlotItem.showLabel" title="Link to this definition">#</a></dt>
+<dd><p>Show or hide one of the plot’s axis labels.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>axis</strong> (<code class="docutils literal notranslate"><span class="pre">{'left',</span> <span class="pre">'bottom',</span> <span class="pre">'right',</span> <span class="pre">'top'}</span></code>) – The axis label to show or hide.</p></li>
+<li><p><strong>show</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a>, <em>optional</em>) – Whether to show or hide the label, by default True.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqtgraph.PlotItem.viewGeometry">
+<span class="sig-name descname"><span class="pre">viewGeometry</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://doc.qt.io/qt-6/qrectf.html" title="(in Qt6 v6.11)"><span class="pre">QRectF</span></a></span></span><a class="reference internal" href="../../_modules/pyqtgraph/graphicsItems/PlotItem/PlotItem.html#PlotItem.viewGeometry"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyqtgraph.PlotItem.viewGeometry" title="Link to this definition">#</a></dt>
+<dd><p>Return the screen geometry of the viewbox.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The QRectF instance that contains the view area.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://doc.qt.io/qt-6/qrectf.html" title="(in Qt6 v6.11)"><code class="docutils literal notranslate"><span class="pre">QRectF</span></code></a></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqtgraph.PlotItem.writeCsv">
+<span class="sig-name descname"><span class="pre">writeCsv</span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">fileName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>,</dd>
+</dl>
+
+<span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pyqtgraph/graphicsItems/PlotItem/PlotItem.html#PlotItem.writeCsv"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyqtgraph.PlotItem.writeCsv" title="Link to this definition">#</a></dt>
+<dd><p>Write the plot data to a CSV file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>fileName</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>, <em>optional</em>) – The name of the file to write to. If not specified, a file dialog will be
+opened.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqtgraph.PlotItem.writeImage">
+<span class="sig-name descname"><span class="pre">writeImage</span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">fileName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>,</dd>
+</dl>
+
+<span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pyqtgraph/graphicsItems/PlotItem/PlotItem.html#PlotItem.writeImage"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyqtgraph.PlotItem.writeImage" title="Link to this definition">#</a></dt>
+<dd><p>Write the plot content to an image file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>fileName</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>, <em>optional</em>) – The name of the file to write to. If not specified, a file dialog will be
+opened.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqtgraph.PlotItem.writeSvg">
+<span class="sig-name descname"><span class="pre">writeSvg</span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">fileName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>,</dd>
+</dl>
+
+<span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pyqtgraph/graphicsItems/PlotItem/PlotItem.html#PlotItem.writeSvg"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyqtgraph.PlotItem.writeSvg" title="Link to this definition">#</a></dt>
+<dd><p>Write the plot content to an SVG file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>fileName</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>, <em>optional</em>) – The name of the file to write to. If not specified, a file dialog will be
+opened.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="plotdataitem.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">PlotDataItem</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="imageitem.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">ImageItem</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pyqtgraph.PlotItem"><code class="docutils literal notranslate"><span class="pre">PlotItem</span></code></a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pyqtgraph.PlotItem.__init__"><code class="docutils literal notranslate"><span class="pre">__init__()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pyqtgraph.PlotItem.addColorBar"><code class="docutils literal notranslate"><span class="pre">addColorBar()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pyqtgraph.PlotItem.addItem"><code class="docutils literal notranslate"><span class="pre">addItem()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pyqtgraph.PlotItem.addLegend"><code class="docutils literal notranslate"><span class="pre">addLegend()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pyqtgraph.PlotItem.addLine"><code class="docutils literal notranslate"><span class="pre">addLine()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pyqtgraph.PlotItem.clear"><code class="docutils literal notranslate"><span class="pre">clear()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pyqtgraph.PlotItem.clearPlots"><code class="docutils literal notranslate"><span class="pre">clearPlots()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pyqtgraph.PlotItem.clipToViewMode"><code class="docutils literal notranslate"><span class="pre">clipToViewMode()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pyqtgraph.PlotItem.getAxis"><code class="docutils literal notranslate"><span class="pre">getAxis()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pyqtgraph.PlotItem.getViewBox"><code class="docutils literal notranslate"><span class="pre">getViewBox()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pyqtgraph.PlotItem.hideAxis"><code class="docutils literal notranslate"><span class="pre">hideAxis()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pyqtgraph.PlotItem.hideButtons"><code class="docutils literal notranslate"><span class="pre">hideButtons()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pyqtgraph.PlotItem.listDataItems"><code class="docutils literal notranslate"><span class="pre">listDataItems()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pyqtgraph.PlotItem.menuEnabled"><code class="docutils literal notranslate"><span class="pre">menuEnabled()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pyqtgraph.PlotItem.multiDataPlot"><code class="docutils literal notranslate"><span class="pre">multiDataPlot()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pyqtgraph.PlotItem.plot"><code class="docutils literal notranslate"><span class="pre">plot()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pyqtgraph.PlotItem.removeItem"><code class="docutils literal notranslate"><span class="pre">removeItem()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pyqtgraph.PlotItem.scatterPlot"><code class="docutils literal notranslate"><span class="pre">scatterPlot()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pyqtgraph.PlotItem.setAxisItems"><code class="docutils literal notranslate"><span class="pre">setAxisItems()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pyqtgraph.PlotItem.setClipToView"><code class="docutils literal notranslate"><span class="pre">setClipToView()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pyqtgraph.PlotItem.setContextMenuActionVisible"><code class="docutils literal notranslate"><span class="pre">setContextMenuActionVisible()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pyqtgraph.PlotItem.setDownsampling"><code class="docutils literal notranslate"><span class="pre">setDownsampling()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pyqtgraph.PlotItem.setExportMode"><code class="docutils literal notranslate"><span class="pre">setExportMode()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pyqtgraph.PlotItem.setLabel"><code class="docutils literal notranslate"><span class="pre">setLabel()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pyqtgraph.PlotItem.setLabels"><code class="docutils literal notranslate"><span class="pre">setLabels()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pyqtgraph.PlotItem.setLogMode"><code class="docutils literal notranslate"><span class="pre">setLogMode()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pyqtgraph.PlotItem.setMenuEnabled"><code class="docutils literal notranslate"><span class="pre">setMenuEnabled()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pyqtgraph.PlotItem.setTitle"><code class="docutils literal notranslate"><span class="pre">setTitle()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pyqtgraph.PlotItem.showAxes"><code class="docutils literal notranslate"><span class="pre">showAxes()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pyqtgraph.PlotItem.showAxis"><code class="docutils literal notranslate"><span class="pre">showAxis()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pyqtgraph.PlotItem.showButtons"><code class="docutils literal notranslate"><span class="pre">showButtons()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pyqtgraph.PlotItem.showGrid"><code class="docutils literal notranslate"><span class="pre">showGrid()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pyqtgraph.PlotItem.showLabel"><code class="docutils literal notranslate"><span class="pre">showLabel()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pyqtgraph.PlotItem.viewGeometry"><code class="docutils literal notranslate"><span class="pre">viewGeometry()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pyqtgraph.PlotItem.writeCsv"><code class="docutils literal notranslate"><span class="pre">writeCsv()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pyqtgraph.PlotItem.writeImage"><code class="docutils literal notranslate"><span class="pre">writeImage()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pyqtgraph.PlotItem.writeSvg"><code class="docutils literal notranslate"><span class="pre">writeSvg()</span></code></a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../_static/scripts/bootstrap.js?digest=a95f357e85573c9b56d5"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=a95f357e85573c9b56d5"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2011 - 2026, PyQtGraph developers.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.0.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.19.0.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

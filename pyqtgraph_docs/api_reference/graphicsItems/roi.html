@@ -1,0 +1,1993 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="../../_static/docset-icon.png" sizes="16x16" rel="icon" type="image/png">
+    <link href="../../_static/docset-icon@2x.png" sizes="32x32" rel="icon" type="image/png">
+    <link href="../../_static/peegee_03_square_no_bg_32_cleaned.ico" rel="icon" type="image/x-icon">
+    <title>ROI &#8212; pyqtgraph 0.15.0.dev0 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=a95f357e85573c9b56d5" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=a95f357e85573c9b56d5" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css?v=4ae1632d" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinxcontrib-images/LightBox2/lightbox2/dist/css/lightbox.min.css?v=6e7d0de0" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinxcontrib-images/LightBox2/lightbox2-customize/pointer.css?v=c97663ff" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=006a86f1" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../../_static/scripts/fontawesome.js?digest=a95f357e85573c9b56d5"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=a95f357e85573c9b56d5" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=a95f357e85573c9b56d5" />
+
+    <script src="../../_static/documentation_options.js?v=e3e50566"></script>
+    <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script src="../../_static/sphinxcontrib-images/LightBox2/lightbox2/dist/js/lightbox-plus-jquery.min.js?v=f0ca4bb6"></script>
+    <script src="../../_static/sphinxcontrib-images/LightBox2/lightbox2-customize/jquery-noconflict.js?v=12818e64"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'api_reference/graphicsItems/roi';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="GraphicsLayout" href="graphicslayout.html" />
+    <link rel="prev" title="InfiniteLine" href="infiniteline.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="0.15.0.dev0" />
+  
+    
+    <script src="../../_static/searchtools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../searchindex.js"></script>
+  
+  <script async type="text/javascript" src="/_/static/javascript/readthedocs-addons.js"></script><meta name="readthedocs-project-slug" content="pyqtgraph" /><meta name="readthedocs-version-slug" content="latest" /><meta name="readthedocs-resolver-filename" content="/api_reference/graphicsItems/roi.html" /><meta name="readthedocs-http-status" content="200" /></head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/peegee_02.svg" class="logo__image only-light" alt="pyqtgraph 0.15.0.dev0 documentation - Home"/>
+    <img src="../../_static/peegee_02.svg" class="logo__image only-dark pst-js-only" alt="pyqtgraph 0.15.0.dev0 documentation - Home"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../getting_started/index.html">
+    Getting Started
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../user_guide/index.html">
+    User Guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../developer_guide/index.html">
+    Developer Guide
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="../index.html">
+    API Reference
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/pyqtgraph/pyqtgraph" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i><span class="visually-hidden">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://fosstodon.org/@pyqtgraph" title="Mastodon" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-mastodon fa-lg" aria-hidden="true"></i><span class="visually-hidden">Mastodon</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../getting_started/index.html">
+    Getting Started
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../user_guide/index.html">
+    User Guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../developer_guide/index.html">
+    Developer Guide
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="../index.html">
+    API Reference
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/pyqtgraph/pyqtgraph" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i><span class="visually-hidden">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://fosstodon.org/@pyqtgraph" title="Mastodon" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-mastodon fa-lg" aria-hidden="true"></i><span class="visually-hidden">Mastodon</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../config_options.html">Global Configuration Options</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../functions.html">PyQtGraph’s Helper Functions</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">PyQtGraph’s Graphics Items</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="plotdataitem.html">PlotDataItem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plotitem.html">PlotItem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="imageitem.html">ImageItem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="colorbaritem.html">ColorBarItem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pcolormeshitem.html">PColorMeshItem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="graphitem.html">GraphItem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="viewbox.html">ViewBox</a></li>
+<li class="toctree-l2"><a class="reference internal" href="linearregionitem.html">LinearRegionItem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="infiniteline.html">InfiniteLine</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">ROI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="graphicslayout.html">GraphicsLayout</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plotcurveitem.html">PlotCurveItem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scatterplotitem.html">ScatterPlotItem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="isocurveitem.html">IsocurveItem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="axisitem.html">AxisItem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="textitem.html">TextItem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="errorbaritem.html">ErrorBarItem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bargraphitem.html">BarGraphItem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arrowitem.html">ArrowItem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fillbetweenitem.html">FillBetweenItem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="curvepoint.html">CurvePoint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="curvearrow.html">CurveArrow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="griditem.html">GridItem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scalebar.html">ScaleBar</a></li>
+<li class="toctree-l2"><a class="reference internal" href="labelitem.html">LabelItem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vtickgroup.html">VTickGroup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="legenditem.html">LegendItem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gradienteditoritem.html">GradientEditorItem</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="histogramlutitem.html">HistogramLUTItem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gradientlegend.html">GradientLegend</a></li>
+<li class="toctree-l2"><a class="reference internal" href="buttonitem.html">ButtonItem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="graphicsobject.html">GraphicsObject</a></li>
+<li class="toctree-l2"><a class="reference internal" href="graphicswidget.html">GraphicsWidget</a></li>
+<li class="toctree-l2"><a class="reference internal" href="graphicsitem.html">GraphicsItem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="uigraphicsitem.html">UIGraphicsItem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="graphicswidgetanchor.html">GraphicsWidgetAnchor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dateaxisitem.html">DateAxisItem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="targetitem.html">TargetItem</a></li>
+
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../widgets/index.html">PyQtGraph’s Widgets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../3dgraphics/index.html">PyQtGraph’s 3D Graphics System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../colormap.html">Color Maps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../parametertree/index.html">Parameter Trees</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dockarea.html">Dock Area Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../graphicsscene/index.html">GraphicsScene and Mouse Events</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exporters/index.html">API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../flowchart/index.html">Visual Programming with Flowcharts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../point.html">Point</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../transform3d.html">Transform3D</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../uml_overview.html">UML class diagram</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../index.html" class="nav-link">API Reference</a></li>
+    
+    
+    <li class="breadcrumb-item"><a href="index.html" class="nav-link">PyQtGraph’s Graphics Items</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">ROI</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="roi">
+<h1>ROI<a class="headerlink" href="#roi" title="Link to this heading">#</a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="pyqtgraph.ROI">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">pyqtgraph.</span></span><span class="sig-name descname"><span class="pre">ROI</span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">pos</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">Point(1.000000,</span> <span class="pre">1.000000)</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">angle</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">invertible</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">maxBounds</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">snapSize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">scaleSnap</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">translateSnap</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">rotateSnap</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">parent</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">pen</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">hoverPen</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">handlePen</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">handleHoverPen</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">movable</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">rotatable</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">resizable</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">removable</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">aspectLocked</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">antialias</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>,</dd>
+</dl>
+
+<span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pyqtgraph/graphicsItems/ROI.html#ROI"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyqtgraph.ROI" title="Link to this definition">#</a></dt>
+<dd><p>Generic region-of-interest widget.</p>
+<p>Can be used for implementing many types of selection box with
+rotate/translate/scale handles.
+ROIs can be customized to have a variety of shapes (by subclassing or using
+any of the built-in subclasses) and any combination of draggable handles
+that allow the user to manipulate the ROI.</p>
+<p>Default mouse interaction:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Left drag moves the ROI</p></li>
+<li><p>Left drag + Ctrl moves the ROI with position snapping</p></li>
+<li><p>Left drag + Alt rotates the ROI</p></li>
+<li><p>Left drag + Alt + Ctrl rotates the ROI with angle snapping</p></li>
+<li><p>Left drag + Shift scales the ROI</p></li>
+<li><p>Left drag + Shift + Ctrl scales the ROI with size snapping</p></li>
+</ul>
+</div></blockquote>
+<p>In addition to the above interaction modes, it is possible to attach any
+number of handles to the ROI that can be dragged to change the ROI in
+various ways (see the ROI.add____Handle methods).</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<tbody>
+<tr class="row-odd"><td><p><strong>Arguments</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>pos</p></td>
+<td><p>(length-2 sequence) Indicates the position of the ROI’s
+origin. For most ROIs, this is the lower-left corner of
+its bounding rectangle.</p></td>
+</tr>
+<tr class="row-odd"><td><p>size</p></td>
+<td><p>(length-2 sequence) Indicates the width and height of the
+ROI.</p></td>
+</tr>
+<tr class="row-even"><td><p>angle</p></td>
+<td><p>(float) The rotation of the ROI in degrees. Default is 0.</p></td>
+</tr>
+<tr class="row-odd"><td><p>invertible</p></td>
+<td><p>(bool) If True, the user may resize the ROI to have
+negative width or height (assuming the ROI has scale
+handles). Default is False.</p></td>
+</tr>
+<tr class="row-even"><td><p>maxBounds</p></td>
+<td><p>(QRect, QRectF, or None) Specifies boundaries that the ROI
+cannot be dragged outside of by the user. Default is None.</p></td>
+</tr>
+<tr class="row-odd"><td><p>snapSize</p></td>
+<td><p>(float) The spacing of snap positions used when <em>scaleSnap</em>
+or <em>translateSnap</em> are enabled. Default is 1.0.</p></td>
+</tr>
+<tr class="row-even"><td><p>scaleSnap</p></td>
+<td><p>(bool) If True, the width and height of the ROI are forced
+to be integer multiples of <em>snapSize</em> when being resized
+by the user. Default is False.</p></td>
+</tr>
+<tr class="row-odd"><td><p>translateSnap</p></td>
+<td><p>(bool) If True, the x and y positions of the ROI are forced
+to be integer multiples of <em>snapSize</em> when being resized
+by the user. Default is False.</p></td>
+</tr>
+<tr class="row-even"><td><p>rotateSnap</p></td>
+<td><p>(bool) If True, the ROI angle is forced to a multiple of
+the ROI’s snap angle (default is 15 degrees) when rotated
+by the user. Default is False.</p></td>
+</tr>
+<tr class="row-odd"><td><p>parent</p></td>
+<td><p>(QGraphicsItem) The graphics item parent of this ROI. It
+is generally not necessary to specify the parent.</p></td>
+</tr>
+<tr class="row-even"><td><p>pen</p></td>
+<td><p>(QPen or argument to pg.mkPen) The pen to use when drawing
+the shape of the ROI.</p></td>
+</tr>
+<tr class="row-odd"><td><p>hoverPen</p></td>
+<td><p>(QPen or argument to mkPen) The pen to use while the
+mouse is hovering over the ROI shape.</p></td>
+</tr>
+<tr class="row-even"><td><p>handlePen</p></td>
+<td><p>(QPen or argument to mkPen) The pen to use when drawing
+the ROI handles.</p></td>
+</tr>
+<tr class="row-odd"><td><p>handleHoverPen</p></td>
+<td><p>(QPen or argument to mkPen) The pen to use while the mouse
+is hovering over an ROI handle.</p></td>
+</tr>
+<tr class="row-even"><td><p>movable</p></td>
+<td><p>(bool) If True, the ROI can be moved by dragging anywhere
+inside the ROI. Default is True.</p></td>
+</tr>
+<tr class="row-odd"><td><p>rotatable</p></td>
+<td><p>(bool) If True, the ROI can be rotated by mouse drag + ALT</p></td>
+</tr>
+<tr class="row-even"><td><p>resizable</p></td>
+<td><p>(bool) If True, the ROI can be resized by mouse drag +
+SHIFT</p></td>
+</tr>
+<tr class="row-odd"><td><p>removable</p></td>
+<td><p>(bool) If True, the ROI will be given a context menu with
+an option to remove the ROI. The ROI emits
+sigRemoveRequested when this menu action is selected.
+Default is False.</p></td>
+</tr>
+<tr class="row-even"><td><p>antialias</p></td>
+<td><p>(bool) If True, the ROI will render using AntiAliasing,
+this is what is desired in almost all cases, the option is
+added for testing purposes.
+Default is True</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="pst-scrollable-table-container"><table class="table">
+<tbody>
+<tr class="row-odd"><td><p><strong>Signals</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>sigRegionChangeFinished</p></td>
+<td><p>Emitted when the user stops dragging the ROI (or
+one of its handles) or if the ROI is changed
+programatically.</p></td>
+</tr>
+<tr class="row-odd"><td><p>sigRegionChangeStarted</p></td>
+<td><p>Emitted when the user starts dragging the ROI (or
+one of its handles).</p></td>
+</tr>
+<tr class="row-even"><td><p>sigRegionChanged</p></td>
+<td><p>Emitted any time the position of the ROI changes,
+including while it is being dragged by the user.</p></td>
+</tr>
+<tr class="row-odd"><td><p>sigHoverEvent</p></td>
+<td><p>Emitted when the mouse hovers over the ROI.</p></td>
+</tr>
+<tr class="row-even"><td><p>sigClicked</p></td>
+<td><p>Emitted when the user clicks on the ROI.
+Note that clicking is disabled by default to prevent
+stealing clicks from objects behind the ROI. To
+enable clicking, call
+roi.setAcceptedMouseButtons(QtCore.Qt.MouseButton.LeftButton).
+See QtWidgets.QGraphicsItem documentation for more
+details.</p></td>
+</tr>
+<tr class="row-odd"><td><p>sigRemoveRequested</p></td>
+<td><p>Emitted when the user selects ‘remove’ from the
+ROI’s context menu (if available).</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqtgraph.ROI.addFreeHandle">
+<span class="sig-name descname"><span class="pre">addFreeHandle</span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">pos</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">axes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">item</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">index</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>,</dd>
+</dl>
+
+<span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pyqtgraph/graphicsItems/ROI.html#ROI.addFreeHandle"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyqtgraph.ROI.addFreeHandle" title="Link to this definition">#</a></dt>
+<dd><p>Add a new free handle to the ROI. Dragging free handles has no effect
+on the position or shape of the ROI.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<tbody>
+<tr class="row-odd"><td><p><strong>Arguments</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>pos</p></td>
+<td><p>(length-2 sequence) The position of the handle
+relative to the shape of the ROI. A value of (0,0)
+indicates the origin, whereas (1, 1) indicates the
+upper-right corner, regardless of the ROI’s size.</p></td>
+</tr>
+<tr class="row-odd"><td><p>item</p></td>
+<td><p>The Handle instance to add. If None, a new handle
+will be created.</p></td>
+</tr>
+<tr class="row-even"><td><p>name</p></td>
+<td><p>The name of this handle (optional). Handles are
+identified by name when calling
+getLocalHandlePositions and getSceneHandlePositions.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqtgraph.ROI.addRotateFreeHandle">
+<span class="sig-name descname"><span class="pre">addRotateFreeHandle</span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">pos</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">center</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">axes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">item</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">index</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>,</dd>
+</dl>
+
+<span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pyqtgraph/graphicsItems/ROI.html#ROI.addRotateFreeHandle"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyqtgraph.ROI.addRotateFreeHandle" title="Link to this definition">#</a></dt>
+<dd><p>Add a new rotation+free handle to the ROI. When dragging a handle of
+this type, the user can rotate the ROI around an
+arbitrary center point, while moving toward or away from the center
+point has no effect on the shape of the ROI.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<tbody>
+<tr class="row-odd"><td><p><strong>Arguments</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>pos</p></td>
+<td><p>(length-2 sequence) The position of the handle
+relative to the shape of the ROI. A value of (0,0)
+indicates the origin, whereas (1, 1) indicates the
+upper-right corner, regardless of the ROI’s size.</p></td>
+</tr>
+<tr class="row-odd"><td><p>center</p></td>
+<td><p>(length-2 sequence) The center point around which
+rotation takes place.</p></td>
+</tr>
+<tr class="row-even"><td><p>item</p></td>
+<td><p>The Handle instance to add. If None, a new handle
+will be created.</p></td>
+</tr>
+<tr class="row-odd"><td><p>name</p></td>
+<td><p>The name of this handle (optional). Handles are
+identified by name when calling
+getLocalHandlePositions and getSceneHandlePositions.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqtgraph.ROI.addRotateHandle">
+<span class="sig-name descname"><span class="pre">addRotateHandle</span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">pos</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">center</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">item</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">index</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>,</dd>
+</dl>
+
+<span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pyqtgraph/graphicsItems/ROI.html#ROI.addRotateHandle"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyqtgraph.ROI.addRotateHandle" title="Link to this definition">#</a></dt>
+<dd><p>Add a new rotation handle to the ROI. Dragging a rotation handle allows
+the user to change the angle of the ROI.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<tbody>
+<tr class="row-odd"><td><p><strong>Arguments</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>pos</p></td>
+<td><p>(length-2 sequence) The position of the handle
+relative to the shape of the ROI. A value of (0,0)
+indicates the origin, whereas (1, 1) indicates the
+upper-right corner, regardless of the ROI’s size.</p></td>
+</tr>
+<tr class="row-odd"><td><p>center</p></td>
+<td><p>(length-2 sequence) The center point around which
+rotation takes place.</p></td>
+</tr>
+<tr class="row-even"><td><p>item</p></td>
+<td><p>The Handle instance to add. If None, a new handle
+will be created.</p></td>
+</tr>
+<tr class="row-odd"><td><p>name</p></td>
+<td><p>The name of this handle (optional). Handles are
+identified by name when calling
+getLocalHandlePositions and getSceneHandlePositions.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqtgraph.ROI.addScaleHandle">
+<span class="sig-name descname"><span class="pre">addScaleHandle</span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">pos</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">center</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">axes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">item</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">lockAspect</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">index</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>,</dd>
+</dl>
+
+<span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pyqtgraph/graphicsItems/ROI.html#ROI.addScaleHandle"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyqtgraph.ROI.addScaleHandle" title="Link to this definition">#</a></dt>
+<dd><p>Add a new scale handle to the ROI. Dragging a scale handle allows the
+user to change the height and/or width of the ROI.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<tbody>
+<tr class="row-odd"><td><p><strong>Arguments</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>pos</p></td>
+<td><p>(length-2 sequence) The position of the handle
+relative to the shape of the ROI. A value of (0,0)
+indicates the origin, whereas (1, 1) indicates the
+upper-right corner, regardless of the ROI’s size.</p></td>
+</tr>
+<tr class="row-odd"><td><p>center</p></td>
+<td><p>(length-2 sequence) The center point around which
+scaling takes place. If the center point has the
+same x or y value as the handle position, then
+scaling will be disabled for that axis.</p></td>
+</tr>
+<tr class="row-even"><td><p>item</p></td>
+<td><p>The Handle instance to add. If None, a new handle
+will be created.</p></td>
+</tr>
+<tr class="row-odd"><td><p>name</p></td>
+<td><p>The name of this handle (optional). Handles are
+identified by name when calling
+getLocalHandlePositions and getSceneHandlePositions.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqtgraph.ROI.addScaleRotateHandle">
+<span class="sig-name descname"><span class="pre">addScaleRotateHandle</span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">pos</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">center</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">item</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">index</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>,</dd>
+</dl>
+
+<span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pyqtgraph/graphicsItems/ROI.html#ROI.addScaleRotateHandle"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyqtgraph.ROI.addScaleRotateHandle" title="Link to this definition">#</a></dt>
+<dd><p>Add a new scale+rotation handle to the ROI. When dragging a handle of
+this type, the user can simultaneously rotate the ROI around an
+arbitrary center point as well as scale the ROI by dragging the handle
+toward or away from the center point.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<tbody>
+<tr class="row-odd"><td><p><strong>Arguments</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>pos</p></td>
+<td><p>(length-2 sequence) The position of the handle
+relative to the shape of the ROI. A value of (0,0)
+indicates the origin, whereas (1, 1) indicates the
+upper-right corner, regardless of the ROI’s size.</p></td>
+</tr>
+<tr class="row-odd"><td><p>center</p></td>
+<td><p>(length-2 sequence) The center point around which
+scaling and rotation take place.</p></td>
+</tr>
+<tr class="row-even"><td><p>item</p></td>
+<td><p>The Handle instance to add. If None, a new handle
+will be created.</p></td>
+</tr>
+<tr class="row-odd"><td><p>name</p></td>
+<td><p>The name of this handle (optional). Handles are
+identified by name when calling
+getLocalHandlePositions and getSceneHandlePositions.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqtgraph.ROI.addTranslateHandle">
+<span class="sig-name descname"><span class="pre">addTranslateHandle</span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">pos</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">axes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">item</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">index</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>,</dd>
+</dl>
+
+<span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pyqtgraph/graphicsItems/ROI.html#ROI.addTranslateHandle"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyqtgraph.ROI.addTranslateHandle" title="Link to this definition">#</a></dt>
+<dd><p>Add a new translation handle to the ROI. Dragging the handle will move
+the entire ROI without changing its angle or shape.</p>
+<p>Note that, by default, ROIs may be moved by dragging anywhere inside the
+ROI. However, for larger ROIs it may be desirable to disable this and
+instead provide one or more translation handles.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<tbody>
+<tr class="row-odd"><td><p><strong>Arguments</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>pos</p></td>
+<td><p>(length-2 sequence) The position of the handle
+relative to the shape of the ROI. A value of (0,0)
+indicates the origin, whereas (1, 1) indicates the
+upper-right corner, regardless of the ROI’s size.</p></td>
+</tr>
+<tr class="row-odd"><td><p>item</p></td>
+<td><p>The Handle instance to add. If None, a new handle
+will be created.</p></td>
+</tr>
+<tr class="row-even"><td><p>name</p></td>
+<td><p>The name of this handle (optional). Handles are
+identified by name when calling
+getLocalHandlePositions and getSceneHandlePositions.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqtgraph.ROI.angle">
+<span class="sig-name descname"><span class="pre">angle</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pyqtgraph/graphicsItems/ROI.html#ROI.angle"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyqtgraph.ROI.angle" title="Link to this definition">#</a></dt>
+<dd><p>Return the angle of the ROI in degrees.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqtgraph.ROI.checkPointMove">
+<span class="sig-name descname"><span class="pre">checkPointMove</span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">handle</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">pos</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">modifiers</span></span></em>,</dd>
+</dl>
+
+<span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pyqtgraph/graphicsItems/ROI.html#ROI.checkPointMove"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyqtgraph.ROI.checkPointMove" title="Link to this definition">#</a></dt>
+<dd><p>When handles move, they must ask the ROI if the move is acceptable.
+By default, this always returns True. Subclasses may wish override.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqtgraph.ROI.getAffineSliceParams">
+<span class="sig-name descname"><span class="pre">getAffineSliceParams</span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">img</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">axes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(0,</span> <span class="pre">1)</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">fromBoundingRect</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>,</dd>
+</dl>
+
+<span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pyqtgraph/graphicsItems/ROI.html#ROI.getAffineSliceParams"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyqtgraph.ROI.getAffineSliceParams" title="Link to this definition">#</a></dt>
+<dd><p>Returns the parameters needed to use <a class="reference internal" href="../functions.html#pyqtgraph.affineSlice" title="pyqtgraph.affineSlice"><code class="xref py py-func docutils literal notranslate"><span class="pre">affineSlice</span></code></a>
+(shape, vectors, origin) to extract a subset of <em>data</em> using this ROI
+and <em>img</em> to specify the subset.</p>
+<p>If <em>fromBoundingRect</em> is True, then the ROI’s bounding rectangle is used
+rather than the shape of the ROI.</p>
+<p>See <a class="reference internal" href="#pyqtgraph.ROI.getArrayRegion" title="pyqtgraph.ROI.getArrayRegion"><code class="xref py py-func docutils literal notranslate"><span class="pre">getArrayRegion</span></code></a> for more information.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqtgraph.ROI.getArrayRegion">
+<span class="sig-name descname"><span class="pre">getArrayRegion</span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">img</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">axes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(0,</span> <span class="pre">1)</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">returnMappedCoords</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwds</span></span></em>,</dd>
+</dl>
+
+<span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pyqtgraph/graphicsItems/ROI.html#ROI.getArrayRegion"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyqtgraph.ROI.getArrayRegion" title="Link to this definition">#</a></dt>
+<dd><p>Use the position and orientation of this ROI relative to an imageItem
+to pull a slice from an array.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<tbody>
+<tr class="row-odd"><td><p><strong>Arguments</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>data</p></td>
+<td><p>The array to slice from. Note that this array does
+<em>not</em> have to be the same data that is represented
+in <em>img</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p>img</p></td>
+<td><p>(ImageItem or other suitable QGraphicsItem)
+Used to determine the relationship between the
+ROI and the boundaries of <em>data</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p>axes</p></td>
+<td><p>(length-2 tuple) Specifies the axes in <em>data</em> that
+correspond to the (x, y) axes of <em>img</em>. If the
+image’s axis order is set to
+‘row-major’, then the axes are instead specified in
+(y, x) order.</p></td>
+</tr>
+<tr class="row-odd"><td><p>returnMappedCoords</p></td>
+<td><p>(bool) If True, the array slice is returned along
+with a corresponding array of coordinates that were
+used to extract data from the original array.</p></td>
+</tr>
+<tr class="row-even"><td><p>**kwds</p></td>
+<td><p>All keyword arguments are passed to
+<a class="reference internal" href="../functions.html#pyqtgraph.affineSlice" title="pyqtgraph.affineSlice"><code class="xref py py-func docutils literal notranslate"><span class="pre">affineSlice</span></code></a>.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>This method uses <a class="reference internal" href="../functions.html#pyqtgraph.affineSlice" title="pyqtgraph.affineSlice"><code class="xref py py-func docutils literal notranslate"><span class="pre">affineSlice</span></code></a> to generate
+the slice from <em>data</em> and uses <a class="reference internal" href="#pyqtgraph.ROI.getAffineSliceParams" title="pyqtgraph.ROI.getAffineSliceParams"><code class="xref py py-func docutils literal notranslate"><span class="pre">getAffineSliceParams</span></code></a>
+to determine the parameters to pass to <a class="reference internal" href="../functions.html#pyqtgraph.affineSlice" title="pyqtgraph.affineSlice"><code class="xref py py-func docutils literal notranslate"><span class="pre">affineSlice</span></code></a>.</p>
+<p>If <em>returnMappedCoords</em> is True, then the method returns a tuple (result, coords)
+such that coords is the set of coordinates used to interpolate values from the original
+data, mapped into the parent coordinate system of the image. This is useful, when slicing
+data from images that have been transformed, for determining the location of each value
+in the sliced data.</p>
+<p>All extra keyword arguments are passed to <a class="reference internal" href="../functions.html#pyqtgraph.affineSlice" title="pyqtgraph.affineSlice"><code class="xref py py-func docutils literal notranslate"><span class="pre">affineSlice</span></code></a>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqtgraph.ROI.getArraySlice">
+<span class="sig-name descname"><span class="pre">getArraySlice</span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">img</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">axes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(0,</span> <span class="pre">1)</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">returnSlice</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>,</dd>
+</dl>
+
+<span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pyqtgraph/graphicsItems/ROI.html#ROI.getArraySlice"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyqtgraph.ROI.getArraySlice" title="Link to this definition">#</a></dt>
+<dd><p>Return a tuple of slice objects that can be used to slice the region
+from <em>data</em> that is covered by the bounding rectangle of this ROI.
+Also returns the transform that maps the ROI into data coordinates.</p>
+<p>If returnSlice is set to False, the function returns a pair of tuples with the values that would have
+been used to generate the slice objects. ((ax0Start, ax0Stop), (ax1Start, ax1Stop))</p>
+<p>If the slice cannot be computed (usually because the scene/transforms are not properly
+constructed yet), then the method returns None.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqtgraph.ROI.getGlobalTransform">
+<span class="sig-name descname"><span class="pre">getGlobalTransform</span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">relativeTo</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>,</dd>
+</dl>
+
+<span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pyqtgraph/graphicsItems/ROI.html#ROI.getGlobalTransform"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyqtgraph.ROI.getGlobalTransform" title="Link to this definition">#</a></dt>
+<dd><p>Return global transformation (rotation angle+translation) required to move
+from relative state to current state. If relative state isn’t specified,
+then we use the state of the ROI when mouse is pressed.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqtgraph.ROI.getHandles">
+<span class="sig-name descname"><span class="pre">getHandles</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pyqtgraph/graphicsItems/ROI.html#ROI.getHandles"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyqtgraph.ROI.getHandles" title="Link to this definition">#</a></dt>
+<dd><p>Return a list of this ROI’s Handles.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqtgraph.ROI.getLocalHandlePositions">
+<span class="sig-name descname"><span class="pre">getLocalHandlePositions</span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">index</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>,</dd>
+</dl>
+
+<span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pyqtgraph/graphicsItems/ROI.html#ROI.getLocalHandlePositions"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyqtgraph.ROI.getLocalHandlePositions" title="Link to this definition">#</a></dt>
+<dd><p>Returns the position of handles in the ROI’s coordinate system.</p>
+<p>The format returned is a list of (name, pos) tuples.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqtgraph.ROI.getSceneHandlePositions">
+<span class="sig-name descname"><span class="pre">getSceneHandlePositions</span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">index</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>,</dd>
+</dl>
+
+<span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pyqtgraph/graphicsItems/ROI.html#ROI.getSceneHandlePositions"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyqtgraph.ROI.getSceneHandlePositions" title="Link to this definition">#</a></dt>
+<dd><p>Returns the position of handles in the scene coordinate system.</p>
+<p>The format returned is a list of (name, pos) tuples.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqtgraph.ROI.indexOfHandle">
+<span class="sig-name descname"><span class="pre">indexOfHandle</span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">handle</span></span></em>,</dd>
+</dl>
+
+<span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pyqtgraph/graphicsItems/ROI.html#ROI.indexOfHandle"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyqtgraph.ROI.indexOfHandle" title="Link to this definition">#</a></dt>
+<dd><p>Return the index of <em>handle</em> in the list of this ROI’s handles.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqtgraph.ROI.parentBounds">
+<span class="sig-name descname"><span class="pre">parentBounds</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pyqtgraph/graphicsItems/ROI.html#ROI.parentBounds"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyqtgraph.ROI.parentBounds" title="Link to this definition">#</a></dt>
+<dd><p>Return the bounding rectangle of this ROI in the coordinate system
+of its parent.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqtgraph.ROI.pos">
+<span class="sig-name descname"><span class="pre">pos</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pyqtgraph/graphicsItems/ROI.html#ROI.pos"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyqtgraph.ROI.pos" title="Link to this definition">#</a></dt>
+<dd><p>Return the position (x,y) of the ROI’s origin.
+For most ROIs, this will be the lower-left corner.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqtgraph.ROI.removeHandle">
+<span class="sig-name descname"><span class="pre">removeHandle</span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">handle</span></span></em>,</dd>
+</dl>
+
+<span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pyqtgraph/graphicsItems/ROI.html#ROI.removeHandle"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyqtgraph.ROI.removeHandle" title="Link to this definition">#</a></dt>
+<dd><p>Remove a handle from this ROI. Argument may be either a Handle
+instance or the integer index of the handle.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqtgraph.ROI.renderShapeMask">
+<span class="sig-name descname"><span class="pre">renderShapeMask</span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">width</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">height</span></span></em>,</dd>
+</dl>
+
+<span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pyqtgraph/graphicsItems/ROI.html#ROI.renderShapeMask"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyqtgraph.ROI.renderShapeMask" title="Link to this definition">#</a></dt>
+<dd><p>Return an array of 0.0-1.0 into which the shape of the item has been drawn.</p>
+<p>This can be used to mask array selections.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqtgraph.ROI.replaceHandle">
+<span class="sig-name descname"><span class="pre">replaceHandle</span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">oldHandle</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">newHandle</span></span></em>,</dd>
+</dl>
+
+<span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pyqtgraph/graphicsItems/ROI.html#ROI.replaceHandle"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyqtgraph.ROI.replaceHandle" title="Link to this definition">#</a></dt>
+<dd><p>Replace one handle in the ROI for another. This is useful when
+connecting multiple ROIs together.</p>
+<p><em>oldHandle</em> may be a Handle instance or the index of a handle to be
+replaced.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqtgraph.ROI.rotate">
+<span class="sig-name descname"><span class="pre">rotate</span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">angle</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">center</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">snap</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">update</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">finish</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>,</dd>
+</dl>
+
+<span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pyqtgraph/graphicsItems/ROI.html#ROI.rotate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyqtgraph.ROI.rotate" title="Link to this definition">#</a></dt>
+<dd><p>Rotate the ROI by <em>angle</em> degrees.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<tbody>
+<tr class="row-odd"><td><p><strong>Arguments</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>angle</p></td>
+<td><p>(float) The angle in degrees to rotate</p></td>
+</tr>
+<tr class="row-odd"><td><p>center</p></td>
+<td><p>(None | Point) Optional center point around which the ROI is rotated, in
+the local coordinate system of the ROI</p></td>
+</tr>
+<tr class="row-even"><td><p>snap</p></td>
+<td><p>(bool) If True, the final ROI angle is snapped to the nearest increment
+(default is 15 degrees; see ROI.rotateSnapAngle)</p></td>
+</tr>
+<tr class="row-odd"><td><p>update</p></td>
+<td><p>(bool) See setPos()</p></td>
+</tr>
+<tr class="row-even"><td><p>finish</p></td>
+<td><p>(bool) See setPos()</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqtgraph.ROI.saveState">
+<span class="sig-name descname"><span class="pre">saveState</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pyqtgraph/graphicsItems/ROI.html#ROI.saveState"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyqtgraph.ROI.saveState" title="Link to this definition">#</a></dt>
+<dd><p>Return the state of the widget in a format suitable for storing to
+disk. (Points are converted to tuple)</p>
+<p>Combined with setState(), this allows ROIs to be easily saved and
+restored.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqtgraph.ROI.scale">
+<span class="sig-name descname"><span class="pre">scale</span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">s</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">center</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">centerLocal</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">snap</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">update</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">finish</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>,</dd>
+</dl>
+
+<span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pyqtgraph/graphicsItems/ROI.html#ROI.scale"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyqtgraph.ROI.scale" title="Link to this definition">#</a></dt>
+<dd><p>Resize the ROI by scaling relative to <em>center</em>.
+See setPos() for an explanation of the <em>update</em> and <em>finish</em> arguments.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqtgraph.ROI.setAngle">
+<span class="sig-name descname"><span class="pre">setAngle</span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">angle</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">center</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">centerLocal</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">snap</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">update</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">finish</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>,</dd>
+</dl>
+
+<span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pyqtgraph/graphicsItems/ROI.html#ROI.setAngle"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyqtgraph.ROI.setAngle" title="Link to this definition">#</a></dt>
+<dd><p>Set the ROI’s rotation angle.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<tbody>
+<tr class="row-odd"><td><p><strong>Arguments</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>angle</p></td>
+<td><p>(float) The final ROI angle in degrees</p></td>
+</tr>
+<tr class="row-odd"><td><p>center</p></td>
+<td><p>(None | Point) Optional center point around which the ROI is rotated,
+expressed as [0-1, 0-1] over the size of the ROI.</p></td>
+</tr>
+<tr class="row-even"><td><p>centerLocal</p></td>
+<td><p>(None | Point) Same as <em>center</em>, but the position is expressed in the
+local coordinate system of the ROI</p></td>
+</tr>
+<tr class="row-odd"><td><p>snap</p></td>
+<td><p>(bool) If True, the final ROI angle is snapped to the nearest increment
+(default is 15 degrees; see ROI.rotateSnapAngle)</p></td>
+</tr>
+<tr class="row-even"><td><p>update</p></td>
+<td><p>(bool) See setPos()</p></td>
+</tr>
+<tr class="row-odd"><td><p>finish</p></td>
+<td><p>(bool) See setPos()</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqtgraph.ROI.setPen">
+<span class="sig-name descname"><span class="pre">setPen</span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em>,</dd>
+</dl>
+
+<span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pyqtgraph/graphicsItems/ROI.html#ROI.setPen"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyqtgraph.ROI.setPen" title="Link to this definition">#</a></dt>
+<dd><p>Set the pen to use when drawing the ROI shape.
+For arguments, see <a class="reference internal" href="../functions.html#pyqtgraph.mkPen" title="pyqtgraph.mkPen"><code class="xref py py-func docutils literal notranslate"><span class="pre">mkPen</span></code></a>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqtgraph.ROI.setPos">
+<span class="sig-name descname"><span class="pre">setPos</span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">pos</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">update</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">finish</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>,</dd>
+</dl>
+
+<span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pyqtgraph/graphicsItems/ROI.html#ROI.setPos"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyqtgraph.ROI.setPos" title="Link to this definition">#</a></dt>
+<dd><p>Set the position of the ROI (in the parent’s coordinate system).</p>
+<p>Accepts either separate (x, y) arguments or a single <a class="reference internal" href="../point.html#module-pyqtgraph.Point" title="pyqtgraph.Point"><code class="xref py py-class docutils literal notranslate"><span class="pre">Point</span></code></a> or
+<code class="docutils literal notranslate"><span class="pre">QPointF</span></code> argument.</p>
+<p>By default, this method causes both <code class="docutils literal notranslate"><span class="pre">sigRegionChanged</span></code> and
+<code class="docutils literal notranslate"><span class="pre">sigRegionChangeFinished</span></code> to be emitted. If <em>finish</em> is False, then
+<code class="docutils literal notranslate"><span class="pre">sigRegionChangeFinished</span></code> will not be emitted. You can then use
+stateChangeFinished() to cause the signal to be emitted after a series
+of state changes.</p>
+<p>If <em>update</em> is False, the state change will be remembered but not processed and no signals
+will be emitted. You can then use stateChanged() to complete the state change. This allows
+multiple change functions to be called sequentially while minimizing processing overhead
+and repeated signals. Setting <code class="docutils literal notranslate"><span class="pre">update=False</span></code> also forces <code class="docutils literal notranslate"><span class="pre">finish=False</span></code>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqtgraph.ROI.setSize">
+<span class="sig-name descname"><span class="pre">setSize</span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">size</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">center</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">centerLocal</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">snap</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">update</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">finish</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>,</dd>
+</dl>
+
+<span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pyqtgraph/graphicsItems/ROI.html#ROI.setSize"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyqtgraph.ROI.setSize" title="Link to this definition">#</a></dt>
+<dd><p>Set the ROI’s size.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<tbody>
+<tr class="row-odd"><td><p><strong>Arguments</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>size</p></td>
+<td><p>(Point | QPointF | sequence) The final size of the ROI</p></td>
+</tr>
+<tr class="row-odd"><td><p>center</p></td>
+<td><p>(None | Point) Optional center point around which the ROI is scaled,
+expressed as [0-1, 0-1] over the size of the ROI.</p></td>
+</tr>
+<tr class="row-even"><td><p>centerLocal</p></td>
+<td><p>(None | Point) Same as <em>center</em>, but the position is expressed in the
+local coordinate system of the ROI</p></td>
+</tr>
+<tr class="row-odd"><td><p>snap</p></td>
+<td><p>(bool) If True, the final size is snapped to the nearest increment (see
+ROI.scaleSnapSize)</p></td>
+</tr>
+<tr class="row-even"><td><p>update</p></td>
+<td><p>(bool) See setPos()</p></td>
+</tr>
+<tr class="row-odd"><td><p>finish</p></td>
+<td><p>(bool) See setPos()</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqtgraph.ROI.setState">
+<span class="sig-name descname"><span class="pre">setState</span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">state</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">update</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>,</dd>
+</dl>
+
+<span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pyqtgraph/graphicsItems/ROI.html#ROI.setState"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyqtgraph.ROI.setState" title="Link to this definition">#</a></dt>
+<dd><p>Set the state of the ROI from a structure generated by saveState() or
+getState().</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqtgraph.ROI.size">
+<span class="sig-name descname"><span class="pre">size</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pyqtgraph/graphicsItems/ROI.html#ROI.size"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyqtgraph.ROI.size" title="Link to this definition">#</a></dt>
+<dd><p>Return the size (w,h) of the ROI.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqtgraph.ROI.stateChanged">
+<span class="sig-name descname"><span class="pre">stateChanged</span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">finish</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>,</dd>
+</dl>
+
+<span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pyqtgraph/graphicsItems/ROI.html#ROI.stateChanged"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyqtgraph.ROI.stateChanged" title="Link to this definition">#</a></dt>
+<dd><p>Process changes to the state of the ROI.
+If there are any changes, then the positions of handles are updated accordingly
+and sigRegionChanged is emitted. If finish is True, then
+sigRegionChangeFinished will also be emitted.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqtgraph.ROI.translate">
+<span class="sig-name descname"><span class="pre">translate</span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kargs</span></span></em>,</dd>
+</dl>
+
+<span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pyqtgraph/graphicsItems/ROI.html#ROI.translate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyqtgraph.ROI.translate" title="Link to this definition">#</a></dt>
+<dd><p>Move the ROI to a new position.
+Accepts either (x, y, snap) or ([x,y], snap) as arguments
+If the ROI is bounded and the move would exceed boundaries, then the ROI
+is moved to the nearest acceptable position instead.</p>
+<p><em>snap</em> can be:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<tbody>
+<tr class="row-odd"><td><p>None (default)</p></td>
+<td><p>use self.translateSnap and self.snapSize to determine whether/how to snap</p></td>
+</tr>
+<tr class="row-even"><td><p>False</p></td>
+<td><p>do not snap</p></td>
+</tr>
+<tr class="row-odd"><td><p>Point(w,h)</p></td>
+<td><p>snap to rectangular grid with spacing (w,h)</p></td>
+</tr>
+<tr class="row-even"><td><p>True</p></td>
+<td><p>snap using self.snapSize (and ignoring self.translateSnap)</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Also accepts <em>update</em> and <em>finish</em> arguments (see setPos() for a description of these).</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pyqtgraph.RectROI">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">pyqtgraph.</span></span><span class="sig-name descname"><span class="pre">RectROI</span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">pos</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">size</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">centered</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">sideScalers</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">args</span></span></em>,</dd>
+</dl>
+
+<span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pyqtgraph/graphicsItems/ROI.html#RectROI"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyqtgraph.RectROI" title="Link to this definition">#</a></dt>
+<dd><p>Rectangular ROI subclass with a single scale handle at the top-right corner.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<tbody>
+<tr class="row-odd"><td><p><strong>Arguments</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>pos</p></td>
+<td><p>(length-2 sequence) The position of the ROI origin.
+See ROI().</p></td>
+</tr>
+<tr class="row-odd"><td><p>size</p></td>
+<td><p>(length-2 sequence) The size of the ROI. See ROI().</p></td>
+</tr>
+<tr class="row-even"><td><p>centered</p></td>
+<td><p>(bool) If True, scale handles affect the ROI relative to its
+center, rather than its origin.</p></td>
+</tr>
+<tr class="row-odd"><td><p>sideScalers</p></td>
+<td><p>(bool) If True, extra scale handles are added at the top and
+right edges.</p></td>
+</tr>
+<tr class="row-even"><td><p>**args</p></td>
+<td><p>All extra keyword arguments are passed to ROI()</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pyqtgraph.EllipseROI">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">pyqtgraph.</span></span><span class="sig-name descname"><span class="pre">EllipseROI</span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">pos</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">size</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">args</span></span></em>,</dd>
+</dl>
+
+<span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pyqtgraph/graphicsItems/ROI.html#EllipseROI"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyqtgraph.EllipseROI" title="Link to this definition">#</a></dt>
+<dd><p>Elliptical ROI subclass with one scale handle and one rotation handle.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<tbody>
+<tr class="row-odd"><td><p><strong>Arguments</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>pos</p></td>
+<td><p>(length-2 sequence) The position of the ROI’s origin.</p></td>
+</tr>
+<tr class="row-odd"><td><p>size</p></td>
+<td><p>(length-2 sequence) The size of the ROI’s bounding rectangle.</p></td>
+</tr>
+<tr class="row-even"><td><p>**args</p></td>
+<td><p>All extra keyword arguments are passed to ROI()</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqtgraph.EllipseROI.getArrayRegion">
+<span class="sig-name descname"><span class="pre">getArrayRegion</span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">arr</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">img</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">axes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(0,</span> <span class="pre">1)</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">returnMappedCoords</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwds</span></span></em>,</dd>
+</dl>
+
+<span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pyqtgraph/graphicsItems/ROI.html#EllipseROI.getArrayRegion"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyqtgraph.EllipseROI.getArrayRegion" title="Link to this definition">#</a></dt>
+<dd><p>Return the result of <a class="reference internal" href="#pyqtgraph.ROI.getArrayRegion" title="pyqtgraph.ROI.getArrayRegion"><code class="xref py py-meth docutils literal notranslate"><span class="pre">getArrayRegion()</span></code></a> masked by the
+elliptical shape of the ROI. Regions outside the ellipse are set to 0.</p>
+<p>See <a class="reference internal" href="#pyqtgraph.ROI.getArrayRegion" title="pyqtgraph.ROI.getArrayRegion"><code class="xref py py-meth docutils literal notranslate"><span class="pre">getArrayRegion()</span></code></a> for a description of the
+arguments.</p>
+<p>Note: <code class="docutils literal notranslate"><span class="pre">returnMappedCoords</span></code> is not yet supported for this ROI type.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pyqtgraph.CircleROI">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">pyqtgraph.</span></span><span class="sig-name descname"><span class="pre">CircleROI</span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">pos</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">radius</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">args</span></span></em>,</dd>
+</dl>
+
+<span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pyqtgraph/graphicsItems/ROI.html#CircleROI"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyqtgraph.CircleROI" title="Link to this definition">#</a></dt>
+<dd><p>Circular ROI subclass. Behaves exactly as EllipseROI, but may only be scaled
+proportionally to maintain its aspect ratio.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<tbody>
+<tr class="row-odd"><td><p><strong>Arguments</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>pos</p></td>
+<td><p>(length-2 sequence) The position of the ROI’s origin.</p></td>
+</tr>
+<tr class="row-odd"><td><p>size</p></td>
+<td><p>(length-2 sequence) The size of the ROI’s bounding rectangle.</p></td>
+</tr>
+<tr class="row-even"><td><p>**args</p></td>
+<td><p>All extra keyword arguments are passed to ROI()</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pyqtgraph.LineSegmentROI">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">pyqtgraph.</span></span><span class="sig-name descname"><span class="pre">LineSegmentROI</span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">positions</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(None,</span> <span class="pre">None)</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">pos</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">handles</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(None,</span> <span class="pre">None)</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">args</span></span></em>,</dd>
+</dl>
+
+<span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pyqtgraph/graphicsItems/ROI.html#LineSegmentROI"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyqtgraph.LineSegmentROI" title="Link to this definition">#</a></dt>
+<dd><p>ROI subclass with two freely-moving handles defining a line.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<tbody>
+<tr class="row-odd"><td><p><strong>Arguments</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>positions</p></td>
+<td><p>(list of two length-2 sequences) The endpoints of the line
+segment. Note that, unlike the handle positions specified in
+other ROIs, these positions must be expressed in the normal
+coordinate system of the ROI, rather than (0 to 1) relative
+to the size of the ROI.</p></td>
+</tr>
+<tr class="row-odd"><td><p>**args</p></td>
+<td><p>All extra keyword arguments are passed to ROI()</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqtgraph.LineSegmentROI.getArrayRegion">
+<span class="sig-name descname"><span class="pre">getArrayRegion</span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">img</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">axes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(0,</span> <span class="pre">1)</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">order</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">returnMappedCoords</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwds</span></span></em>,</dd>
+</dl>
+
+<span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pyqtgraph/graphicsItems/ROI.html#LineSegmentROI.getArrayRegion"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyqtgraph.LineSegmentROI.getArrayRegion" title="Link to this definition">#</a></dt>
+<dd><p>Use the position of this ROI relative to an imageItem to pull a slice
+from an array.</p>
+<p>Since this pulls 1D data from a 2D coordinate system, the return value
+will have ndim = data.ndim-1</p>
+<p>See <a class="reference internal" href="#pyqtgraph.ROI.getArrayRegion" title="pyqtgraph.ROI.getArrayRegion"><code class="xref py py-meth docutils literal notranslate"><span class="pre">getArrayRegion()</span></code></a> for a description of the
+arguments.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pyqtgraph.PolyLineROI">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">pyqtgraph.</span></span><span class="sig-name descname"><span class="pre">PolyLineROI</span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">positions</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">closed</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">pos</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">args</span></span></em>,</dd>
+</dl>
+
+<span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pyqtgraph/graphicsItems/ROI.html#PolyLineROI"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyqtgraph.PolyLineROI" title="Link to this definition">#</a></dt>
+<dd><p>Container class for multiple connected LineSegmentROIs.</p>
+<p>This class allows the user to draw paths of multiple line segments.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<tbody>
+<tr class="row-odd"><td><p><strong>Arguments</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>positions</p></td>
+<td><p>(list of length-2 sequences) The list of points in the path.
+Note that, unlike the handle positions specified in other
+ROIs, these positions must be expressed in the normal
+coordinate system of the ROI, rather than (0 to 1) relative
+to the size of the ROI.</p></td>
+</tr>
+<tr class="row-odd"><td><p>closed</p></td>
+<td><p>(bool) if True, an extra LineSegmentROI is added connecting
+the beginning and end points.</p></td>
+</tr>
+<tr class="row-even"><td><p>**args</p></td>
+<td><p>All extra keyword arguments are passed to ROI()</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqtgraph.PolyLineROI.clearPoints">
+<span class="sig-name descname"><span class="pre">clearPoints</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pyqtgraph/graphicsItems/ROI.html#PolyLineROI.clearPoints"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyqtgraph.PolyLineROI.clearPoints" title="Link to this definition">#</a></dt>
+<dd><p>Remove all handles and segments.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqtgraph.PolyLineROI.setPoints">
+<span class="sig-name descname"><span class="pre">setPoints</span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">points</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">closed</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>,</dd>
+</dl>
+
+<span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pyqtgraph/graphicsItems/ROI.html#PolyLineROI.setPoints"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyqtgraph.PolyLineROI.setPoints" title="Link to this definition">#</a></dt>
+<dd><p>Set the complete sequence of points displayed by this ROI.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<tbody>
+<tr class="row-odd"><td><p><strong>Arguments</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>points</p></td>
+<td><p>List of (x,y) tuples specifying handle locations to set.</p></td>
+</tr>
+<tr class="row-odd"><td><p>closed</p></td>
+<td><p>If bool, then this will set whether the ROI is closed
+(the last point is connected to the first point). If
+None, then the closed mode is left unchanged.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pyqtgraph.LineROI">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">pyqtgraph.</span></span><span class="sig-name descname"><span class="pre">LineROI</span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">pos1</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">pos2</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">width</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">args</span></span></em>,</dd>
+</dl>
+
+<span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pyqtgraph/graphicsItems/ROI.html#LineROI"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyqtgraph.LineROI" title="Link to this definition">#</a></dt>
+<dd><p>Rectangular ROI subclass with scale-rotate handles on either side. This
+allows the ROI to be positioned as if moving the ends of a line segment.
+A third handle controls the width of the ROI orthogonal to its “line” axis.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<tbody>
+<tr class="row-odd"><td><p><strong>Arguments</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>pos1</p></td>
+<td><p>(length-2 sequence) The position of the center of the ROI’s
+left edge.</p></td>
+</tr>
+<tr class="row-odd"><td><p>pos2</p></td>
+<td><p>(length-2 sequence) The position of the center of the ROI’s
+right edge.</p></td>
+</tr>
+<tr class="row-even"><td><p>width</p></td>
+<td><p>(float) The width of the ROI.</p></td>
+</tr>
+<tr class="row-odd"><td><p>**args</p></td>
+<td><p>All extra keyword arguments are passed to ROI()</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pyqtgraph.MultiRectROI">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">pyqtgraph.</span></span><span class="sig-name descname"><span class="pre">MultiRectROI</span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">points</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">width</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">pen</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">args</span></span></em>,</dd>
+</dl>
+
+<span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pyqtgraph/graphicsItems/ROI.html#MultiRectROI"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyqtgraph.MultiRectROI" title="Link to this definition">#</a></dt>
+<dd><p>Chain of rectangular ROIs connected by handles.</p>
+<p>This is generally used to mark a curved path through
+an image similarly to PolyLineROI. It differs in that each segment
+of the chain is rectangular instead of linear and thus has width.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<tbody>
+<tr class="row-odd"><td><p><strong>Arguments</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>points</p></td>
+<td><p>(list of length-2 sequences) The list of points in the path.</p></td>
+</tr>
+<tr class="row-odd"><td><p>width</p></td>
+<td><p>(float) The width of the ROIs orthogonal to the path.</p></td>
+</tr>
+<tr class="row-even"><td><p>**args</p></td>
+<td><p>All extra keyword arguments are passed to ROI()</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqtgraph.MultiRectROI.addSegment">
+<span class="sig-name descname"><span class="pre">addSegment</span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">pos</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(0,</span> <span class="pre">0)</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">scaleHandle</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">connectTo</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>,</dd>
+</dl>
+
+<span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pyqtgraph/graphicsItems/ROI.html#MultiRectROI.addSegment"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyqtgraph.MultiRectROI.addSegment" title="Link to this definition">#</a></dt>
+<dd><p>Add a new segment to the ROI connecting from the previous endpoint to <em>pos</em>.
+(pos is specified in the parent coordinate system of the MultiRectROI)</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqtgraph.MultiRectROI.getArrayRegion">
+<span class="sig-name descname"><span class="pre">getArrayRegion</span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">arr</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">img</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">axes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(0,</span> <span class="pre">1)</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwds</span></span></em>,</dd>
+</dl>
+
+<span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pyqtgraph/graphicsItems/ROI.html#MultiRectROI.getArrayRegion"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyqtgraph.MultiRectROI.getArrayRegion" title="Link to this definition">#</a></dt>
+<dd><p>Return the result of <a class="reference internal" href="#pyqtgraph.ROI.getArrayRegion" title="pyqtgraph.ROI.getArrayRegion"><code class="xref py py-meth docutils literal notranslate"><span class="pre">getArrayRegion()</span></code></a> for each rect
+in the chain concatenated into a single ndarray.</p>
+<p>See <a class="reference internal" href="#pyqtgraph.ROI.getArrayRegion" title="pyqtgraph.ROI.getArrayRegion"><code class="xref py py-meth docutils literal notranslate"><span class="pre">getArrayRegion()</span></code></a> for a description of the
+arguments.</p>
+<p>Note: <code class="docutils literal notranslate"><span class="pre">returnMappedCoords</span></code> is not yet supported for this ROI type.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqtgraph.MultiRectROI.getHandlePositions">
+<span class="sig-name descname"><span class="pre">getHandlePositions</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pyqtgraph/graphicsItems/ROI.html#MultiRectROI.getHandlePositions"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyqtgraph.MultiRectROI.getHandlePositions" title="Link to this definition">#</a></dt>
+<dd><p>Return the positions of all handles in local coordinates.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqtgraph.MultiRectROI.removeSegment">
+<span class="sig-name descname"><span class="pre">removeSegment</span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">index</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-1</span></span></em>,</dd>
+</dl>
+
+<span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pyqtgraph/graphicsItems/ROI.html#MultiRectROI.removeSegment"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyqtgraph.MultiRectROI.removeSegment" title="Link to this definition">#</a></dt>
+<dd><p>Remove a segment from the ROI.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="infiniteline.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">InfiniteLine</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="graphicslayout.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">GraphicsLayout</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pyqtgraph.ROI"><code class="docutils literal notranslate"><span class="pre">ROI</span></code></a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pyqtgraph.ROI.addFreeHandle"><code class="docutils literal notranslate"><span class="pre">addFreeHandle()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pyqtgraph.ROI.addRotateFreeHandle"><code class="docutils literal notranslate"><span class="pre">addRotateFreeHandle()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pyqtgraph.ROI.addRotateHandle"><code class="docutils literal notranslate"><span class="pre">addRotateHandle()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pyqtgraph.ROI.addScaleHandle"><code class="docutils literal notranslate"><span class="pre">addScaleHandle()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pyqtgraph.ROI.addScaleRotateHandle"><code class="docutils literal notranslate"><span class="pre">addScaleRotateHandle()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pyqtgraph.ROI.addTranslateHandle"><code class="docutils literal notranslate"><span class="pre">addTranslateHandle()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pyqtgraph.ROI.angle"><code class="docutils literal notranslate"><span class="pre">angle()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pyqtgraph.ROI.checkPointMove"><code class="docutils literal notranslate"><span class="pre">checkPointMove()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pyqtgraph.ROI.getAffineSliceParams"><code class="docutils literal notranslate"><span class="pre">getAffineSliceParams()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pyqtgraph.ROI.getArrayRegion"><code class="docutils literal notranslate"><span class="pre">getArrayRegion()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pyqtgraph.ROI.getArraySlice"><code class="docutils literal notranslate"><span class="pre">getArraySlice()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pyqtgraph.ROI.getGlobalTransform"><code class="docutils literal notranslate"><span class="pre">getGlobalTransform()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pyqtgraph.ROI.getHandles"><code class="docutils literal notranslate"><span class="pre">getHandles()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pyqtgraph.ROI.getLocalHandlePositions"><code class="docutils literal notranslate"><span class="pre">getLocalHandlePositions()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pyqtgraph.ROI.getSceneHandlePositions"><code class="docutils literal notranslate"><span class="pre">getSceneHandlePositions()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pyqtgraph.ROI.indexOfHandle"><code class="docutils literal notranslate"><span class="pre">indexOfHandle()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pyqtgraph.ROI.parentBounds"><code class="docutils literal notranslate"><span class="pre">parentBounds()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pyqtgraph.ROI.pos"><code class="docutils literal notranslate"><span class="pre">pos()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pyqtgraph.ROI.removeHandle"><code class="docutils literal notranslate"><span class="pre">removeHandle()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pyqtgraph.ROI.renderShapeMask"><code class="docutils literal notranslate"><span class="pre">renderShapeMask()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pyqtgraph.ROI.replaceHandle"><code class="docutils literal notranslate"><span class="pre">replaceHandle()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pyqtgraph.ROI.rotate"><code class="docutils literal notranslate"><span class="pre">rotate()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pyqtgraph.ROI.saveState"><code class="docutils literal notranslate"><span class="pre">saveState()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pyqtgraph.ROI.scale"><code class="docutils literal notranslate"><span class="pre">scale()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pyqtgraph.ROI.setAngle"><code class="docutils literal notranslate"><span class="pre">setAngle()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pyqtgraph.ROI.setPen"><code class="docutils literal notranslate"><span class="pre">setPen()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pyqtgraph.ROI.setPos"><code class="docutils literal notranslate"><span class="pre">setPos()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pyqtgraph.ROI.setSize"><code class="docutils literal notranslate"><span class="pre">setSize()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pyqtgraph.ROI.setState"><code class="docutils literal notranslate"><span class="pre">setState()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pyqtgraph.ROI.size"><code class="docutils literal notranslate"><span class="pre">size()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pyqtgraph.ROI.stateChanged"><code class="docutils literal notranslate"><span class="pre">stateChanged()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pyqtgraph.ROI.translate"><code class="docutils literal notranslate"><span class="pre">translate()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pyqtgraph.RectROI"><code class="docutils literal notranslate"><span class="pre">RectROI</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pyqtgraph.EllipseROI"><code class="docutils literal notranslate"><span class="pre">EllipseROI</span></code></a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pyqtgraph.EllipseROI.getArrayRegion"><code class="docutils literal notranslate"><span class="pre">getArrayRegion()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pyqtgraph.CircleROI"><code class="docutils literal notranslate"><span class="pre">CircleROI</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pyqtgraph.LineSegmentROI"><code class="docutils literal notranslate"><span class="pre">LineSegmentROI</span></code></a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pyqtgraph.LineSegmentROI.getArrayRegion"><code class="docutils literal notranslate"><span class="pre">getArrayRegion()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pyqtgraph.PolyLineROI"><code class="docutils literal notranslate"><span class="pre">PolyLineROI</span></code></a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pyqtgraph.PolyLineROI.clearPoints"><code class="docutils literal notranslate"><span class="pre">clearPoints()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pyqtgraph.PolyLineROI.setPoints"><code class="docutils literal notranslate"><span class="pre">setPoints()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pyqtgraph.LineROI"><code class="docutils literal notranslate"><span class="pre">LineROI</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pyqtgraph.MultiRectROI"><code class="docutils literal notranslate"><span class="pre">MultiRectROI</span></code></a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pyqtgraph.MultiRectROI.addSegment"><code class="docutils literal notranslate"><span class="pre">addSegment()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pyqtgraph.MultiRectROI.getArrayRegion"><code class="docutils literal notranslate"><span class="pre">getArrayRegion()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pyqtgraph.MultiRectROI.getHandlePositions"><code class="docutils literal notranslate"><span class="pre">getHandlePositions()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pyqtgraph.MultiRectROI.removeSegment"><code class="docutils literal notranslate"><span class="pre">removeSegment()</span></code></a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../_static/scripts/bootstrap.js?digest=a95f357e85573c9b56d5"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=a95f357e85573c9b56d5"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2011 - 2026, PyQtGraph developers.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.0.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.19.0.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

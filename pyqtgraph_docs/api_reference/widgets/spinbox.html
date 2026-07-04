@@ -1,0 +1,980 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="../../_static/docset-icon.png" sizes="16x16" rel="icon" type="image/png">
+    <link href="../../_static/docset-icon@2x.png" sizes="32x32" rel="icon" type="image/png">
+    <link href="../../_static/peegee_03_square_no_bg_32_cleaned.ico" rel="icon" type="image/x-icon">
+    <title>SpinBox &#8212; pyqtgraph 0.15.0.dev0 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=a95f357e85573c9b56d5" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=a95f357e85573c9b56d5" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css?v=4ae1632d" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinxcontrib-images/LightBox2/lightbox2/dist/css/lightbox.min.css?v=6e7d0de0" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinxcontrib-images/LightBox2/lightbox2-customize/pointer.css?v=c97663ff" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=006a86f1" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../../_static/scripts/fontawesome.js?digest=a95f357e85573c9b56d5"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=a95f357e85573c9b56d5" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=a95f357e85573c9b56d5" />
+
+    <script src="../../_static/documentation_options.js?v=e3e50566"></script>
+    <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script src="../../_static/sphinxcontrib-images/LightBox2/lightbox2/dist/js/lightbox-plus-jquery.min.js?v=f0ca4bb6"></script>
+    <script src="../../_static/sphinxcontrib-images/LightBox2/lightbox2-customize/jquery-noconflict.js?v=12818e64"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'api_reference/widgets/spinbox';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="GradientWidget" href="gradientwidget.html" />
+    <link rel="prev" title="ImageView" href="imageview.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="0.15.0.dev0" />
+  
+    
+    <script src="../../_static/searchtools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../searchindex.js"></script>
+  
+  <script async type="text/javascript" src="/_/static/javascript/readthedocs-addons.js"></script><meta name="readthedocs-project-slug" content="pyqtgraph" /><meta name="readthedocs-version-slug" content="latest" /><meta name="readthedocs-resolver-filename" content="/api_reference/widgets/spinbox.html" /><meta name="readthedocs-http-status" content="200" /></head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/peegee_02.svg" class="logo__image only-light" alt="pyqtgraph 0.15.0.dev0 documentation - Home"/>
+    <img src="../../_static/peegee_02.svg" class="logo__image only-dark pst-js-only" alt="pyqtgraph 0.15.0.dev0 documentation - Home"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../getting_started/index.html">
+    Getting Started
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../user_guide/index.html">
+    User Guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../developer_guide/index.html">
+    Developer Guide
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="../index.html">
+    API Reference
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/pyqtgraph/pyqtgraph" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i><span class="visually-hidden">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://fosstodon.org/@pyqtgraph" title="Mastodon" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-mastodon fa-lg" aria-hidden="true"></i><span class="visually-hidden">Mastodon</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../getting_started/index.html">
+    Getting Started
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../user_guide/index.html">
+    User Guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../developer_guide/index.html">
+    Developer Guide
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="../index.html">
+    API Reference
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/pyqtgraph/pyqtgraph" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i><span class="visually-hidden">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://fosstodon.org/@pyqtgraph" title="Mastodon" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-mastodon fa-lg" aria-hidden="true"></i><span class="visually-hidden">Mastodon</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../config_options.html">Global Configuration Options</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../functions.html">PyQtGraph’s Helper Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../graphicsItems/index.html">PyQtGraph’s Graphics Items</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">PyQtGraph’s Widgets</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="plotwidget.html">PlotWidget</a></li>
+<li class="toctree-l2"><a class="reference internal" href="imageview.html">ImageView</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">SpinBox</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gradientwidget.html">GradientWidget</a></li>
+<li class="toctree-l2"><a class="reference internal" href="histogramlutwidget.html">HistogramLUTWidget</a></li>
+<li class="toctree-l2"><a class="reference internal" href="consolewidget.html">ConsoleWidget</a></li>
+<li class="toctree-l2"><a class="reference internal" href="colormapwidget.html">ColorMapWidget</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scatterplotwidget.html">ScatterPlotWidget</a></li>
+<li class="toctree-l2"><a class="reference internal" href="graphicsview.html">GraphicsView</a></li>
+<li class="toctree-l2"><a class="reference internal" href="datatreewidget.html">DataTreeWidget</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tablewidget.html">TableWidget</a></li>
+<li class="toctree-l2"><a class="reference internal" href="treewidget.html">TreeWidget</a></li>
+<li class="toctree-l2"><a class="reference internal" href="checktable.html">CheckTable</a></li>
+<li class="toctree-l2"><a class="reference internal" href="colorbutton.html">ColorButton</a></li>
+<li class="toctree-l2"><a class="reference internal" href="graphicslayoutwidget.html">GraphicsLayoutWidget</a></li>
+<li class="toctree-l2"><a class="reference internal" href="progressdialog.html">ProgressDialog</a></li>
+<li class="toctree-l2"><a class="reference internal" href="filedialog.html">FileDialog</a></li>
+<li class="toctree-l2"><a class="reference internal" href="joystickbutton.html">JoystickButton</a></li>
+<li class="toctree-l2"><a class="reference internal" href="verticallabel.html">VerticalLabel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="remotegraphicsview.html">RemoteGraphicsView</a></li>
+<li class="toctree-l2"><a class="reference internal" href="matplotlibwidget.html">MatplotlibWidget</a></li>
+<li class="toctree-l2"><a class="reference internal" href="feedbackbutton.html">FeedbackButton</a></li>
+<li class="toctree-l2"><a class="reference internal" href="combobox.html">ComboBox</a></li>
+<li class="toctree-l2"><a class="reference internal" href="layoutwidget.html">LayoutWidget</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pathbutton.html">PathButton</a></li>
+<li class="toctree-l2"><a class="reference internal" href="valuelabel.html">ValueLabel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="busycursor.html">BusyCursor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rawimagewidget.html">RawImageWidget</a></li>
+<li class="toctree-l2"><a class="reference internal" href="colormapmenu.html">ColorMapMenu</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../3dgraphics/index.html">PyQtGraph’s 3D Graphics System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../colormap.html">Color Maps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../parametertree/index.html">Parameter Trees</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dockarea.html">Dock Area Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../graphicsscene/index.html">GraphicsScene and Mouse Events</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exporters/index.html">API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../flowchart/index.html">Visual Programming with Flowcharts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../point.html">Point</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../transform3d.html">Transform3D</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../uml_overview.html">UML class diagram</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../index.html" class="nav-link">API Reference</a></li>
+    
+    
+    <li class="breadcrumb-item"><a href="index.html" class="nav-link">PyQtGraph’s Widgets</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">SpinBox</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="spinbox">
+<h1>SpinBox<a class="headerlink" href="#spinbox" title="Link to this heading">#</a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="pyqtgraph.SpinBox">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">pyqtgraph.</span></span><span class="sig-name descname"><span class="pre">SpinBox</span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">parent</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em>,</dd>
+</dl>
+
+<span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pyqtgraph/widgets/SpinBox.html#SpinBox"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyqtgraph.SpinBox" title="Link to this definition">#</a></dt>
+<dd><p><strong>Bases:</strong> QtWidgets.QAbstractSpinBox</p>
+<p>Extension of QSpinBox widget for selection of a numerical value.
+Adds many extra features:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>SI prefix notation (eg, automatically display “300 mV” instead of “0.003 V”)</p></li>
+<li><p>Float values with linear and decimal stepping (1-9, 10-90, 100-900, etc.)</p></li>
+<li><p>Option for unbounded values</p></li>
+<li><p>Delayed signals (allows multiple rapid changes with only one change signal)</p></li>
+<li><p>Customizable text formatting</p></li>
+</ul>
+</div></blockquote>
+<div class="pst-scrollable-table-container"><table class="table">
+<tbody>
+<tr class="row-odd"><td><p><strong>Signals:</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>valueChanged(value)</p></td>
+<td><p>Same as QSpinBox; emitted every time the value
+has changed.</p></td>
+</tr>
+<tr class="row-odd"><td><p>sigValueChanged(self)</p></td>
+<td><p>Emitted when value has changed, but also combines
+multiple rapid changes into one signal (eg,
+when rolling the mouse wheel).</p></td>
+</tr>
+<tr class="row-even"><td><p>sigValueChanging(self, value)</p></td>
+<td><p>Emitted immediately for all value changes.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqtgraph.SpinBox.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">parent</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em>,</dd>
+</dl>
+
+<span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pyqtgraph/widgets/SpinBox.html#SpinBox.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyqtgraph.SpinBox.__init__" title="Link to this definition">#</a></dt>
+<dd><div class="pst-scrollable-table-container"><table class="table">
+<tbody>
+<tr class="row-odd"><td><p><strong>Arguments:</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>parent</p></td>
+<td><p>Sets the parent widget for this SpinBox (optional). Default is None.</p></td>
+</tr>
+<tr class="row-odd"><td><p>value</p></td>
+<td><p>(float/int) initial value. Default is 0.0.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>All keyword arguments are passed to <a class="reference internal" href="#pyqtgraph.SpinBox.setOpts" title="pyqtgraph.SpinBox.setOpts"><code class="xref py py-func docutils literal notranslate"><span class="pre">setOpts()</span></code></a>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqtgraph.SpinBox.editingFinishedEvent">
+<span class="sig-name descname"><span class="pre">editingFinishedEvent</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pyqtgraph/widgets/SpinBox.html#SpinBox.editingFinishedEvent"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyqtgraph.SpinBox.editingFinishedEvent" title="Link to this definition">#</a></dt>
+<dd><p>Edit has finished; set value.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqtgraph.SpinBox.interpret">
+<span class="sig-name descname"><span class="pre">interpret</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pyqtgraph/widgets/SpinBox.html#SpinBox.interpret"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyqtgraph.SpinBox.interpret" title="Link to this definition">#</a></dt>
+<dd><p>Return value of text or False if text is invalid.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqtgraph.SpinBox.selectNumber">
+<span class="sig-name descname"><span class="pre">selectNumber</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pyqtgraph/widgets/SpinBox.html#SpinBox.selectNumber"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyqtgraph.SpinBox.selectNumber" title="Link to this definition">#</a></dt>
+<dd><p>Select the numerical portion of the text to allow quick editing by the user.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqtgraph.SpinBox.setDecimals">
+<span class="sig-name descname"><span class="pre">setDecimals</span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">decimals</span></span></em>,</dd>
+</dl>
+
+<span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pyqtgraph/widgets/SpinBox.html#SpinBox.setDecimals"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyqtgraph.SpinBox.setDecimals" title="Link to this definition">#</a></dt>
+<dd><p>Set the number of decimals to be displayed when formatting numeric
+values.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqtgraph.SpinBox.setLocale">
+<span class="sig-name descname"><span class="pre">setLocale</span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">locale</span></span></em>,</dd>
+</dl>
+
+<span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pyqtgraph/widgets/SpinBox.html#SpinBox.setLocale"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyqtgraph.SpinBox.setLocale" title="Link to this definition">#</a></dt>
+<dd><p>Set the locale used for formatting and parsing numbers.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>locale</strong> (<a class="reference external" href="https://doc.qt.io/qt-6/qlocale.html" title="(in Qt6 v6.11)"><code class="docutils literal notranslate"><span class="pre">QLocale</span></code></a>) – The locale to use.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqtgraph.SpinBox.setMaximum">
+<span class="sig-name descname"><span class="pre">setMaximum</span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">m</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">update</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>,</dd>
+</dl>
+
+<span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pyqtgraph/widgets/SpinBox.html#SpinBox.setMaximum"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyqtgraph.SpinBox.setMaximum" title="Link to this definition">#</a></dt>
+<dd><p>Set the maximum allowed value (or None for no limit)</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqtgraph.SpinBox.setMinimum">
+<span class="sig-name descname"><span class="pre">setMinimum</span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">m</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">update</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>,</dd>
+</dl>
+
+<span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pyqtgraph/widgets/SpinBox.html#SpinBox.setMinimum"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyqtgraph.SpinBox.setMinimum" title="Link to this definition">#</a></dt>
+<dd><p>Set the minimum allowed value (or None for no limit)</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqtgraph.SpinBox.setOpts">
+<span class="sig-name descname"><span class="pre">setOpts</span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">opts</span></span></em>,</dd>
+</dl>
+
+<span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pyqtgraph/widgets/SpinBox.html#SpinBox.setOpts"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyqtgraph.SpinBox.setOpts" title="Link to this definition">#</a></dt>
+<dd><p>Set options affecting the behavior of the SpinBox.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<tbody>
+<tr class="row-odd"><td><p><strong>Arguments:</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>bounds</p></td>
+<td><p>(min,max) Minimum and maximum values allowed in the SpinBox.
+Either may be None to leave the value unbounded. By default, values are
+unbounded.</p></td>
+</tr>
+<tr class="row-odd"><td><p>suffix</p></td>
+<td><p>(str) suffix (units) to display after the numerical value. By default,
+suffix is an empty str.</p></td>
+</tr>
+<tr class="row-even"><td><p>siPrefix</p></td>
+<td><p>(bool) If True, then an SI prefix is automatically prepended
+to the units and the value is scaled accordingly. For example,
+if value=0.003 and suffix=’V’, then the SpinBox will display
+“300 mV” (but a call to SpinBox.value will still return 0.003). In case
+the value represents a dimensionless quantity that might span many
+orders of magnitude, such as a Reynolds number, an SI
+prefix is allowed with no suffix. Default is False.</p></td>
+</tr>
+<tr class="row-odd"><td><p>suffixPower</p></td>
+<td><p>(int or float) The power to which the suffix units are raised. This is used
+for correct scaling of the SI prefix when the units are nonlinear. Supports
+positive, negative and non-integral powers. Default is 1.</p></td>
+</tr>
+<tr class="row-even"><td><p>prefix</p></td>
+<td><p>(str) String to be prepended to the spin box value. Default is an empty string.</p></td>
+</tr>
+<tr class="row-odd"><td><p>scaleAtZero</p></td>
+<td><p>(float) If siPrefix is also True, this option then sets the default SI prefix
+that a value of 0 will have applied (and thus the default scale of the first
+number the user types in after the SpinBox has been zeroed out).</p></td>
+</tr>
+<tr class="row-even"><td><p>step</p></td>
+<td><p>(float) The size of a single step. This is used when clicking the up/
+down arrows, when rolling the mouse wheel, or when pressing
+keyboard arrows while the widget has keyboard focus. Note that
+the interpretation of this value is different when specifying
+the ‘dec’ argument. If ‘int’ is True, ‘step’ is rounded to the nearest integer.
+Default is 0.01 if ‘int’ is False and 1 otherwise.</p></td>
+</tr>
+<tr class="row-odd"><td><p>dec</p></td>
+<td><p>(bool) If True, then the step value will be adjusted to match
+the current size of the variable (for example, a value of 15
+might step in increments of 1 whereas a value of 1500 would
+step in increments of 100). In this case, the ‘step’ argument
+is interpreted <em>relative</em> to the current value. The most common
+‘step’ values when dec=True are 0.1, 0.2, 0.5, and 1.0. Default is
+False.</p></td>
+</tr>
+<tr class="row-even"><td><p>minStep</p></td>
+<td><p>(float) When dec=True, this specifies the minimum allowable step size.</p></td>
+</tr>
+<tr class="row-odd"><td><p>int</p></td>
+<td><p>(bool) If True, the value is forced to integer type.
+If True, ‘step’ is rounded to the nearest integer or defaults to 1.
+Default is False</p></td>
+</tr>
+<tr class="row-even"><td><p>finite</p></td>
+<td><p>(bool) When False and int=False, infinite values (nan, inf, -inf) are
+permitted. Default is True.</p></td>
+</tr>
+<tr class="row-odd"><td><p>wrapping</p></td>
+<td><p>(bool) If True and both bounds are not None, spin box has circular behavior.</p></td>
+</tr>
+<tr class="row-even"><td><p>decimals</p></td>
+<td><p>(int) Number of decimal values to display. Default is 6.</p></td>
+</tr>
+<tr class="row-odd"><td><p>format</p></td>
+<td><p>(str) Formatting string used to generate the text shown. Formatting is
+done with <code class="docutils literal notranslate"><span class="pre">str.format()</span></code> and makes use of several arguments:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><em>value</em> - the unscaled value of the spin box</p></li>
+<li><p><em>prefix</em> - the prefix string</p></li>
+<li><p><em>prefixGap</em> - a single space if a prefix is present, or an empty
+string otherwise</p></li>
+<li><p><em>suffix</em> - the suffix string</p></li>
+<li><p><em>scaledValue</em> - the scaled value to use when an SI prefix is present</p></li>
+<li><p><em>scaledValueString</em> - scaled value as a string, formatted according to locale</p></li>
+<li><p><em>siPrefix</em> - the SI prefix string (if any), or an empty string if
+this feature has been disabled</p></li>
+<li><p><em>suffixGap</em> - a single space if a suffix is present, or an empty
+string otherwise.</p></li>
+</ul>
+</div></blockquote>
+</td>
+</tr>
+<tr class="row-even"><td><p>regex</p></td>
+<td><p>(str or RegexObject) Regular expression used to parse the spinbox text.
+May contain the following group names:</p>
+<ul class="simple">
+<li><p><em>number</em> - matches the numerical portion of the string (mandatory)</p></li>
+<li><p><em>siPrefix</em> - matches the SI prefix string</p></li>
+<li><p><em>suffix</em> - matches the suffix string</p></li>
+</ul>
+<p>Default depends on locale, and is either
+<code class="docutils literal notranslate"><span class="pre">pyqtgraph.functions.FLOAT_REGEX_PERIOD</span></code> or
+<code class="docutils literal notranslate"><span class="pre">pyqtgraph.functions.FLOAT_REGEX_COMMA</span></code>.</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>evalFunc</p></td>
+<td><p>(callable) Fucntion that converts a numerical string to a number,
+preferrably a Decimal instance. This function handles only the numerical
+of the text; it does not have access to the suffix or SI prefix.</p></td>
+</tr>
+<tr class="row-even"><td><p>compactHeight</p></td>
+<td><p>(bool) if True, then set the maximum height of the spinbox based on the
+height of its font. This allows more compact packing on platforms with
+excessive widget decoration. Default is True.</p></td>
+</tr>
+<tr class="row-odd"><td><p>locale</p></td>
+<td><p>(QtCore.QLocale) Sets the locale used for formatting and parsing numbers.
+Affects the decimal point behavior. Default is system locale.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqtgraph.SpinBox.setPrefix">
+<span class="sig-name descname"><span class="pre">setPrefix</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">p</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pyqtgraph/widgets/SpinBox.html#SpinBox.setPrefix"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyqtgraph.SpinBox.setPrefix" title="Link to this definition">#</a></dt>
+<dd><p>Set a string prefix.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqtgraph.SpinBox.setRange">
+<span class="sig-name descname"><span class="pre">setRange</span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">r0</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">r1</span></span></em>,</dd>
+</dl>
+
+<span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pyqtgraph/widgets/SpinBox.html#SpinBox.setRange"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyqtgraph.SpinBox.setRange" title="Link to this definition">#</a></dt>
+<dd><p>Set the upper and lower limits for values in the spinbox.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqtgraph.SpinBox.setSingleStep">
+<span class="sig-name descname"><span class="pre">setSingleStep</span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">step</span></span></em>,</dd>
+</dl>
+
+<span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pyqtgraph/widgets/SpinBox.html#SpinBox.setSingleStep"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyqtgraph.SpinBox.setSingleStep" title="Link to this definition">#</a></dt>
+<dd><p>Set the step size used when responding to the mouse wheel, arrow
+buttons, or arrow keys.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqtgraph.SpinBox.setSuffix">
+<span class="sig-name descname"><span class="pre">setSuffix</span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">suf</span></span></em>,</dd>
+</dl>
+
+<span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pyqtgraph/widgets/SpinBox.html#SpinBox.setSuffix"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyqtgraph.SpinBox.setSuffix" title="Link to this definition">#</a></dt>
+<dd><p>Set the string suffix appended to the spinbox text.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqtgraph.SpinBox.setValue">
+<span class="sig-name descname"><span class="pre">setValue</span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">update</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>,</dd>
+<dd><em class="sig-param"><span class="n"><span class="pre">delaySignal</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>,</dd>
+</dl>
+
+<span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pyqtgraph/widgets/SpinBox.html#SpinBox.setValue"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyqtgraph.SpinBox.setValue" title="Link to this definition">#</a></dt>
+<dd><p>Set the value of this SpinBox.</p>
+<p>If the value is out of bounds, it will be clipped to the nearest boundary
+or wrapped if wrapping is enabled.</p>
+<p>If the spin is integer type, the value will be coerced to int.
+Returns the actual value set.</p>
+<p>If value is None, then the current value is used (this is for resetting
+the value after bounds, etc. have changed)</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqtgraph.SpinBox.setWrapping">
+<span class="sig-name descname"><span class="pre">setWrapping</span></span><span class="sig-paren">(</span>
+
+<dl>
+<dd><em class="sig-param"><span class="n"><span class="pre">s</span></span></em>,</dd>
+</dl>
+
+<span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pyqtgraph/widgets/SpinBox.html#SpinBox.setWrapping"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyqtgraph.SpinBox.setWrapping" title="Link to this definition">#</a></dt>
+<dd><p>Set whether spin box is circular.</p>
+<p>Both bounds must be set for this to have an effect.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqtgraph.SpinBox.value">
+<span class="sig-name descname"><span class="pre">value</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pyqtgraph/widgets/SpinBox.html#SpinBox.value"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyqtgraph.SpinBox.value" title="Link to this definition">#</a></dt>
+<dd><p>Return the value of this SpinBox.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqtgraph.SpinBox.wrapping">
+<span class="sig-name descname"><span class="pre">wrapping</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pyqtgraph/widgets/SpinBox.html#SpinBox.wrapping"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyqtgraph.SpinBox.wrapping" title="Link to this definition">#</a></dt>
+<dd><p>Return whether or not the spin box is circular.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="imageview.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">ImageView</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="gradientwidget.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">GradientWidget</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pyqtgraph.SpinBox"><code class="docutils literal notranslate"><span class="pre">SpinBox</span></code></a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pyqtgraph.SpinBox.__init__"><code class="docutils literal notranslate"><span class="pre">__init__()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pyqtgraph.SpinBox.editingFinishedEvent"><code class="docutils literal notranslate"><span class="pre">editingFinishedEvent()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pyqtgraph.SpinBox.interpret"><code class="docutils literal notranslate"><span class="pre">interpret()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pyqtgraph.SpinBox.selectNumber"><code class="docutils literal notranslate"><span class="pre">selectNumber()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pyqtgraph.SpinBox.setDecimals"><code class="docutils literal notranslate"><span class="pre">setDecimals()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pyqtgraph.SpinBox.setLocale"><code class="docutils literal notranslate"><span class="pre">setLocale()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pyqtgraph.SpinBox.setMaximum"><code class="docutils literal notranslate"><span class="pre">setMaximum()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pyqtgraph.SpinBox.setMinimum"><code class="docutils literal notranslate"><span class="pre">setMinimum()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pyqtgraph.SpinBox.setOpts"><code class="docutils literal notranslate"><span class="pre">setOpts()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pyqtgraph.SpinBox.setPrefix"><code class="docutils literal notranslate"><span class="pre">setPrefix()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pyqtgraph.SpinBox.setRange"><code class="docutils literal notranslate"><span class="pre">setRange()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pyqtgraph.SpinBox.setSingleStep"><code class="docutils literal notranslate"><span class="pre">setSingleStep()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pyqtgraph.SpinBox.setSuffix"><code class="docutils literal notranslate"><span class="pre">setSuffix()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pyqtgraph.SpinBox.setValue"><code class="docutils literal notranslate"><span class="pre">setValue()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pyqtgraph.SpinBox.setWrapping"><code class="docutils literal notranslate"><span class="pre">setWrapping()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pyqtgraph.SpinBox.value"><code class="docutils literal notranslate"><span class="pre">value()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pyqtgraph.SpinBox.wrapping"><code class="docutils literal notranslate"><span class="pre">wrapping()</span></code></a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../_static/scripts/bootstrap.js?digest=a95f357e85573c9b56d5"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=a95f357e85573c9b56d5"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2011 - 2026, PyQtGraph developers.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.0.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.19.0.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

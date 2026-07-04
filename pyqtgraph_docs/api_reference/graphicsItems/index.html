@@ -1,0 +1,757 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="../../_static/docset-icon.png" sizes="16x16" rel="icon" type="image/png">
+    <link href="../../_static/docset-icon@2x.png" sizes="32x32" rel="icon" type="image/png">
+    <link href="../../_static/peegee_03_square_no_bg_32_cleaned.ico" rel="icon" type="image/x-icon">
+    <title>PyQtGraph’s Graphics Items &#8212; pyqtgraph 0.15.0.dev0 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=a95f357e85573c9b56d5" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=a95f357e85573c9b56d5" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css?v=4ae1632d" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinxcontrib-images/LightBox2/lightbox2/dist/css/lightbox.min.css?v=6e7d0de0" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinxcontrib-images/LightBox2/lightbox2-customize/pointer.css?v=c97663ff" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=006a86f1" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../../_static/scripts/fontawesome.js?digest=a95f357e85573c9b56d5"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=a95f357e85573c9b56d5" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=a95f357e85573c9b56d5" />
+
+    <script src="../../_static/documentation_options.js?v=e3e50566"></script>
+    <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script src="../../_static/sphinxcontrib-images/LightBox2/lightbox2/dist/js/lightbox-plus-jquery.min.js?v=f0ca4bb6"></script>
+    <script src="../../_static/sphinxcontrib-images/LightBox2/lightbox2-customize/jquery-noconflict.js?v=12818e64"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'api_reference/graphicsItems/index';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="PlotDataItem" href="plotdataitem.html" />
+    <link rel="prev" title="PyQtGraph’s Helper Functions" href="../functions.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="0.15.0.dev0" />
+  
+    
+    <script src="../../_static/searchtools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../searchindex.js"></script>
+  
+  <script async type="text/javascript" src="/_/static/javascript/readthedocs-addons.js"></script><meta name="readthedocs-project-slug" content="pyqtgraph" /><meta name="readthedocs-version-slug" content="latest" /><meta name="readthedocs-resolver-filename" content="/api_reference/graphicsItems/index.html" /><meta name="readthedocs-http-status" content="200" /></head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/peegee_02.svg" class="logo__image only-light" alt="pyqtgraph 0.15.0.dev0 documentation - Home"/>
+    <img src="../../_static/peegee_02.svg" class="logo__image only-dark pst-js-only" alt="pyqtgraph 0.15.0.dev0 documentation - Home"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../getting_started/index.html">
+    Getting Started
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../user_guide/index.html">
+    User Guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../developer_guide/index.html">
+    Developer Guide
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="../index.html">
+    API Reference
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/pyqtgraph/pyqtgraph" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i><span class="visually-hidden">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://fosstodon.org/@pyqtgraph" title="Mastodon" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-mastodon fa-lg" aria-hidden="true"></i><span class="visually-hidden">Mastodon</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../getting_started/index.html">
+    Getting Started
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../user_guide/index.html">
+    User Guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../developer_guide/index.html">
+    Developer Guide
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="../index.html">
+    API Reference
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/pyqtgraph/pyqtgraph" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i><span class="visually-hidden">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://fosstodon.org/@pyqtgraph" title="Mastodon" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-mastodon fa-lg" aria-hidden="true"></i><span class="visually-hidden">Mastodon</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../config_options.html">Global Configuration Options</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../functions.html">PyQtGraph’s Helper Functions</a></li>
+<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">PyQtGraph’s Graphics Items</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="plotdataitem.html">PlotDataItem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plotitem.html">PlotItem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="imageitem.html">ImageItem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="colorbaritem.html">ColorBarItem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pcolormeshitem.html">PColorMeshItem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="graphitem.html">GraphItem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="viewbox.html">ViewBox</a></li>
+<li class="toctree-l2"><a class="reference internal" href="linearregionitem.html">LinearRegionItem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="infiniteline.html">InfiniteLine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="roi.html">ROI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="graphicslayout.html">GraphicsLayout</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plotcurveitem.html">PlotCurveItem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scatterplotitem.html">ScatterPlotItem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="isocurveitem.html">IsocurveItem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="axisitem.html">AxisItem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="textitem.html">TextItem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="errorbaritem.html">ErrorBarItem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bargraphitem.html">BarGraphItem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arrowitem.html">ArrowItem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fillbetweenitem.html">FillBetweenItem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="curvepoint.html">CurvePoint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="curvearrow.html">CurveArrow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="griditem.html">GridItem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scalebar.html">ScaleBar</a></li>
+<li class="toctree-l2"><a class="reference internal" href="labelitem.html">LabelItem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vtickgroup.html">VTickGroup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="legenditem.html">LegendItem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gradienteditoritem.html">GradientEditorItem</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="histogramlutitem.html">HistogramLUTItem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gradientlegend.html">GradientLegend</a></li>
+<li class="toctree-l2"><a class="reference internal" href="buttonitem.html">ButtonItem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="graphicsobject.html">GraphicsObject</a></li>
+<li class="toctree-l2"><a class="reference internal" href="graphicswidget.html">GraphicsWidget</a></li>
+<li class="toctree-l2"><a class="reference internal" href="graphicsitem.html">GraphicsItem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="uigraphicsitem.html">UIGraphicsItem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="graphicswidgetanchor.html">GraphicsWidgetAnchor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dateaxisitem.html">DateAxisItem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="targetitem.html">TargetItem</a></li>
+
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../widgets/index.html">PyQtGraph’s Widgets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../3dgraphics/index.html">PyQtGraph’s 3D Graphics System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../colormap.html">Color Maps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../parametertree/index.html">Parameter Trees</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dockarea.html">Dock Area Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../graphicsscene/index.html">GraphicsScene and Mouse Events</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exporters/index.html">API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../flowchart/index.html">Visual Programming with Flowcharts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../point.html">Point</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../transform3d.html">Transform3D</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../uml_overview.html">UML class diagram</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../index.html" class="nav-link">API Reference</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">PyQtGraph’s Graphics Items</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="pyqtgraph-s-graphics-items">
+<h1>PyQtGraph’s Graphics Items<a class="headerlink" href="#pyqtgraph-s-graphics-items" title="Link to this heading">#</a></h1>
+<p>Since pyqtgraph relies on Qt’s GraphicsView framework, most of its graphics functionality is implemented as QGraphicsItem subclasses. This has two important consequences: 1) virtually anything you want to draw can be easily accomplished using the functionality provided by Qt. 2) Many of pyqtgraph’s GraphicsItem classes can be used in any normal QGraphicsScene.</p>
+<p>Contents:</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="plotdataitem.html">PlotDataItem</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="plotdataitem.html#pyqtgraph.PlotDataItem"><code class="docutils literal notranslate"><span class="pre">PlotDataItem</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="plotitem.html">PlotItem</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="plotitem.html#pyqtgraph.PlotItem"><code class="docutils literal notranslate"><span class="pre">PlotItem</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="imageitem.html">ImageItem</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="imageitem.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="imageitem.html#notes">Notes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="imageitem.html#performance">Performance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="imageitem.html#examples">Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="imageitem.html#inheritance">Inheritance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="imageitem.html#api">API</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="colorbaritem.html">ColorBarItem</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="colorbaritem.html#pyqtgraph.ColorBarItem"><code class="docutils literal notranslate"><span class="pre">ColorBarItem</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pcolormeshitem.html">PColorMeshItem</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pcolormeshitem.html#pyqtgraph.PColorMeshItem"><code class="docutils literal notranslate"><span class="pre">PColorMeshItem</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="graphitem.html">GraphItem</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="graphitem.html#pyqtgraph.GraphItem"><code class="docutils literal notranslate"><span class="pre">GraphItem</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="viewbox.html">ViewBox</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="viewbox.html#pyqtgraph.ViewBox"><code class="docutils literal notranslate"><span class="pre">ViewBox</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="linearregionitem.html">LinearRegionItem</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="linearregionitem.html#pyqtgraph.LinearRegionItem"><code class="docutils literal notranslate"><span class="pre">LinearRegionItem</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="infiniteline.html">InfiniteLine</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="infiniteline.html#pyqtgraph.InfiniteLine"><code class="docutils literal notranslate"><span class="pre">InfiniteLine</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="infiniteline.html#pyqtgraph.InfLineLabel"><code class="docutils literal notranslate"><span class="pre">InfLineLabel</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="roi.html">ROI</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="roi.html#pyqtgraph.ROI"><code class="docutils literal notranslate"><span class="pre">ROI</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="roi.html#pyqtgraph.RectROI"><code class="docutils literal notranslate"><span class="pre">RectROI</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="roi.html#pyqtgraph.EllipseROI"><code class="docutils literal notranslate"><span class="pre">EllipseROI</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="roi.html#pyqtgraph.CircleROI"><code class="docutils literal notranslate"><span class="pre">CircleROI</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="roi.html#pyqtgraph.LineSegmentROI"><code class="docutils literal notranslate"><span class="pre">LineSegmentROI</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="roi.html#pyqtgraph.PolyLineROI"><code class="docutils literal notranslate"><span class="pre">PolyLineROI</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="roi.html#pyqtgraph.LineROI"><code class="docutils literal notranslate"><span class="pre">LineROI</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="roi.html#pyqtgraph.MultiRectROI"><code class="docutils literal notranslate"><span class="pre">MultiRectROI</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="graphicslayout.html">GraphicsLayout</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="graphicslayout.html#pyqtgraph.GraphicsLayout"><code class="docutils literal notranslate"><span class="pre">GraphicsLayout</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="plotcurveitem.html">PlotCurveItem</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="plotcurveitem.html#pyqtgraph.PlotCurveItem"><code class="docutils literal notranslate"><span class="pre">PlotCurveItem</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="scatterplotitem.html">ScatterPlotItem</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="scatterplotitem.html#pyqtgraph.ScatterPlotItem"><code class="docutils literal notranslate"><span class="pre">ScatterPlotItem</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="isocurveitem.html">IsocurveItem</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="isocurveitem.html#pyqtgraph.IsocurveItem"><code class="docutils literal notranslate"><span class="pre">IsocurveItem</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="axisitem.html">AxisItem</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="axisitem.html#pyqtgraph.AxisItem"><code class="docutils literal notranslate"><span class="pre">AxisItem</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="textitem.html">TextItem</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="textitem.html#pyqtgraph.TextItem"><code class="docutils literal notranslate"><span class="pre">TextItem</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="errorbaritem.html">ErrorBarItem</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="errorbaritem.html#pyqtgraph.ErrorBarItem"><code class="docutils literal notranslate"><span class="pre">ErrorBarItem</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="bargraphitem.html">BarGraphItem</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="bargraphitem.html#pyqtgraph.BarGraphItem"><code class="docutils literal notranslate"><span class="pre">BarGraphItem</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="arrowitem.html">ArrowItem</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="arrowitem.html#pyqtgraph.ArrowItem"><code class="docutils literal notranslate"><span class="pre">ArrowItem</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="fillbetweenitem.html">FillBetweenItem</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="fillbetweenitem.html#pyqtgraph.FillBetweenItem"><code class="docutils literal notranslate"><span class="pre">FillBetweenItem</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="curvepoint.html">CurvePoint</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="curvepoint.html#pyqtgraph.CurvePoint"><code class="docutils literal notranslate"><span class="pre">CurvePoint</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="curvearrow.html">CurveArrow</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="curvearrow.html#pyqtgraph.CurveArrow"><code class="docutils literal notranslate"><span class="pre">CurveArrow</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="griditem.html">GridItem</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="griditem.html#pyqtgraph.GridItem"><code class="docutils literal notranslate"><span class="pre">GridItem</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="scalebar.html">ScaleBar</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="scalebar.html#pyqtgraph.ScaleBar"><code class="docutils literal notranslate"><span class="pre">ScaleBar</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="labelitem.html">LabelItem</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="labelitem.html#pyqtgraph.LabelItem"><code class="docutils literal notranslate"><span class="pre">LabelItem</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="vtickgroup.html">VTickGroup</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="vtickgroup.html#pyqtgraph.VTickGroup"><code class="docutils literal notranslate"><span class="pre">VTickGroup</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="legenditem.html">LegendItem</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="legenditem.html#pyqtgraph.LegendItem"><code class="docutils literal notranslate"><span class="pre">LegendItem</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="gradienteditoritem.html">GradientEditorItem</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="gradienteditoritem.html#pyqtgraph.GradientEditorItem"><code class="docutils literal notranslate"><span class="pre">GradientEditorItem</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="gradienteditoritem.html#tickslideritem">TickSliderItem</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="gradienteditoritem.html#pyqtgraph.TickSliderItem"><code class="docutils literal notranslate"><span class="pre">TickSliderItem</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="histogramlutitem.html">HistogramLUTItem</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="histogramlutitem.html#pyqtgraph.HistogramLUTItem"><code class="docutils literal notranslate"><span class="pre">HistogramLUTItem</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="gradientlegend.html">GradientLegend</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="gradientlegend.html#pyqtgraph.GradientLegend"><code class="docutils literal notranslate"><span class="pre">GradientLegend</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="buttonitem.html">ButtonItem</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="buttonitem.html#pyqtgraph.ButtonItem"><code class="docutils literal notranslate"><span class="pre">ButtonItem</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="graphicsobject.html">GraphicsObject</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="graphicsobject.html#pyqtgraph.GraphicsObject"><code class="docutils literal notranslate"><span class="pre">GraphicsObject</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="graphicswidget.html">GraphicsWidget</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="graphicswidget.html#pyqtgraph.GraphicsWidget"><code class="docutils literal notranslate"><span class="pre">GraphicsWidget</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="graphicsitem.html">GraphicsItem</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="graphicsitem.html#pyqtgraph.GraphicsItem"><code class="docutils literal notranslate"><span class="pre">GraphicsItem</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="uigraphicsitem.html">UIGraphicsItem</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="uigraphicsitem.html#pyqtgraph.UIGraphicsItem"><code class="docutils literal notranslate"><span class="pre">UIGraphicsItem</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="graphicswidgetanchor.html">GraphicsWidgetAnchor</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="graphicswidgetanchor.html#pyqtgraph.GraphicsWidgetAnchor"><code class="docutils literal notranslate"><span class="pre">GraphicsWidgetAnchor</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="dateaxisitem.html">DateAxisItem</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="dateaxisitem.html#pyqtgraph.DateAxisItem"><code class="docutils literal notranslate"><span class="pre">DateAxisItem</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="targetitem.html">TargetItem</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="targetitem.html#pyqtgraph.TargetItem"><code class="docutils literal notranslate"><span class="pre">TargetItem</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="targetitem.html#targetlabel">TargetLabel</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="targetitem.html#pyqtgraph.TargetLabel"><code class="docutils literal notranslate"><span class="pre">TargetLabel</span></code></a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../functions.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">PyQtGraph’s Helper Functions</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="plotdataitem.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">PlotDataItem</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../_static/scripts/bootstrap.js?digest=a95f357e85573c9b56d5"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=a95f357e85573c9b56d5"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2011 - 2026, PyQtGraph developers.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.0.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.19.0.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>
