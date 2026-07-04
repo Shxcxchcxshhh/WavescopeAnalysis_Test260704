@@ -1,0 +1,35 @@
+# Large data files
+*.csv
+!I2C测试用例_cleaned.csv
+!996D-CWWB-MAIN1.csv
+*.wfm
+
+# IDE
+.idea/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Generated output
+measurements/
+
+# External tools / docs
+9c040-main/
+libsigrokdecode/
+pyqtgraph_docs/
+
+# Screenshots
+Screenshot*.png
+
+# Backups and duplicates
+*.backup
+i2c_full_analysis.txt
+
+# Misc
+nul
+
+# Windows
+Thumbs.db
+Desktop.ini
